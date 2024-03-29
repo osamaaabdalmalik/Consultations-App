@@ -1,4 +1,5 @@
 import 'package:consultations_app/core/constants/app_routes.dart';
+import 'package:consultations_app/core/constants/app_themes.dart';
 import 'package:consultations_app/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         routerConfig: AppRoutes.router,
         builder: EasyLoading.init(),
+        theme: AppThemes.themeEnglish,
       ),
     );
   }

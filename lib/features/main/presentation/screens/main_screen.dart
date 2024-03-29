@@ -3,6 +3,7 @@ import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:consultations_app/features/main/presentation/widgets/custom_icon_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -23,51 +24,106 @@ class _MainScreenState extends State<MainScreen> {
             expandedHeight: 130,
             pinned: true,
             floating: true,
-            leading: const Center(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0),
-                child: CustomIconButton(
-                  icon: CupertinoIcons.money_pound_circle_fill,
-                  iconColor: AppColors.white,
-                  backgroundColor: AppColors.primary,
-                  size: 40,
-                  radius: 15,
-                ),
-              ),
-            ),
             backgroundColor: AppColors.white,
             foregroundColor: AppColors.white,
-            title: const Text(
-              'Copilot',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w700,
-                color: AppColors.black,
+            title: Container(
+              color: AppColors.white,
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: const Stack(
+                children: [
+                  Positioned(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: <Widget>[
+                            Center(
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                                child: CustomIconButton(
+                                  icon: CupertinoIcons.money_pound_circle_fill,
+                                  iconColor: AppColors.white,
+                                  backgroundColor: AppColors.primary,
+                                  size: 40,
+                                  radius: 15,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              'Copilot',
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.w700,
+                                color: AppColors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            CustomIconButton(
+                              icon: CupertinoIcons.bell_fill,
+                              iconColor: AppColors.primary,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 20),
+                              child: CustomIconButton(
+                                icon: CupertinoIcons.heart_fill,
+                                iconColor: AppColors.primary,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
-            leadingWidth: 60,
-            actions: const [
-              CustomIconButton(
-                icon: CupertinoIcons.bell_fill,
-                iconColor: AppColors.primary,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: CustomIconButton(
-                  icon: CupertinoIcons.heart_fill,
-                  iconColor: AppColors.primary,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Transform.scale(
+                scaleX: 0.9,
+                scaleY: 0.8,
+                child: TextFormField(
+                  style: const TextStyle(
+                    fontSize: 14,
+                  ),
+                  cursorColor: AppColors.black,
+                  cursorWidth: 0.8,
+                  decoration: InputDecoration(
+                    hintText: 'Search',
+                    suffixIcon: Transform.scale(
+                      scaleX: 1.1,
+                      scaleY: 1.2,
+                      child: InkWell(
+                        onTap: () {},
+                        child: const Icon(
+                          Icons.search,
+                          size: 20,
+                          color: AppColors.gray,
+                        ),
+                      ),
+                    ),
+                    fillColor: AppColors.primary.withOpacity(0.1),
+                    filled: true,
+                    contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide.none,
+                    ),
+                  ),
+                  onTapOutside: (event) {
+                    FocusManager.instance.primaryFocus?.unfocus();
+                  },
                 ),
               ),
-            ],
-            flexibleSpace: FlexibleSpaceBar(
-              title: const Text(
-                'title',
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: AppColors.gray),
+              titlePadding: EdgeInsets.symmetric(
+                vertical: 5.h,
               ),
-              centerTitle: true,
-              titlePadding: EdgeInsets.zero.copyWith(bottom: 10),
+              stretchModes: const [
+                StretchMode.fadeTitle,
+              ],
             ),
-            titleSpacing: 1,
           ),
           SliverList(
             delegate: SliverChildListDelegate.fixed(

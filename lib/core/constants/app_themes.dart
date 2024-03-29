@@ -12,7 +12,7 @@ abstract class AppThemes {
     ),
     colorScheme: ColorScheme.fromSwatch(
       primarySwatch: AppColors.materialPrimary,
-      backgroundColor: AppColors.materialPrimary.shade50,
+      backgroundColor: AppColors.white,
     ),
     appBarTheme: const AppBarTheme(
       color: AppColors.white,
