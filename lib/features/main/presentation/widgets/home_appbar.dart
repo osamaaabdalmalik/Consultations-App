@@ -60,16 +60,11 @@ class HomeAppbar extends StatelessWidget {
           textInputAction: TextInputAction.search,
           decoration: InputDecoration(
             hintText: 'Search',
-            suffixIcon: Transform.scale(
-              scaleX: 1.1,
-              scaleY: 1.2,
-              child: InkWell(
-                onTap: () {},
-                child: const Icon(
-                  Icons.search,
-                  size: 20,
-                  color: AppColors.gray,
-                ),
+            suffixIcon: InkWell(
+              onTap: () {},
+              child: const Icon(
+                Icons.search,
+                color: AppColors.gray,
               ),
             ),
             fillColor: AppColors.primary.withOpacity(0.1),

@@ -3,8 +3,8 @@ import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ExpertItem extends StatelessWidget {
-  const ExpertItem({super.key});
+class ExpertShortInfoCard extends StatelessWidget {
+  const ExpertShortInfoCard({super.key});
 
   @override
   Widget build(BuildContext context) {
