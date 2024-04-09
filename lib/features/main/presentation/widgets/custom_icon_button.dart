@@ -24,19 +24,24 @@ class CustomIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: size.h,
-      height: size.h,
-      decoration: BoxDecoration(
-        color: backgroundColor ?? iconColor.withOpacity(0.08),
-        borderRadius: BorderRadius.circular(radius.r),
-      ),
-      child: IconButton(
-        onPressed: onPressed,
-        icon: Icon(
-          icon,
-          color: iconColor,
-          size: iconSize?.h,
+    return Material(
+      color: AppColors.transparent,
+      borderRadius: BorderRadius.circular(radius.r),
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      child: InkWell(
+        onTap: onPressed,
+        child: Container(
+          width: size.h,
+          height: size.h,
+          decoration: BoxDecoration(
+            color: backgroundColor ?? iconColor.withOpacity(0.08),
+            borderRadius: BorderRadius.circular(radius.r),
+          ),
+          child: Icon(
+            icon,
+            color: iconColor,
+            size: iconSize?.h,
+          ),
         ),
       ),
     );

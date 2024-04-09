@@ -40,12 +40,13 @@ class _CategoryExpertsAppbarState extends State<CategoryExpertsAppbar> {
           ),
         ],
       ),
-      actions: const [
+      actions: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 10.w),
           child: CustomIconButton(
             icon: Icons.filter_list_rounded,
             iconColor: AppColors.primary,
+            onPressed: () {},
           ),
         ),
       ],

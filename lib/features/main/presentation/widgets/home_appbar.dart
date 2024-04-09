@@ -11,10 +11,10 @@ class HomeAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomSliverAppbar(
-      leading: const Row(
+      leading: Row(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.0),
+            padding: EdgeInsets.symmetric(horizontal: 8.0.w),
             child: CustomIconButton(
               icon: cupertino.CupertinoIcons.paintbrush_fill,
               iconColor: AppColors.white,
@@ -22,9 +22,10 @@ class HomeAppbar extends StatelessWidget {
               size: 40,
               iconSize: 20,
               radius: 15,
+              onPressed: () {},
             ),
           ),
-          Text(
+          const Text(
             'Copilot',
             style: TextStyle(
               fontSize: 24,
@@ -34,18 +35,20 @@ class HomeAppbar extends StatelessWidget {
           ),
         ],
       ),
-      actions: const [
+      actions: [
         CustomIconButton(
           icon: cupertino.CupertinoIcons.bell_fill,
           iconColor: AppColors.primary,
           iconSize: 20,
+          onPressed: () {},
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 10.w),
           child: CustomIconButton(
             icon: cupertino.CupertinoIcons.heart_fill,
             iconColor: AppColors.primary,
             iconSize: 20,
+            onPressed: () {},
           ),
         ),
       ],
@@ -61,6 +64,7 @@ class HomeAppbar extends StatelessWidget {
           decoration: InputDecoration(
             hintText: 'Search',
             suffixIcon: InkWell(
+              borderRadius: BorderRadius.circular(15.r),
               onTap: () {},
               child: const Icon(
                 Icons.search,
@@ -71,7 +75,7 @@ class HomeAppbar extends StatelessWidget {
             filled: true,
             contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(15.r),
               borderSide: BorderSide.none,
             ),
           ),

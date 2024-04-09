@@ -52,11 +52,13 @@ class ExpertFullInfoCard extends StatelessWidget {
                               fontSize: 18.sp,
                             ),
                           ),
-                          const CustomIconButton(
+                          CustomIconButton(
                             icon: cupertino.CupertinoIcons.heart_fill,
                             iconColor: AppColors.primary,
                             iconSize: 20,
                             size: 35,
+                            radius: 10,
+                            onPressed: () {},
                           ),
                         ],
                       ),
