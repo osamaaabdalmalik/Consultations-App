@@ -11,98 +11,94 @@ class ExpertFullInfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15.sp),
-        border: Border.fromBorderSide(
-          BorderSide(
-            width: 1,
-            color: AppColors.gray.withOpacity(0.5),
-          ),
+        borderRadius: BorderRadius.circular(15.r),
+        border: Border.all(
+          color: AppColors.gray.withOpacity(0.5),
         ),
       ),
-      child: Row(
-        children: [
-          Container(
-            width: 100.w,
-            height: 120.h,
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.horizontal(
-                left: Radius.circular(15),
-              ),
-              image: DecorationImage(
-                image: AssetImage(
+      child: Material(
+        borderRadius: BorderRadius.circular(15.r),
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        child: InkWell(
+          onTap: () {},
+          child: Row(
+            children: [
+              Ink.image(
+                width: 100.w,
+                height: 120.h,
+                image: const AssetImage(
                   AppAssets.expert,
                 ),
                 fit: BoxFit.cover,
                 alignment: Alignment.topCenter,
               ),
-            ),
-          ),
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 10.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Osama Malik",
+                            overflow: TextOverflow.clip,
+                            maxLines: 1,
+                            style: TextStyle(
+                              color: AppColors.black,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 18.sp,
+                            ),
+                          ),
+                          const CustomIconButton(
+                            icon: cupertino.CupertinoIcons.heart_fill,
+                            iconColor: AppColors.primary,
+                            iconSize: 20,
+                            size: 35,
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Icon(
+                            cupertino.CupertinoIcons.bag,
+                            size: 15,
+                            color: AppColors.primary,
+                          ),
+                          SizedBox(
+                            width: 2.w,
+                          ),
+                          Text(
+                            "Designer",
+                            overflow: TextOverflow.clip,
+                            maxLines: 1,
+                            style: TextStyle(
+                              color: AppColors.gray,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14.sp,
+                            ),
+                          ),
+                        ],
+                      ),
                       Text(
-                        "Osama Malik",
-                        overflow: TextOverflow.clip,
-                        maxLines: 1,
-                        style: TextStyle(
-                          color: AppColors.black,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 18.sp,
-                        ),
-                      ),
-                      const CustomIconButton(
-                        icon: cupertino.CupertinoIcons.heart_fill,
-                        iconColor: AppColors.primary,
-                        iconSize: 20,
-                        size: 35,
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      const Icon(
-                        cupertino.CupertinoIcons.bag,
-                        size: 15,
-                        color: AppColors.primary,
-                      ),
-                      SizedBox(
-                        width: 2.w,
-                      ),
-                      Text(
-                        "Designer",
+                        "can you tell me about your ",
                         overflow: TextOverflow.clip,
                         maxLines: 1,
                         style: TextStyle(
                           color: AppColors.gray,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w300,
                           fontSize: 14.sp,
                         ),
                       ),
                     ],
                   ),
-                  Text(
-                    "can you tell me about your ",
-                    overflow: TextOverflow.clip,
-                    maxLines: 1,
-                    style: TextStyle(
-                      color: AppColors.gray,
-                      fontWeight: FontWeight.w300,
-                      fontSize: 14.sp,
-                    ),
-                  ),
-                ],
+                ),
               ),
-            ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

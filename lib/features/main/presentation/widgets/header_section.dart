@@ -5,11 +5,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class HeaderSection extends StatelessWidget {
   final String title;
   final bool hasSeeAll;
+  final void Function()? onSeeAllTap;
 
   const HeaderSection({
     super.key,
     required this.title,
     this.hasSeeAll = true,
+    this.onSeeAllTap,
   });
 
   @override
@@ -27,12 +29,19 @@ class HeaderSection extends StatelessWidget {
               fontSize: 20.sp,
             ),
           ),
-          Text(
-            hasSeeAll ? "See all" : '',
-            style: TextStyle(
-              color: AppColors.primary,
-              fontWeight: FontWeight.w400,
-              fontSize: 14.sp,
+          InkWell(
+            onTap: onSeeAllTap,
+            borderRadius: BorderRadius.circular(5.r),
+            child: Padding(
+              padding: EdgeInsets.all(5.h),
+              child: Text(
+                hasSeeAll ? "See all" : '',
+                style: TextStyle(
+                  color: AppColors.primary,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 14.sp,
+                ),
+              ),
             ),
           ),
         ],
