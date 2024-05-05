@@ -1,34 +1,34 @@
-import 'package:consultations_app/core/constants/app_translation_keys.dart';
-import 'package:consultations_app/core/enums/state_type.dart';
+import 'package:consultations_app/core/constants/app_strings.dart';
+import 'package:consultations_app/core/enums/general_states.dart';
 import 'package:consultations_app/core/helpers/failures.dart';
 import 'package:consultations_app/core/services/easy_loader_service.dart';
 
-StateType getStateFromFailure(Failure failure) {
+GeneralStates getStateFromFailure(Failure failure) {
   if (failure is OfflineFailure) {
-    return StateType.offline;
+    return GeneralStates.offline;
   } else if (failure is UnAuthenticatedFailure) {
     EasyLoaderService.showError(
-      message: AppTranslationKeys.forbidden,
+      message: AppStrings.forbidden,
       durationSeconds: 5,
     );
-    return StateType.forbidden;
+    return GeneralStates.forbidden;
   } else if (failure is UnAuthorizedFailure) {
     EasyLoaderService.showError(
-      message: AppTranslationKeys.unauthorized,
+      message: AppStrings.unauthorized,
       durationSeconds: 5,
     );
-    return StateType.unAuthorized;
+    return GeneralStates.unAuthorized;
   } else if (failure is NotFoundFailure) {
     EasyLoaderService.showError(
-      message: AppTranslationKeys.notFound,
+      message: AppStrings.notFound,
       durationSeconds: 5,
     );
-    return StateType.notFound;
+    return GeneralStates.notFound;
   } else if (failure is BadRequestFailure) {
-    return StateType.badRequest;
+    return GeneralStates.badRequest;
   } else if (failure is InternalServerErrorFailure) {
-    return StateType.internalServerProblem;
+    return GeneralStates.internalServerProblem;
   } else {
-    return StateType.unexpectedProblem;
+    return GeneralStates.unexpectedProblem;
   }
 }
