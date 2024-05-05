@@ -7,12 +7,12 @@ import 'package:dartz/dartz.dart';
 import 'package:logger/logger.dart';
 
 class LoginUseCase {
-  final AuthRepo repo;
+  final AuthRepo authRepo;
 
-  LoginUseCase(this.repo);
+  LoginUseCase({required this.authRepo});
 
   Future<Either<Failure, UserAuth>> call({required User user}) async {
     InjectionContainer.getIt<Logger>().i("Call LoginUseCase");
-    return await repo.login(user: user);
+    return await authRepo.login(user: user);
   }
 }

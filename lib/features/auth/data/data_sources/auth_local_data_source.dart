@@ -16,16 +16,16 @@ abstract class AuthLocalDataSource {
 }
 
 class AuthLocalDataSourceImpl extends AuthLocalDataSource {
-  final CacheServiceImpl sharedPreferencesService;
+  final CacheService cacheService;
 
   AuthLocalDataSourceImpl({
-    required this.sharedPreferencesService,
+    required this.cacheService,
   });
 
   @override
   Future<Unit> setUser({required UserAuthModel userAuthModel}) async {
     InjectionContainer.getIt<Logger>().i("Start setUser in AuthLocalDataSourceImpl");
-    await sharedPreferencesService.setData(
+    await cacheService.setData(
       key: AppKeys.user,
       value: json.encode(userAuthModel.toJson()),
     );
@@ -36,7 +36,7 @@ class AuthLocalDataSourceImpl extends AuthLocalDataSource {
   @override
   Future<UserAuthModel?> getUser() {
     InjectionContainer.getIt<Logger>().i("Start getUser in AuthLocalDataSourceImpl");
-    final String? userString = sharedPreferencesService.getData<String>(key: AppKeys.user);
+    final String? userString = cacheService.getData<String>(key: AppKeys.user);
     if (userString != null) {
       InjectionContainer.getIt<Logger>().w(
         "End getUser in AuthLocalDataSourceImpl user: $userString",
@@ -52,7 +52,7 @@ class AuthLocalDataSourceImpl extends AuthLocalDataSource {
   @override
   Future<Unit> clear() async {
     InjectionContainer.getIt<Logger>().i("Start clear in AuthLocalDataSourceImpl");
-    final removeUser = await sharedPreferencesService.clear();
+    final removeUser = await cacheService.clear();
     InjectionContainer.getIt<Logger>().w(
       "End clear in AuthLocalDataSourceImpl \nremoveUser: $removeUser",
     );

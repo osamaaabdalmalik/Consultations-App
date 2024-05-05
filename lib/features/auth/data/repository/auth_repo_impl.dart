@@ -1,6 +1,5 @@
 import 'package:consultations_app/core/helpers/failures.dart';
 import 'package:consultations_app/core/helpers/get_failure_from_exception.dart';
-import 'package:consultations_app/core/services/api_service.dart';
 import 'package:consultations_app/features/auth/data/data_sources/auth_local_data_source.dart';
 import 'package:consultations_app/features/auth/data/data_sources/auth_remote_data_source.dart';
 import 'package:consultations_app/features/auth/domain/entities/user_auth_entity.dart';
@@ -23,7 +22,6 @@ class AuthRepoImpl implements AuthRepo {
       var userAuthModel = await authRemoteDataSource.register(userModel: user.toModel());
       await authLocalDataSource.setUser(userAuthModel: userAuthModel);
       InjectionContainer.getIt<Logger>().w("End `register` in |AuthRepoImpl|");
-      InjectionContainer.getIt<ApiServiceImpl>().getUserAuth();
       return Right(userAuthModel);
     } catch (e, s) {
       InjectionContainer.getIt<Logger>().e("End `register` in |AuthRepoImpl| Exception: ${e.runtimeType} $s");
@@ -37,7 +35,6 @@ class AuthRepoImpl implements AuthRepo {
       InjectionContainer.getIt<Logger>().i("Start `login` in |AuthRepoImpl|");
       var userAuthModel = await authRemoteDataSource.login(userModel: user.toModel());
       await authLocalDataSource.setUser(userAuthModel: userAuthModel);
-      InjectionContainer.getIt<ApiServiceImpl>().getUserAuth();
       InjectionContainer.getIt<Logger>().w("End `login` in |AuthRepoImpl|");
       return Right(userAuthModel);
     } catch (e, s) {
@@ -52,7 +49,6 @@ class AuthRepoImpl implements AuthRepo {
       InjectionContainer.getIt<Logger>().i("Start `logout` in |AuthRepoImpl|");
       await authRemoteDataSource.logout();
       await authLocalDataSource.clear();
-      InjectionContainer.getIt<ApiServiceImpl>().getUserAuth();
       InjectionContainer.getIt<Logger>().w("End `logout` in |AuthRepoImpl|");
       return const Right(unit);
     } catch (e, s) {

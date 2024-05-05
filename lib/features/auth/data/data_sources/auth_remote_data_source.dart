@@ -64,10 +64,7 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
   Future<Unit> logout() async {
     try {
       InjectionContainer.getIt<Logger>().i("Start `logout` in |MainRemoteDataSourceImpl|");
-      await apiService.get(
-        subUrl: AppEndpoints.logout,
-        needToken: true,
-      );
+      await apiService.get(subUrl: AppEndpoints.logout);
       InjectionContainer.getIt<Logger>().w("End `logout` in |MainRemoteDataSourceImpl|");
       return Future.value(unit);
     } catch (e, s) {

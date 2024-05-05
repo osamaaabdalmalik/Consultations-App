@@ -5,12 +5,12 @@ import 'package:dartz/dartz.dart';
 import 'package:logger/logger.dart';
 
 class LogoutUseCase {
-  final AuthRepo repo;
+  final AuthRepo authRepo;
 
-  LogoutUseCase(this.repo);
+  LogoutUseCase({required this.authRepo});
 
   Future<Either<Failure, Unit>> call() async {
     InjectionContainer.getIt<Logger>().i("Call LogoutUseCase");
-    return await repo.logout();
+    return await authRepo.logout();
   }
 }

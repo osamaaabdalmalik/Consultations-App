@@ -8,7 +8,7 @@ import 'package:logger/logger.dart';
 class GetUserUseCase {
   final AuthRepo repo;
 
-  GetUserUseCase(this.repo);
+  GetUserUseCase({required this.repo});
 
   Future<Either<Failure, UserAuth?>> call() async {
     InjectionContainer.getIt<Logger>().i("Call GetUserUseCase");
