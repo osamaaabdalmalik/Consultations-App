@@ -3,8 +3,8 @@ import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
-class EasyLoaderService {
-  EasyLoaderService() {
+class StatusHandlerService {
+  StatusHandlerService() {
     EasyLoading.instance
       ..indicatorType = EasyLoadingIndicatorType.fadingCircle
       ..loadingStyle = EasyLoadingStyle.light
@@ -21,7 +21,7 @@ class EasyLoaderService {
     );
   }
 
-  static showError({required String message, int durationSeconds = 3}) {
+  static showError({required String message, int durationSeconds = 5}) {
     EasyLoading.instance
       ..userInteractions = true
       ..displayDuration = Duration(seconds: durationSeconds)
@@ -39,7 +39,7 @@ class EasyLoaderService {
   static showOfflineError() {
     EasyLoading.instance
       ..userInteractions = true
-      ..displayDuration = const Duration(seconds: 3)
+      ..displayDuration = const Duration(seconds: 5)
       ..errorWidget = const Icon(
         Icons.wifi_off_rounded,
         size: 45,
@@ -54,7 +54,7 @@ class EasyLoaderService {
   static showInternalServerError({EasyLoadingMaskType maskType = EasyLoadingMaskType.black}) {
     EasyLoading.instance
       ..userInteractions = true
-      ..displayDuration = const Duration(seconds: 3)
+      ..displayDuration = const Duration(seconds: 5)
       ..errorWidget = const Icon(
         Icons.report_problem_outlined,
         size: 45,
@@ -77,7 +77,7 @@ class EasyLoaderService {
         size: 45,
       );
     EasyLoading.showSuccess(
-      AppStrings.success,
+      AppStrings.itWasDoneSuccessfully,
       maskType: maskType,
       dismissOnTap: true,
     );
@@ -90,11 +90,11 @@ class EasyLoaderService {
   static showToast({required String message}) {
     EasyLoading.instance
       ..userInteractions = true
-      ..displayDuration = const Duration(seconds: 3);
+      ..displayDuration = const Duration(seconds: 5);
     EasyLoading.showToast(
       message,
       dismissOnTap: true,
-      maskType: EasyLoadingMaskType.clear,
+      maskType: EasyLoadingMaskType.black,
       toastPosition: EasyLoadingToastPosition.bottom,
     );
   }

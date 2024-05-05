@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:logger/logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-abstract class CachingService {
+abstract class CacheService {
   T? getData<T>({required String key});
 
   Future<Unit> setData({required String key, required dynamic value});
@@ -11,14 +11,14 @@ abstract class CachingService {
   Future<Unit> clear();
 }
 
-class CacheServiceImpl extends CachingService {
+class CacheServiceImpl extends CacheService {
   final SharedPreferences pref;
 
   CacheServiceImpl({required this.pref});
 
   @override
   T? getData<T>({required String key}) {
-    InjectionContainer.getIt<Logger>().i("Start `getData` in |CachingService| ~~key~~ $key");
+    InjectionContainer.getIt<Logger>().i("Start `getData` in |CacheService| ~~key~~ $key");
     T? value;
     if (T.toString() == 'int') {
       value = pref.getInt(key) as T?;
@@ -33,7 +33,7 @@ class CacheServiceImpl extends CachingService {
       value = pref.getString(key) as T?;
     }
     InjectionContainer.getIt<Logger>().w(
-      "End `getData` in |CachingService| ~~$key~~ $value",
+      "End `getData` in |CacheService| ~~$key~~ $value",
     );
     return value;
   }
@@ -41,41 +41,36 @@ class CacheServiceImpl extends CachingService {
   @override
   Future<Unit> setData({required String key, required dynamic value}) async {
     InjectionContainer.getIt<Logger>().i(
-      "Start `setData` in |CachingService| ~~key~~ $key, ~~value~~ $value",
+      "Start `setData` in |CacheService| ~~key~~ $key, ~~value~~ $value",
     );
     bool isSetDone = false;
     if (value is int) {
       isSetDone = await pref.setInt(key, value);
-      return Future.value(unit);
     }
     if (value is double) {
       isSetDone = await pref.setDouble(key, value);
-      return Future.value(unit);
     }
     if (value is bool) {
       isSetDone = await pref.setBool(key, value);
-      return Future.value(unit);
     }
     if (value is String) {
       isSetDone = await pref.setString(key, value);
-      return Future.value(unit);
     }
     if (value == null) {
       isSetDone = await pref.remove(key);
-      return Future.value(unit);
     }
     InjectionContainer.getIt<Logger>().w(
-      "End `setData` in |CachingService| ~~isSetDone~~ $isSetDone",
+      "End `setData` in |CacheService| ~~isSetDone~~ $isSetDone",
     );
     return Future.value(unit);
   }
 
   @override
   Future<Unit> clear() async {
-    InjectionContainer.getIt<Logger>().i("Start `clear` in |CachingService|");
+    InjectionContainer.getIt<Logger>().i("Start `clear` in |CacheService|");
     final clear = await pref.clear();
     InjectionContainer.getIt<Logger>().w(
-      "End `clear` in |CachingService| ~~isClear~~ $clear ",
+      "End `clear` in |CacheService| ~~isClear~~ $clear ",
     );
     return Future.value(unit);
   }

@@ -7,6 +7,7 @@ class AppStrings {
   static const String forbidden = 'Sorry, you must be logged in to access this resource';
   static const String unauthorized = 'Sorry, you do not have sufficient permissions to access this resource';
   static const String notFound = 'Sorry, the requested resource could not be found';
+  static const String itWasDoneSuccessfully = 'It was done successfully';
   static const String internalServerError =
       'Sorry, a server error occurred, the request cannot be executed at this time';
   static const String offline =
