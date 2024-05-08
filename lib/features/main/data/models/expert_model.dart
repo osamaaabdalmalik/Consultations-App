@@ -22,8 +22,8 @@ class ExpertModel extends Expert {
       about: json['about'],
       address: json['address'],
       rating: json['rating'],
-      ratingNumber: json['ratingNumber'],
-      consultanciesNumber: json['consultanciesNumber'],
+      ratingNumber: json['rating_number'],
+      consultanciesNumber: json['consultancies_number'],
     );
   }
 
@@ -35,8 +35,8 @@ class ExpertModel extends Expert {
       'phone': phone,
       'address': address,
       'rating': rating,
-      'ratingNumber': ratingNumber,
-      'consultanciesNumber': consultanciesNumber,
+      'rating_number': ratingNumber,
+      'consultancies_number': consultanciesNumber,
     };
   }
 }
