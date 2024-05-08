@@ -62,8 +62,9 @@ class ApiServiceImpl extends ApiService {
         throw OfflineException();
       }
       parameters?.removeWhere((key, value) => value == 'null');
+      await Future.delayed(const Duration(seconds: 3));
       final response = await client.get(
-        Uri.https(
+        Uri.http(
           AppEndpoints.baseUrl,
           subUrl,
           parameters,
@@ -98,8 +99,9 @@ class ApiServiceImpl extends ApiService {
       if (!(await networkInfo.isConnected)) {
         throw OfflineException();
       }
+      await Future.delayed(const Duration(seconds: 3));
       final response = await client.post(
-        Uri.https(
+        Uri.http(
           AppEndpoints.baseUrl,
           subUrl,
         ),
@@ -134,8 +136,9 @@ class ApiServiceImpl extends ApiService {
       if (!(await networkInfo.isConnected)) {
         throw OfflineException();
       }
+      await Future.delayed(const Duration(seconds: 3));
       final response = await client.put(
-        Uri.https(
+        Uri.http(
           AppEndpoints.baseUrl,
           subUrl,
         ),
@@ -170,8 +173,9 @@ class ApiServiceImpl extends ApiService {
       if (!(await networkInfo.isConnected)) {
         throw OfflineException();
       }
+      await Future.delayed(const Duration(seconds: 3));
       final response = await client.delete(
-        Uri.https(
+        Uri.http(
           AppEndpoints.baseUrl,
           subUrl,
         ),
