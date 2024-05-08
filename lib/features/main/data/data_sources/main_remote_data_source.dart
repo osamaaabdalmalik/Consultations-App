@@ -9,7 +9,7 @@ abstract class MainRemoteDataSource {
 }
 
 class MainRemoteDataSourceImpl extends MainRemoteDataSource {
-  final ApiServiceImpl apiService;
+  final ApiService apiService;
 
   MainRemoteDataSourceImpl({required this.apiService});
 
@@ -21,11 +21,7 @@ class MainRemoteDataSourceImpl extends MainRemoteDataSource {
       Map<String, dynamic> mapData = await apiService.get(
         subUrl: AppEndpoints.getHome,
       );
-      final homeDataModel = mapData['data']
-          .map<HomeDataModel>(
-            (item) => HomeDataModel.fromJson(item),
-          )
-          .toList();
+      final homeDataModel = HomeDataModel.fromJson(mapData['data']);
 
       InjectionContainer.getIt<Logger>().w("End `getHome` in |MainRemoteDataSourceImpl|");
       return Future.value(homeDataModel);
