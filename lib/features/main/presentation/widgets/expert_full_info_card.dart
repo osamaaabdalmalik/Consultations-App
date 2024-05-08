@@ -1,12 +1,15 @@
 import 'package:consultations_app/core/constants/app_assets.dart';
 import 'package:consultations_app/core/constants/app_colors.dart';
+import 'package:consultations_app/features/main/domain/entities/expert_entity.dart';
 import 'package:consultations_app/features/main/presentation/widgets/custom_icon_button.dart';
 import 'package:flutter/cupertino.dart' as cupertino;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ExpertFullInfoCard extends StatelessWidget {
-  const ExpertFullInfoCard({super.key});
+  final Expert expert;
+
+  const ExpertFullInfoCard({super.key, required this.expert});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +46,7 @@ class ExpertFullInfoCard extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Osama Malik",
+                            expert.fullName,
                             overflow: TextOverflow.clip,
                             maxLines: 1,
                             style: TextStyle(
@@ -72,20 +75,23 @@ class ExpertFullInfoCard extends StatelessWidget {
                           SizedBox(
                             width: 2.w,
                           ),
-                          Text(
-                            "Designer",
-                            overflow: TextOverflow.clip,
-                            maxLines: 1,
-                            style: TextStyle(
-                              color: AppColors.gray,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14.sp,
+                          SizedBox(
+                            width: 150.w,
+                            child: Text(
+                              expert.address,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                              style: TextStyle(
+                                color: AppColors.gray,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.sp,
+                              ),
                             ),
                           ),
                         ],
                       ),
                       Text(
-                        "can you tell me about your ",
+                        expert.about,
                         overflow: TextOverflow.clip,
                         maxLines: 1,
                         style: TextStyle(

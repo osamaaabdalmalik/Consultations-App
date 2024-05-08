@@ -1,12 +1,15 @@
 import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:consultations_app/core/constants/app_routes.dart';
+import 'package:consultations_app/features/main/domain/entities/main_category_entity.dart';
 import 'package:flutter/cupertino.dart' as cupertino;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class SpecialistCard extends StatelessWidget {
-  const SpecialistCard({super.key});
+  final MainCategory mainCategory;
+
+  const SpecialistCard({super.key, required this.mainCategory});
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +37,9 @@ class SpecialistCard extends StatelessWidget {
                   color: AppColors.white,
                 ),
                 Text(
-                  "Medicine",
+                  mainCategory.name,
                   overflow: TextOverflow.clip,
+                  textAlign: TextAlign.center,
                   maxLines: 1,
                   style: TextStyle(
                     color: AppColors.white,
@@ -44,7 +48,8 @@ class SpecialistCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "180 Specialists",
+                  mainCategory.description,
+                  textAlign: TextAlign.center,
                   overflow: TextOverflow.clip,
                   maxLines: 1,
                   style: TextStyle(

@@ -19,7 +19,7 @@ class RouterService {
       routes: [
         GoRoute(
           path: AppRoutes.mainScreen,
-          builder: (context, state) => const MainScreen(),
+          builder: (context, state) => MainScreen(),
         ),
         GoRoute(
           path: AppRoutes.categoryExpertsScreen,

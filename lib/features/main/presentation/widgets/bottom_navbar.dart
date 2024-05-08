@@ -1,16 +1,16 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'package:flutter/cupertino.dart' as cupertino;
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class BottomNavbar extends cupertino.StatefulWidget {
-  const BottomNavbar({super.key});
+class BottomNavbar extends StatelessWidget {
+  final int currentTab;
+  final void Function(int) changeCurrentTab;
 
-  @override
-  cupertino.State<BottomNavbar> createState() => _BottomNavbarState();
-}
-
-class _BottomNavbarState extends cupertino.State<BottomNavbar> {
-  int index = 0;
+  const BottomNavbar({
+    super.key,
+    required this.currentTab,
+    required this.changeCurrentTab,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +20,13 @@ class _BottomNavbarState extends cupertino.State<BottomNavbar> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       items: [
         BottomNavyBarItem(
-            icon: const Icon(cupertino.CupertinoIcons.house),
+            icon: const Icon(CupertinoIcons.house),
             title: const Text(
               'Home',
             ),
             textAlign: TextAlign.center),
         BottomNavyBarItem(
-          icon: const Icon(cupertino.CupertinoIcons.calendar),
+          icon: const Icon(CupertinoIcons.calendar),
           title: const FittedBox(
             child: Text(
               'Appointment',
@@ -35,7 +35,7 @@ class _BottomNavbarState extends cupertino.State<BottomNavbar> {
           textAlign: TextAlign.center,
         ),
         BottomNavyBarItem(
-          icon: const Icon(cupertino.CupertinoIcons.list_bullet_below_rectangle),
+          icon: const Icon(CupertinoIcons.list_bullet_below_rectangle),
           title: const Text(
             'History',
           ),
@@ -52,12 +52,8 @@ class _BottomNavbarState extends cupertino.State<BottomNavbar> {
           textAlign: TextAlign.center,
         ),
       ],
-      onItemSelected: (value) {
-        setState(() {
-          index = value;
-        });
-      },
-      selectedIndex: index,
+      onItemSelected: changeCurrentTab,
+      selectedIndex: currentTab,
     );
   }
 }

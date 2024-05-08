@@ -1,8 +1,10 @@
 import 'package:consultations_app/core/constants/app_themes.dart';
 import 'package:consultations_app/core/services/router_service.dart';
+import 'package:consultations_app/features/main/presentation/cubits/main_cubit.dart';
 import 'package:consultations_app/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -38,12 +40,19 @@ class MyApp extends StatelessWidget {
         final scaleWidth = screenSize.width / designSize.width;
         return fontSize * scaleWidth;
       },
-      builder: (_, __) => MaterialApp.router(
-        title: 'Consultations App',
-        debugShowCheckedModeBanner: false,
-        routerConfig: InjectionContainer.getIt<RouterService>().router,
-        builder: EasyLoading.init(),
-        theme: AppThemes.themeEnglish,
+      builder: (_, __) => MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => InjectionContainer.getIt<MainCubit>(),
+          ),
+        ],
+        child: MaterialApp.router(
+          title: 'Consultations App',
+          debugShowCheckedModeBanner: false,
+          routerConfig: InjectionContainer.getIt<RouterService>().router,
+          builder: EasyLoading.init(),
+          theme: AppThemes.themeEnglish,
+        ),
       ),
     );
   }

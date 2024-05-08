@@ -1,10 +1,13 @@
 import 'package:consultations_app/core/constants/app_assets.dart';
 import 'package:consultations_app/core/constants/app_colors.dart';
+import 'package:consultations_app/features/main/domain/entities/expert_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ExpertShortInfoCard extends StatelessWidget {
-  const ExpertShortInfoCard({super.key});
+  final Expert expert;
+
+  const ExpertShortInfoCard({super.key, required this.expert});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +42,8 @@ class ExpertShortInfoCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Text(
-                        "Osama Malik",
+                        expert.fullName,
+                        textAlign: TextAlign.center,
                         overflow: TextOverflow.clip,
                         maxLines: 1,
                         style: TextStyle(
@@ -49,7 +53,8 @@ class ExpertShortInfoCard extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "Designer",
+                        expert.about,
+                        textAlign: TextAlign.center,
                         overflow: TextOverflow.clip,
                         maxLines: 1,
                         style: TextStyle(

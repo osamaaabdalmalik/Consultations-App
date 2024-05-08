@@ -37,7 +37,7 @@ class HeaderSection extends StatelessWidget {
               child: Text(
                 hasSeeAll ? "See all" : '',
                 style: TextStyle(
-                  color: AppColors.primary,
+                  color: onSeeAllTap != null ? AppColors.primary : AppColors.white,
                   fontWeight: FontWeight.w400,
                   fontSize: 14.sp,
                 ),

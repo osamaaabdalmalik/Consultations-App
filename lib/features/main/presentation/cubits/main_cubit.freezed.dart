@@ -20,16 +20,17 @@ mixin _$MainState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(HomeData homeData) success,
+    required TResult Function(HomeData? homeData) changeTabSuccess,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(HomeData homeData)? success,
+    TResult? Function(HomeData? homeData)? changeTabSuccess,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,26 +38,27 @@ mixin _$MainState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(HomeData homeData)? success,
+    TResult Function(HomeData? homeData)? changeTabSuccess,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_ChangeTabSuccess value) changeTabSuccess,
     required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_ChangeTabSuccess value)? changeTabSuccess,
     TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -65,6 +67,7 @@ mixin _$MainState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_ChangeTabSuccess value)? changeTabSuccess,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
@@ -121,7 +124,8 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(HomeData homeData) success,
+    required TResult Function(HomeData? homeData) changeTabSuccess,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -132,7 +136,8 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(HomeData homeData)? success,
+    TResult? Function(HomeData? homeData)? changeTabSuccess,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -143,7 +148,8 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(HomeData homeData)? success,
+    TResult Function(HomeData? homeData)? changeTabSuccess,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -159,6 +165,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_ChangeTabSuccess value) changeTabSuccess,
     required TResult Function(_Error value) error,
   }) {
     return initial(this);
@@ -170,6 +177,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_ChangeTabSuccess value)? changeTabSuccess,
     TResult? Function(_Error value)? error,
   }) {
     return initial?.call(this);
@@ -181,6 +189,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_ChangeTabSuccess value)? changeTabSuccess,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -230,7 +239,8 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(HomeData homeData) success,
+    required TResult Function(HomeData? homeData) changeTabSuccess,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -241,7 +251,8 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(HomeData homeData)? success,
+    TResult? Function(HomeData? homeData)? changeTabSuccess,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -252,7 +263,8 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(HomeData homeData)? success,
+    TResult Function(HomeData? homeData)? changeTabSuccess,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -268,6 +280,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_ChangeTabSuccess value) changeTabSuccess,
     required TResult Function(_Error value) error,
   }) {
     return loading(this);
@@ -279,6 +292,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_ChangeTabSuccess value)? changeTabSuccess,
     TResult? Function(_Error value)? error,
   }) {
     return loading?.call(this);
@@ -290,6 +304,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_ChangeTabSuccess value)? changeTabSuccess,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -308,41 +323,68 @@ abstract class _Loading implements MainState {
 abstract class _$$SuccessImplCopyWith<$Res> {
   factory _$$SuccessImplCopyWith(_$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({HomeData homeData});
 }
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res> extends _$MainStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(_$SuccessImpl _value, $Res Function(_$SuccessImpl) _then) : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? homeData = null,
+  }) {
+    return _then(_$SuccessImpl(
+      null == homeData
+          ? _value.homeData
+          : homeData // ignore: cast_nullable_to_non_nullable
+              as HomeData,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl();
+  const _$SuccessImpl(this.homeData);
+
+  @override
+  final HomeData homeData;
 
   @override
   String toString() {
-    return 'MainState.success()';
+    return 'MainState.success(homeData: $homeData)';
   }
 
   @override
   bool operator ==(Object other) {
-    return identical(this, other) || (other.runtimeType == runtimeType && other is _$SuccessImpl);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessImpl &&
+            (identical(other.homeData, homeData) || other.homeData == homeData));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, homeData);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith => __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(HomeData homeData) success,
+    required TResult Function(HomeData? homeData) changeTabSuccess,
     required TResult Function(String message) error,
   }) {
-    return success();
+    return success(homeData);
   }
 
   @override
@@ -350,10 +392,11 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(HomeData homeData)? success,
+    TResult? Function(HomeData? homeData)? changeTabSuccess,
     TResult? Function(String message)? error,
   }) {
-    return success?.call();
+    return success?.call(homeData);
   }
 
   @override
@@ -361,12 +404,13 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(HomeData homeData)? success,
+    TResult Function(HomeData? homeData)? changeTabSuccess,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success();
+      return success(homeData);
     }
     return orElse();
   }
@@ -377,6 +421,7 @@ class _$SuccessImpl implements _Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_ChangeTabSuccess value) changeTabSuccess,
     required TResult Function(_Error value) error,
   }) {
     return success(this);
@@ -388,6 +433,7 @@ class _$SuccessImpl implements _Success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_ChangeTabSuccess value)? changeTabSuccess,
     TResult? Function(_Error value)? error,
   }) {
     return success?.call(this);
@@ -399,6 +445,7 @@ class _$SuccessImpl implements _Success {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_ChangeTabSuccess value)? changeTabSuccess,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -410,7 +457,158 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements MainState {
-  const factory _Success() = _$SuccessImpl;
+  const factory _Success(final HomeData homeData) = _$SuccessImpl;
+
+  HomeData get homeData;
+  @JsonKey(ignore: true)
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeTabSuccessImplCopyWith<$Res> {
+  factory _$$ChangeTabSuccessImplCopyWith(_$ChangeTabSuccessImpl value, $Res Function(_$ChangeTabSuccessImpl) then) =
+      __$$ChangeTabSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({HomeData? homeData});
+}
+
+/// @nodoc
+class __$$ChangeTabSuccessImplCopyWithImpl<$Res> extends _$MainStateCopyWithImpl<$Res, _$ChangeTabSuccessImpl>
+    implements _$$ChangeTabSuccessImplCopyWith<$Res> {
+  __$$ChangeTabSuccessImplCopyWithImpl(_$ChangeTabSuccessImpl _value, $Res Function(_$ChangeTabSuccessImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? homeData = freezed,
+  }) {
+    return _then(_$ChangeTabSuccessImpl(
+      freezed == homeData
+          ? _value.homeData
+          : homeData // ignore: cast_nullable_to_non_nullable
+              as HomeData?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeTabSuccessImpl implements _ChangeTabSuccess {
+  const _$ChangeTabSuccessImpl(this.homeData);
+
+  @override
+  final HomeData? homeData;
+
+  @override
+  String toString() {
+    return 'MainState.changeTabSuccess(homeData: $homeData)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeTabSuccessImpl &&
+            (identical(other.homeData, homeData) || other.homeData == homeData));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, homeData);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeTabSuccessImplCopyWith<_$ChangeTabSuccessImpl> get copyWith =>
+      __$$ChangeTabSuccessImplCopyWithImpl<_$ChangeTabSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(HomeData homeData) success,
+    required TResult Function(HomeData? homeData) changeTabSuccess,
+    required TResult Function(String message) error,
+  }) {
+    return changeTabSuccess(homeData);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(HomeData homeData)? success,
+    TResult? Function(HomeData? homeData)? changeTabSuccess,
+    TResult? Function(String message)? error,
+  }) {
+    return changeTabSuccess?.call(homeData);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(HomeData homeData)? success,
+    TResult Function(HomeData? homeData)? changeTabSuccess,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (changeTabSuccess != null) {
+      return changeTabSuccess(homeData);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_ChangeTabSuccess value) changeTabSuccess,
+    required TResult Function(_Error value) error,
+  }) {
+    return changeTabSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_ChangeTabSuccess value)? changeTabSuccess,
+    TResult? Function(_Error value)? error,
+  }) {
+    return changeTabSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_ChangeTabSuccess value)? changeTabSuccess,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (changeTabSuccess != null) {
+      return changeTabSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeTabSuccess implements MainState {
+  const factory _ChangeTabSuccess(final HomeData? homeData) = _$ChangeTabSuccessImpl;
+
+  HomeData? get homeData;
+  @JsonKey(ignore: true)
+  _$$ChangeTabSuccessImplCopyWith<_$ChangeTabSuccessImpl> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -473,7 +671,8 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function() success,
+    required TResult Function(HomeData homeData) success,
+    required TResult Function(HomeData? homeData) changeTabSuccess,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -484,7 +683,8 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function()? success,
+    TResult? Function(HomeData homeData)? success,
+    TResult? Function(HomeData? homeData)? changeTabSuccess,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -495,7 +695,8 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function()? success,
+    TResult Function(HomeData homeData)? success,
+    TResult Function(HomeData? homeData)? changeTabSuccess,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -511,6 +712,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_ChangeTabSuccess value) changeTabSuccess,
     required TResult Function(_Error value) error,
   }) {
     return error(this);
@@ -522,6 +724,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_ChangeTabSuccess value)? changeTabSuccess,
     TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
@@ -533,6 +736,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_ChangeTabSuccess value)? changeTabSuccess,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
