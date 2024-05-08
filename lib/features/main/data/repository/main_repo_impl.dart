@@ -1,7 +1,7 @@
 import 'package:consultations_app/core/helpers/failures.dart';
 import 'package:consultations_app/core/helpers/get_failure_from_exception.dart';
 import 'package:consultations_app/features/main/data/data_sources/main_remote_data_source.dart';
-import 'package:consultations_app/features/main/domain/entities/pair_entity.dart';
+import 'package:consultations_app/features/main/domain/entities/home_data_entity.dart';
 import 'package:consultations_app/features/main/domain/repository/main_repo.dart';
 import 'package:consultations_app/injection_container.dart';
 import 'package:dartz/dartz.dart';
@@ -13,15 +13,16 @@ class MainRepoImpl implements MainRepo {
   const MainRepoImpl({required this.mainRemoteDataSource});
 
   @override
-  Future<Either<Failure, List<Pair>>> getCategoriesAsPair({required int repositoryId}) async {
+  Future<Either<Failure, HomeData>> getHome() async {
     try {
-      InjectionContainer.getIt<Logger>().i("Start `getCategoriesAsPair` in |MainRepoImpl|");
-      var pairModels = await mainRemoteDataSource.getCategoriesAsPair(repositoryId: repositoryId);
-      InjectionContainer.getIt<Logger>().w("End `getCategoriesAsPair` in |MainRepoImpl|");
-      return Right(pairModels);
+      InjectionContainer.getIt<Logger>().i("Start `getHome` in |MainRepoImpl|");
+      var homeData = await mainRemoteDataSource.getHome();
+      InjectionContainer.getIt<Logger>().w("End `getHome` in |MainRepoImpl|");
+      return Right(homeData);
     } catch (e, s) {
-      InjectionContainer.getIt<Logger>()
-          .e("End `getCategoriesAsPair` in |MainRepoImpl| Exception: ${e.runtimeType} $s");
+      InjectionContainer.getIt<Logger>().e(
+        "End `getHome` in |MainRepoImpl| Exception: ${e.runtimeType} $s",
+      );
       return Left(getFailureFromException(e));
     }
   }

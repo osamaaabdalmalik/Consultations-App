@@ -8,10 +8,10 @@ import 'package:consultations_app/features/auth/data/data_sources/auth_local_dat
 import 'package:consultations_app/features/auth/data/data_sources/auth_remote_data_source.dart';
 import 'package:consultations_app/features/auth/data/repository/auth_repo_impl.dart';
 import 'package:consultations_app/features/auth/domain/repository/auth_repo.dart';
-import 'package:consultations_app/features/auth/domain/usecases/get_user_use_case.dart';
 import 'package:consultations_app/features/auth/domain/usecases/login_use_case.dart';
 import 'package:consultations_app/features/auth/domain/usecases/logout_use_case.dart';
 import 'package:consultations_app/features/auth/domain/usecases/register_use_case.dart';
+import 'package:consultations_app/features/main/domain/usecases/get_home_data_use_case.dart';
 import 'package:consultations_app/features/main/presentation/cubits/main_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -107,7 +107,7 @@ abstract class InjectionContainer {
 
     /// UseCases
     GetIt.instance.registerLazySingleton(
-      () => GetUserUseCase(repo: getIt()),
+      () => GetHomeDataUseCase(mainRepo: getIt()),
     );
 
     /// Cubits and Blocs
