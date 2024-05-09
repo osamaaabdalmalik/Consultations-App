@@ -9,12 +9,14 @@ class GetExpertsUseCase {
   GetExpertsUseCase({required this.mainRepo});
 
   Future<Either<Failure, List<Expert>>> call({
-    required String expertsType,
-    required int subCategoryId,
+    String? expertsType,
+    int? subCategoryId,
+    int? mainCategoryId,
   }) async {
     return await mainRepo.getExperts(
       expertsType: expertsType,
       subCategoryId: subCategoryId,
+      mainCategoryId: mainCategoryId,
     );
   }
 }

@@ -16,6 +16,25 @@ class MainRepoImpl implements MainRepo {
   const MainRepoImpl({required this.mainRemoteDataSource});
 
   @override
+  Future<Either<Failure, List<Expert>>> search({
+    required String query,
+  }) async {
+    try {
+      InjectionContainer.getIt<Logger>().i("Start `search` in |MainRepoImpl|");
+      var experts = await mainRemoteDataSource.search(
+        query: query,
+      );
+      InjectionContainer.getIt<Logger>().w("End `search` in |MainRepoImpl|");
+      return Right(experts);
+    } catch (e, s) {
+      InjectionContainer.getIt<Logger>().e(
+        "End `search` in |MainRepoImpl| Exception: ${e.runtimeType} $s",
+      );
+      return Left(getFailureFromException(e));
+    }
+  }
+
+  @override
   Future<Either<Failure, HomeData>> getHome() async {
     try {
       InjectionContainer.getIt<Logger>().i("Start `getHome` in |MainRepoImpl|");
@@ -51,14 +70,16 @@ class MainRepoImpl implements MainRepo {
 
   @override
   Future<Either<Failure, List<Expert>>> getExperts({
-    required String expertsType,
-    required int subCategoryId,
+    String? expertsType,
+    int? subCategoryId,
+    int? mainCategoryId,
   }) async {
     try {
       InjectionContainer.getIt<Logger>().i("Start `getExperts` in |MainRepoImpl|");
       var experts = await mainRemoteDataSource.getExperts(
         expertsType: expertsType,
         subCategoryId: subCategoryId,
+        mainCategoryId: mainCategoryId,
       );
       InjectionContainer.getIt<Logger>().w("End `getExperts` in |MainRepoImpl|");
       return Right(experts);
@@ -70,24 +91,6 @@ class MainRepoImpl implements MainRepo {
     }
   }
 
-  @override
-  Future<Either<Failure, List<Expert>>> search({
-    required String query,
-  }) async {
-    try {
-      InjectionContainer.getIt<Logger>().i("Start `search` in |MainRepoImpl|");
-      var experts = await mainRemoteDataSource.search(
-        query: query,
-      );
-      InjectionContainer.getIt<Logger>().w("End `search` in |MainRepoImpl|");
-      return Right(experts);
-    } catch (e, s) {
-      InjectionContainer.getIt<Logger>().e(
-        "End `search` in |MainRepoImpl| Exception: ${e.runtimeType} $s",
-      );
-      return Left(getFailureFromException(e));
-    }
-  }
 
   @override
   Future<Either<Failure, ExpertDetails>> getExpertDetails({

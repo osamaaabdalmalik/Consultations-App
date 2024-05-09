@@ -19,8 +19,9 @@ abstract class MainRemoteDataSource {
   });
 
   Future<List<ExpertModel>> getExperts({
-    required String expertsType,
-    required int subCategoryId,
+    String? expertsType,
+    int? subCategoryId,
+    int? mainCategoryId,
   });
 
   Future<ExpertDetailsModel> getExpertDetails({
@@ -109,8 +110,9 @@ class MainRemoteDataSourceImpl extends MainRemoteDataSource {
 
   @override
   Future<List<ExpertModel>> getExperts({
-    required String expertsType,
-    required int subCategoryId,
+    String? expertsType,
+    int? subCategoryId,
+    int? mainCategoryId,
   }) async {
     try {
       InjectionContainer.getIt<Logger>().i("Start `getExperts` in |MainRemoteDataSourceImpl|");
@@ -118,8 +120,9 @@ class MainRemoteDataSourceImpl extends MainRemoteDataSource {
       Map<String, dynamic> mapData = await apiService.get(
         subUrl: AppEndpoints.getExperts,
         parameters: {
-          'experts_type': expertsType,
+          'experts_type': expertsType.toString(),
           'sub_category_id': subCategoryId.toString(),
+          'main_category_id': mainCategoryId.toString(),
         },
       );
       final expertModels = mapData['experts']

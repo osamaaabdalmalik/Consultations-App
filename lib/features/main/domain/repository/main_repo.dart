@@ -17,8 +17,9 @@ abstract class MainRepo {
   });
 
   Future<Either<Failure, List<Expert>>> getExperts({
-    required String expertsType,
-    required int subCategoryId,
+    String? expertsType,
+    int? subCategoryId,
+    int? mainCategoryId,
   });
 
   Future<Either<Failure, ExpertDetails>> getExpertDetails({
