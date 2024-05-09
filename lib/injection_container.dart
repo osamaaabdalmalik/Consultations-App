@@ -16,7 +16,9 @@ import 'package:consultations_app/features/main/domain/usecases/get_experts_use_
 import 'package:consultations_app/features/main/domain/usecases/get_home_data_use_case.dart';
 import 'package:consultations_app/features/main/domain/usecases/get_main_category_details_use_case.dart';
 import 'package:consultations_app/features/main/domain/usecases/search_use_case.dart';
-import 'package:consultations_app/features/main/presentation/cubits/main_cubit.dart';
+import 'package:consultations_app/features/main/presentation/cubits/expert_cubit/expert_cubit.dart';
+import 'package:consultations_app/features/main/presentation/cubits/main_category_details_cubit/main_category_details_cubit.dart';
+import 'package:consultations_app/features/main/presentation/cubits/main_cubit/main_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
@@ -128,6 +130,8 @@ abstract class InjectionContainer {
 
     /// Cubits and Blocs
     GetIt.instance.registerFactory(() => MainCubit());
+    GetIt.instance.registerFactory(() => MainCategoryDetailsCubit());
+    GetIt.instance.registerFactory(() => ExpertCubit());
 
     isMainDependenciesInitialized = true;
   }

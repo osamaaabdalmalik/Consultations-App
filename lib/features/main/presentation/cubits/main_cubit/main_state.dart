@@ -6,7 +6,7 @@ class MainState with _$MainState {
 
   const factory MainState.loading() = _Loading;
 
-  const factory MainState.success(HomeData homeData) = _Success;
+  const factory MainState.loaded(HomeData homeData) = _Loaded;
 
   const factory MainState.changeTabSuccess(HomeData? homeData) = _ChangeTabSuccess;
 

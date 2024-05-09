@@ -1,4 +1,4 @@
-import 'package:consultations_app/features/main/presentation/cubits/main_cubit.dart';
+import 'package:consultations_app/features/main/presentation/cubits/main_cubit/main_cubit.dart';
 import 'package:consultations_app/features/main/presentation/screens/appointment_screen.dart';
 import 'package:consultations_app/features/main/presentation/screens/history_screen.dart';
 import 'package:consultations_app/features/main/presentation/screens/home_screen.dart';

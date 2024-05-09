@@ -1,7 +1,7 @@
 import 'package:consultations_app/core/constants/app_routes.dart';
 import 'package:consultations_app/core/widgets/primary_loader.dart';
 import 'package:consultations_app/features/main/domain/entities/home_data_entity.dart';
-import 'package:consultations_app/features/main/presentation/cubits/main_cubit.dart';
+import 'package:consultations_app/features/main/presentation/cubits/main_cubit/main_cubit.dart';
 import 'package:consultations_app/features/main/presentation/widgets/header_section.dart';
 import 'package:consultations_app/features/main/presentation/widgets/home_appbar.dart';
 import 'package:consultations_app/features/main/presentation/widgets/recommended_experts_list.dart';
@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
             child: PrimaryLoader(),
           ),
           orElse: () => const SizedBox(),
-          success: (homeData) => HomeContent(homeData: homeData),
+          loaded: (homeData) => HomeContent(homeData: homeData),
           changeTabSuccess: (homeData) {
             if (homeData != null) {
               return HomeContent(homeData: homeData);
