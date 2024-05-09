@@ -13,6 +13,9 @@ abstract class AppEndpoints {
 
   //-------------------------------------------
 
+  static const String search = "$apiVersion/search";
   static const String getHome = "$apiVersion/get_home";
+  static const String getMainCategoryDetails = "$apiVersion/get_sub_categories_with_experts";
+  static const String getExperts = "$apiVersion/get_experts";
 ////-------------------------------------------
 }
