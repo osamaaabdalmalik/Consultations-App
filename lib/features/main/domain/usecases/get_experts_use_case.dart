@@ -9,11 +9,15 @@ class GetExpertsUseCase {
   GetExpertsUseCase({required this.mainRepo});
 
   Future<Either<Failure, List<Expert>>> call({
+    required int page,
+    int limit = 10,
     String? expertsType,
     int? subCategoryId,
     int? mainCategoryId,
   }) async {
     return await mainRepo.getExperts(
+      page: page,
+      limit: limit,
       expertsType: expertsType,
       subCategoryId: subCategoryId,
       mainCategoryId: mainCategoryId,

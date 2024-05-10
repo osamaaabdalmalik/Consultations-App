@@ -70,6 +70,8 @@ class MainRepoImpl implements MainRepo {
 
   @override
   Future<Either<Failure, List<Expert>>> getExperts({
+    required int page,
+    int limit = 10,
     String? expertsType,
     int? subCategoryId,
     int? mainCategoryId,
@@ -77,6 +79,8 @@ class MainRepoImpl implements MainRepo {
     try {
       InjectionContainer.getIt<Logger>().i("Start `getExperts` in |MainRepoImpl|");
       var experts = await mainRemoteDataSource.getExperts(
+        page: page,
+        limit: limit,
         expertsType: expertsType,
         subCategoryId: subCategoryId,
         mainCategoryId: mainCategoryId,

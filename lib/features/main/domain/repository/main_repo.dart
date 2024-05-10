@@ -17,6 +17,8 @@ abstract class MainRepo {
   });
 
   Future<Either<Failure, List<Expert>>> getExperts({
+    required int page,
+    int limit = 10,
     String? expertsType,
     int? subCategoryId,
     int? mainCategoryId,
