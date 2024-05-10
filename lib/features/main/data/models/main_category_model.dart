@@ -1,3 +1,4 @@
+import 'package:consultations_app/features/main/data/models/sub_category_model.dart';
 import 'package:consultations_app/features/main/domain/entities/main_category_entity.dart';
 
 class MainCategoryModel extends MainCategory {
@@ -6,6 +7,7 @@ class MainCategoryModel extends MainCategory {
     required super.name,
     required super.description,
     required super.image,
+    required super.subCategories,
   });
 
   factory MainCategoryModel.fromJson(Map<String, dynamic> json) {
@@ -14,6 +16,11 @@ class MainCategoryModel extends MainCategory {
       name: json['name'],
       description: json['description'],
       image: json['image'],
+      subCategories: json['sub_categories']
+          .map<SubCategoryModel>(
+            (item) => SubCategoryModel.fromJson(item),
+          )
+          .toList(),
     );
   }
 
