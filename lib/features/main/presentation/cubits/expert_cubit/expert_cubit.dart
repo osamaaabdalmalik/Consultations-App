@@ -30,11 +30,13 @@ class ExpertCubit extends Cubit<ExpertState> {
   bool loaded = true;
   int page = 1;
   int limit = 25;
+  int? mainCategoryId;
+  int? subCategoryId;
   bool isScrollListenerInit = false;
   ExpertsTypes expertsType = ExpertsTypes.allExperts;
 
   Future<void> getExperts({
-    required ExpertsTypes expertsType,
+    ExpertsTypes? expertsType,
     int? mainCategoryId,
     int? subCategoryId,
   }) async {
@@ -44,7 +46,7 @@ class ExpertCubit extends Cubit<ExpertState> {
       scrollController.addListener(
         () {
           if (!isLoadingMore) {
-            loadMoreExperts(expertsType: expertsType.value);
+            loadMoreExperts();
           }
         },
       );
@@ -54,7 +56,7 @@ class ExpertCubit extends Cubit<ExpertState> {
     var result = await getExpertsUseCase(
       page: 1,
       limit: limit,
-      expertsType: expertsType.value,
+      expertsType: expertsType?.value ?? this.expertsType.value,
       subCategoryId: subCategoryId,
       mainCategoryId: mainCategoryId,
     );
@@ -74,11 +76,12 @@ class ExpertCubit extends Cubit<ExpertState> {
     );
   }
 
-  Future<void> loadMoreExperts({
-    required String expertsType,
-    int? mainCategoryId,
-    int? subCategoryId,
-  }) async {
+  Future<void> loadMoreExperts() async {
+    if (isRefreshedAfterHasMore) {
+      _update(const ExpertState.initial());
+      isRefreshedAfterHasMore = false;
+      _update(ExpertState.loaded(experts!));
+    }
     if (scrollController.position.pixels == scrollController.position.maxScrollExtent && hasMore && !isLoadingMore) {
       InjectionContainer.getIt<Logger>().i("Start `loadMoreExperts` in |MainCubit|");
       isLoadingMore = true;
@@ -90,7 +93,7 @@ class ExpertCubit extends Cubit<ExpertState> {
       var result = await getExpertsUseCase(
         page: page,
         limit: limit,
-        expertsType: expertsType,
+        expertsType: expertsType.value,
         subCategoryId: subCategoryId,
         mainCategoryId: mainCategoryId,
       );
@@ -121,11 +124,6 @@ class ExpertCubit extends Cubit<ExpertState> {
       InjectionContainer.getIt<Logger>().w(
         "End `loadMoreExperts` in |MainCubit| General State:$generalState",
       );
-    }
-    if (isRefreshedAfterHasMore) {
-      _update(const ExpertState.initial());
-      isRefreshedAfterHasMore = false;
-      _update(ExpertState.loaded(experts!));
     }
   }
 

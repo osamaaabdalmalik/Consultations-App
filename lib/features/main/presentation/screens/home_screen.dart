@@ -19,38 +19,43 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      physics: const BouncingScrollPhysics(),
-      slivers: [
-        const HomeAppbar(),
-        SliverList(
-          delegate: SliverChildListDelegate.fixed(
-            [
-              BlocBuilder<MainCubit, MainState>(
-                builder: (context, state) {
-                  return state.maybeWhen(
-                    loading: () => Center(
-                      child: PrimaryLoader(
-                        padding: EdgeInsets.symmetric(vertical: 250.h),
+    return RefreshIndicator(
+      onRefresh: () async {
+        context.read<MainCubit>().getHomeData();
+      },
+      child: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          const HomeAppbar(),
+          SliverList(
+            delegate: SliverChildListDelegate.fixed(
+              [
+                BlocBuilder<MainCubit, MainState>(
+                  builder: (context, state) {
+                    return state.maybeWhen(
+                      loading: () => Center(
+                        child: PrimaryLoader(
+                          padding: EdgeInsets.symmetric(vertical: 250.h),
+                        ),
                       ),
-                    ),
-                    orElse: () => const SizedBox(),
-                    loaded: (homeData) => HomeContent(homeData: homeData),
-                    changeTabSuccess: (homeData) {
-                      if (homeData != null) {
-                        return HomeContent(homeData: homeData);
-                      }
-                      return const Center(
-                        child: PrimaryLoader(),
-                      );
-                    },
-                  );
-                },
-              ),
-            ],
-          ),
-        )
-      ],
+                      orElse: () => const SizedBox(),
+                      loaded: (homeData) => HomeContent(homeData: homeData),
+                      changeTabSuccess: (homeData) {
+                        if (homeData != null) {
+                          return HomeContent(homeData: homeData);
+                        }
+                        return const Center(
+                          child: PrimaryLoader(),
+                        );
+                      },
+                    );
+                  },
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
