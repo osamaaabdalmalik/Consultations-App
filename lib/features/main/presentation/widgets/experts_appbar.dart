@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class CategoryExpertsAppbar extends StatefulWidget {
-  const CategoryExpertsAppbar({super.key});
+class ExpertsAppbar extends StatefulWidget {
+  const ExpertsAppbar({super.key});
 
   @override
-  State<CategoryExpertsAppbar> createState() => _CategoryExpertsAppbarState();
+  State<ExpertsAppbar> createState() => _ExpertsAppbarState();
 }
 
-class _CategoryExpertsAppbarState extends State<CategoryExpertsAppbar> {
+class _ExpertsAppbarState extends State<ExpertsAppbar> {
   int selectedIndex = 0;
 
   @override

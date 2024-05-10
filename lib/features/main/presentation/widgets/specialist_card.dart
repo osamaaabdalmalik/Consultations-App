@@ -23,7 +23,7 @@ class SpecialistCard extends StatelessWidget {
         color: AppColors.transparent,
         child: InkWell(
           onTap: () {
-            context.push(AppRoutes.categoryExpertsScreen);
+            context.push(AppRoutes.expertsScreen);
           },
           borderRadius: BorderRadius.circular(25.r),
           child: cupertino.Padding(

@@ -54,6 +54,8 @@ class MainCategoryDetailsCubit extends Cubit<MainCategoryDetailsState> {
     _update(const MainCategoryDetailsState.subCategoryExpertsLoading());
     generalState = GeneralStates.loading;
     var result = await getExpertsUseCase(
+      page: 1,
+      limit: 25,
       subCategoryId: subCategoryId,
     );
     result.fold(

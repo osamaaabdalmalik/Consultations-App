@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:consultations_app/core/constants/app_endpoints.dart';
-import 'package:consultations_app/core/helpers/exception.dart';
 import 'package:consultations_app/core/helpers/get_exception_from_status_code.dart';
 import 'package:consultations_app/core/services/network_info_service.dart';
 import 'package:consultations_app/injection_container.dart';
@@ -59,7 +58,7 @@ class ApiServiceImpl extends ApiService {
         'Start `get` |ApiServiceImpl| url: `$baseUrl$subUrl` parameters: $parameters headers: $headers',
       );
       if (!(await networkInfo.isConnected)) {
-        throw OfflineException();
+        // throw OfflineException();
       }
       parameters?.removeWhere((key, value) => value == 'null');
       await Future.delayed(const Duration(seconds: 3));
@@ -97,7 +96,7 @@ class ApiServiceImpl extends ApiService {
         'Start `post` |ApiServiceImpl| url: `$baseUrl$subUrl` data: $data parameters: $parameters headers: $headers',
       );
       if (!(await networkInfo.isConnected)) {
-        throw OfflineException();
+        // throw OfflineException();
       }
       await Future.delayed(const Duration(seconds: 3));
       final response = await client.post(
@@ -134,7 +133,7 @@ class ApiServiceImpl extends ApiService {
         'Start `put` |ApiServiceImpl| url: `$baseUrl$subUrl` data: $data parameters: $parameters headers: $headers',
       );
       if (!(await networkInfo.isConnected)) {
-        throw OfflineException();
+        // throw OfflineException();
       }
       await Future.delayed(const Duration(seconds: 3));
       final response = await client.put(
@@ -171,7 +170,7 @@ class ApiServiceImpl extends ApiService {
         'Start `delete` |ApiServiceImpl| url: `$baseUrl$subUrl` data: $data parameters: $parameters headers: $headers',
       );
       if (!(await networkInfo.isConnected)) {
-        throw OfflineException();
+        // throw OfflineException();
       }
       await Future.delayed(const Duration(seconds: 3));
       final response = await client.delete(
