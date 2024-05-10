@@ -20,10 +20,12 @@ class ExpertCubit extends Cubit<ExpertState> {
   GeneralStates generalState = GeneralStates.init;
 
   /// Data
-  List<Expert>? experts;
+  List<Expert> experts = [];
 
   /// variables
-  ScrollController scrollController = ScrollController();
+  ExpertsTypes expertsType = ExpertsTypes.allExperts;
+  final ScrollController scrollController = ScrollController();
+  bool isScrollListenerInit = false;
   bool isLoadingMore = false;
   bool hasMore = true;
   bool isRefreshedAfterHasMore = false;
@@ -32,33 +34,20 @@ class ExpertCubit extends Cubit<ExpertState> {
   int limit = 25;
   int? mainCategoryId;
   int? subCategoryId;
-  bool isScrollListenerInit = false;
-  ExpertsTypes expertsType = ExpertsTypes.allExperts;
 
-  Future<void> getExperts({
-    ExpertsTypes? expertsType,
-    int? mainCategoryId,
-    int? subCategoryId,
-  }) async {
+  Future<void> getExperts({ExpertsTypes? expertsType, int? mainCategoryId}) async {
     InjectionContainer.getIt<Logger>().i("Start `getExperts` in |MainCubit|");
     _update(const ExpertState.loading());
-    if (!isScrollListenerInit) {
-      scrollController.addListener(
-        () {
-          if (!isLoadingMore) {
-            loadMoreExperts();
-          }
-        },
-      );
-      isScrollListenerInit = true;
-    }
+    _initPaginationSetting();
     generalState = GeneralStates.loading;
+    this.expertsType = expertsType ?? this.expertsType;
+    this.mainCategoryId = mainCategoryId ?? this.mainCategoryId;
     var result = await getExpertsUseCase(
-      page: 1,
+      page: page,
       limit: limit,
       expertsType: expertsType?.value ?? this.expertsType.value,
+      mainCategoryId: mainCategoryId ?? this.mainCategoryId,
       subCategoryId: subCategoryId,
-      mainCategoryId: mainCategoryId,
     );
     result.fold(
       (l) {
@@ -76,11 +65,11 @@ class ExpertCubit extends Cubit<ExpertState> {
     );
   }
 
-  Future<void> loadMoreExperts() async {
+  Future<void> _loadMoreExperts() async {
     if (isRefreshedAfterHasMore) {
       _update(const ExpertState.initial());
       isRefreshedAfterHasMore = false;
-      _update(ExpertState.loaded(experts!));
+      _update(ExpertState.loaded(experts));
     }
     if (scrollController.position.pixels == scrollController.position.maxScrollExtent && hasMore && !isLoadingMore) {
       InjectionContainer.getIt<Logger>().i("Start `loadMoreExperts` in |MainCubit|");
@@ -88,7 +77,7 @@ class ExpertCubit extends Cubit<ExpertState> {
       loaded = false;
       page++;
       _update(const ExpertState.initial());
-      _update(ExpertState.loaded(experts!));
+      _update(ExpertState.loaded(experts));
       generalState = GeneralStates.loading;
       var result = await getExpertsUseCase(
         page: page,
@@ -112,11 +101,12 @@ class ExpertCubit extends Cubit<ExpertState> {
             isRefreshedAfterHasMore = true;
             loaded = false;
           } else {
-            this.experts = [...this.experts!, ...experts];
+            this.experts = [...this.experts, ...experts];
             hasMore = true;
             loaded = true;
           }
-          _update(ExpertState.loaded(this.experts!));
+          _update(const ExpertState.initial());
+          _update(ExpertState.loaded(this.experts));
           generalState = GeneralStates.success;
         },
       );
@@ -124,6 +114,24 @@ class ExpertCubit extends Cubit<ExpertState> {
       InjectionContainer.getIt<Logger>().w(
         "End `loadMoreExperts` in |MainCubit| General State:$generalState",
       );
+    }
+  }
+
+  void _initPaginationSetting() {
+    isLoadingMore = false;
+    hasMore = true;
+    isRefreshedAfterHasMore = false;
+    loaded = true;
+    page = 1;
+    if (!isScrollListenerInit) {
+      scrollController.addListener(
+        () {
+          if (!isLoadingMore) {
+            _loadMoreExperts();
+          }
+        },
+      );
+      isScrollListenerInit = true;
     }
   }
 
