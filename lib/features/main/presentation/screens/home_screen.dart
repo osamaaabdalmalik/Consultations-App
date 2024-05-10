@@ -80,6 +80,7 @@ class HomeContent extends StatelessWidget {
               AppRoutes.expertsScreen,
               extra: {
                 AppKeys.expertsType: ExpertsTypes.topExperts,
+                AppKeys.titleScreen: 'Top Experts',
               },
             );
           },
@@ -94,6 +95,7 @@ class HomeContent extends StatelessWidget {
               AppRoutes.expertsScreen,
               extra: {
                 AppKeys.expertsType: ExpertsTypes.recommendedExperts,
+                AppKeys.titleScreen: 'Recommended Experts',
               },
             );
           },

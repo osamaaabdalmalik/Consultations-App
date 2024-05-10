@@ -1,4 +1,5 @@
 import 'package:consultations_app/core/constants/app_colors.dart';
+import 'package:consultations_app/core/constants/app_keys.dart';
 import 'package:consultations_app/core/constants/app_routes.dart';
 import 'package:consultations_app/features/main/domain/entities/main_category_entity.dart';
 import 'package:flutter/cupertino.dart' as cupertino;
@@ -23,7 +24,13 @@ class SpecialistCard extends StatelessWidget {
         color: AppColors.transparent,
         child: InkWell(
           onTap: () {
-            context.push(AppRoutes.expertsScreen);
+            context.push(
+              AppRoutes.expertsScreen,
+              extra: {
+                AppKeys.mainCategoryId: mainCategory.id,
+                AppKeys.titleScreen: mainCategory.name,
+              },
+            );
           },
           borderRadius: BorderRadius.circular(25.r),
           child: cupertino.Padding(

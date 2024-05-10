@@ -33,7 +33,9 @@ class RouterService {
                 expertsType: ((state.extra as Map?)?[AppKeys.expertsType] ?? ExpertsTypes.allExperts),
                 mainCategoryId: (state.extra as Map?)?[AppKeys.mainCategoryId],
               ),
-            child: const ExpertsScreen(),
+            child: ExpertsScreen(
+              titleScreen: (state.extra as Map?)?[AppKeys.titleScreen],
+            ),
           ),
         ),
         GoRoute(

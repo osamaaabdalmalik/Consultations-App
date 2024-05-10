@@ -8,7 +8,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ExpertsScreen extends StatelessWidget {
-  const ExpertsScreen({super.key});
+  final String titleScreen;
+
+  const ExpertsScreen({super.key, required this.titleScreen});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class ExpertsScreen extends StatelessWidget {
         controller: context.read<ExpertCubit>().scrollController,
         physics: const BouncingScrollPhysics(),
         slivers: [
-          const ExpertsAppbar(),
+          ExpertsAppbar(title: titleScreen),
           SliverList(
             delegate: SliverChildListDelegate.fixed(
               [

@@ -7,7 +7,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class ExpertsAppbar extends StatefulWidget {
-  const ExpertsAppbar({super.key});
+  final String title;
+
+  const ExpertsAppbar({super.key, required this.title});
 
   @override
   State<ExpertsAppbar> createState() => _ExpertsAppbarState();
@@ -30,9 +32,9 @@ class _ExpertsAppbarState extends State<ExpertsAppbar> {
               Icons.arrow_back_ios,
             ),
           ),
-          const Text(
-            'IT Specialists',
-            style: TextStyle(
+          Text(
+            widget.title,
+            style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.w700,
               color: AppColors.black,
