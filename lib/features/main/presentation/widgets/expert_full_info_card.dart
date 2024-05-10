@@ -78,7 +78,7 @@ class ExpertFullInfoCard extends StatelessWidget {
                           SizedBox(
                             width: 150.w,
                             child: Text(
-                              expert.address,
+                              expert.address ?? '',
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
                               style: TextStyle(
@@ -91,7 +91,7 @@ class ExpertFullInfoCard extends StatelessWidget {
                         ],
                       ),
                       Text(
-                        expert.about,
+                        expert.about ?? '',
                         overflow: TextOverflow.clip,
                         maxLines: 1,
                         style: TextStyle(

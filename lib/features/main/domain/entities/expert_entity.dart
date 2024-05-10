@@ -3,8 +3,8 @@ class Expert {
   final String fullName;
   final String email;
   final String phone;
-  final String address;
-  final String about;
+  final String? address;
+  final String? about;
   final int rating;
   final int ratingNumber;
   final int consultanciesNumber;

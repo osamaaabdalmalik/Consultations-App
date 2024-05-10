@@ -53,7 +53,7 @@ class ExpertShortInfoCard extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        expert.about,
+                        expert.about ?? '',
                         textAlign: TextAlign.center,
                         overflow: TextOverflow.clip,
                         maxLines: 1,
