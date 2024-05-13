@@ -3,7 +3,6 @@ import 'package:consultations_app/core/services/api_service.dart';
 import 'package:consultations_app/features/main/data/models/expert_details_model.dart';
 import 'package:consultations_app/features/main/data/models/expert_model.dart';
 import 'package:consultations_app/features/main/data/models/home_data_model.dart';
-import 'package:consultations_app/features/main/data/models/main_category_details_model.dart';
 import 'package:consultations_app/injection_container.dart';
 import 'package:logger/logger.dart';
 
@@ -13,10 +12,6 @@ abstract class MainRemoteDataSource {
   });
 
   Future<HomeDataModel> getHome();
-
-  Future<MainCategoryDetailsModel> getMainCategoryDetails({
-    required int categoryId,
-  });
 
   Future<List<ExpertModel>> getExperts({
     required int page,
@@ -80,31 +75,6 @@ class MainRemoteDataSourceImpl extends MainRemoteDataSource {
     } catch (e, s) {
       InjectionContainer.getIt<Logger>().e(
         "End `getHome` in |MainRemoteDataSourceImpl| Exception: ${e.runtimeType} $s",
-      );
-      rethrow;
-    }
-  }
-
-  @override
-  Future<MainCategoryDetailsModel> getMainCategoryDetails({
-    required int categoryId,
-  }) async {
-    try {
-      InjectionContainer.getIt<Logger>().i("Start `getMainCategoryDetails` in |MainRemoteDataSourceImpl|");
-
-      Map<String, dynamic> mapData = await apiService.get(
-        subUrl: AppEndpoints.getMainCategoryDetails,
-        parameters: {
-          'category_id': categoryId.toString(),
-        },
-      );
-      final mainCategoryDetailsModel = MainCategoryDetailsModel.fromJson(mapData['data']);
-
-      InjectionContainer.getIt<Logger>().w("End `getMainCategoryDetails` in |MainRemoteDataSourceImpl|");
-      return Future.value(mainCategoryDetailsModel);
-    } catch (e, s) {
-      InjectionContainer.getIt<Logger>().e(
-        "End `getMainCategoryDetails` in |MainRemoteDataSourceImpl| Exception: ${e.runtimeType} $s",
       );
       rethrow;
     }
