@@ -3,6 +3,7 @@ import 'package:consultations_app/core/enums/experts_types.dart';
 import 'package:consultations_app/core/enums/general_states.dart';
 import 'package:consultations_app/core/helpers/get_state_from_failure.dart';
 import 'package:consultations_app/features/main/domain/entities/expert_entity.dart';
+import 'package:consultations_app/features/main/domain/entities/experts_filters_entity/experts_filters_entity.dart';
 import 'package:consultations_app/features/main/domain/usecases/get_experts_use_case.dart';
 import 'package:consultations_app/injection_container.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class ExpertCubit extends Cubit<ExpertState> {
   List<Expert> experts = [];
 
   /// variables
-  ExpertsTypes expertsType = ExpertsTypes.allExperts;
+  //  pagination variables
   final ScrollController scrollController = ScrollController();
   bool isScrollListenerInit = false;
   bool isLoadingMore = false;
@@ -32,22 +33,24 @@ class ExpertCubit extends Cubit<ExpertState> {
   bool loaded = true;
   int page = 1;
   int limit = 25;
-  int? mainCategoryId;
-  int? subCategoryId;
 
-  Future<void> getExperts({ExpertsTypes? expertsType, int? mainCategoryId}) async {
+  //  filtering variables
+  ExpertsFilters expertsFilters = ExpertsFilters(
+    selectedExpertsType: ExpertsTypes.allExperts,
+  );
+
+  Future<void> getExperts({ExpertsFilters? newExpertsFilters}) async {
     InjectionContainer.getIt<Logger>().i("Start `getExperts` in |MainCubit|");
     _update(const ExpertState.loading());
     _initPaginationSetting();
     generalState = GeneralStates.loading;
-    this.expertsType = expertsType ?? this.expertsType;
-    this.mainCategoryId = mainCategoryId ?? this.mainCategoryId;
+    expertsFilters = newExpertsFilters ?? expertsFilters;
     var result = await getExpertsUseCase(
       page: page,
       limit: limit,
-      expertsType: expertsType?.value ?? this.expertsType.value,
-      mainCategoryId: mainCategoryId ?? this.mainCategoryId,
-      subCategoryId: subCategoryId,
+      expertsType: expertsFilters.selectedExpertsType.value,
+      mainCategoryId: expertsFilters.selectedSubCategory != null ? null : expertsFilters.selectedMainCategory?.id,
+      subCategoryId: expertsFilters.selectedSubCategory?.id,
     );
     result.fold(
       (l) {
@@ -82,9 +85,9 @@ class ExpertCubit extends Cubit<ExpertState> {
       var result = await getExpertsUseCase(
         page: page,
         limit: limit,
-        expertsType: expertsType.value,
-        subCategoryId: subCategoryId,
-        mainCategoryId: mainCategoryId,
+        expertsType: expertsFilters.selectedExpertsType.value,
+        mainCategoryId: expertsFilters.selectedSubCategory != null ? null : expertsFilters.selectedMainCategory?.id,
+        subCategoryId: expertsFilters.selectedSubCategory?.id,
       );
       result.fold(
         (l) {
