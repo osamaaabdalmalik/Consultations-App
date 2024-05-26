@@ -27,7 +27,7 @@ class SpecialistCard extends StatelessWidget {
             context.push(
               AppRoutes.expertsScreen,
               extra: {
-                AppKeys.mainCategoryId: mainCategory.id,
+                AppKeys.mainCategory: mainCategory,
                 AppKeys.titleScreen: mainCategory.name,
               },
             );

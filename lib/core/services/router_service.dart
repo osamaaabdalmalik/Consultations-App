@@ -3,7 +3,9 @@ import 'package:consultations_app/core/constants/app_routes.dart';
 import 'package:consultations_app/core/enums/experts_types.dart';
 import 'package:consultations_app/core/services/caching_service.dart';
 import 'package:consultations_app/features/auth/presentation/screens/auth_screen.dart';
+import 'package:consultations_app/features/main/domain/entities/experts_filters_entity/experts_filters_entity.dart';
 import 'package:consultations_app/features/main/presentation/cubits/expert_cubit/expert_cubit.dart';
+import 'package:consultations_app/features/main/presentation/cubits/experts_filters_cubit/experts_filters_cubit.dart';
 import 'package:consultations_app/features/main/presentation/screens/experts_screen.dart';
 import 'package:consultations_app/features/main/presentation/screens/main_screen.dart';
 import 'package:consultations_app/injection_container.dart';
@@ -28,11 +30,17 @@ class RouterService {
         GoRoute(
           path: AppRoutes.expertsScreen,
           builder: (context, state) => BlocProvider(
-            create: (context) => InjectionContainer.getIt<ExpertCubit>()
-              ..getExperts(
-                expertsType: ((state.extra as Map?)?[AppKeys.expertsType] ?? ExpertsTypes.allExperts),
-                mainCategoryId: (state.extra as Map?)?[AppKeys.mainCategoryId],
-              ),
+            create: (context) {
+              context.read<ExpertsFiltersCubit>().initialExpertsFilters = ExpertsFilters(
+                selectedExpertsType: ((state.extra as Map?)?[AppKeys.expertsType] ?? ExpertsTypes.allExperts),
+                selectedMainCategory: (state.extra as Map?)?[AppKeys.mainCategory],
+              );
+
+              return InjectionContainer.getIt<ExpertCubit>()
+                ..getExperts(
+                  newExpertsFilters: context.read<ExpertsFiltersCubit>().initialExpertsFilters,
+                );
+            },
             child: ExpertsScreen(
               titleScreen: (state.extra as Map?)?[AppKeys.titleScreen],
             ),

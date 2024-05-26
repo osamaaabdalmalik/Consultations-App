@@ -57,9 +57,9 @@ class ApiServiceImpl extends ApiService {
       InjectionContainer.getIt<Logger>().i(
         'Start `get` |ApiServiceImpl| url: `$baseUrl$subUrl` parameters: $parameters headers: $headers',
       );
-      if (!(await networkInfo.isConnected)) {
-        // throw OfflineException();
-      }
+      // if (!(await networkInfo.isConnected)) {
+      // throw OfflineException();
+      // }
       parameters?.removeWhere((key, value) => value == 'null');
       await Future.delayed(const Duration(seconds: 3));
       final response = await client.get(
@@ -95,9 +95,9 @@ class ApiServiceImpl extends ApiService {
       InjectionContainer.getIt<Logger>().i(
         'Start `post` |ApiServiceImpl| url: `$baseUrl$subUrl` data: $data parameters: $parameters headers: $headers',
       );
-      if (!(await networkInfo.isConnected)) {
-        // throw OfflineException();
-      }
+      // if (!(await networkInfo.isConnected)) {
+      // throw OfflineException();
+      // }
       await Future.delayed(const Duration(seconds: 3));
       final response = await client.post(
         Uri.http(
@@ -132,9 +132,9 @@ class ApiServiceImpl extends ApiService {
       InjectionContainer.getIt<Logger>().i(
         'Start `put` |ApiServiceImpl| url: `$baseUrl$subUrl` data: $data parameters: $parameters headers: $headers',
       );
-      if (!(await networkInfo.isConnected)) {
-        // throw OfflineException();
-      }
+      // if (!(await networkInfo.isConnected)) {
+      // throw OfflineException();
+      // }
       await Future.delayed(const Duration(seconds: 3));
       final response = await client.put(
         Uri.http(
@@ -169,9 +169,9 @@ class ApiServiceImpl extends ApiService {
       InjectionContainer.getIt<Logger>().i(
         'Start `delete` |ApiServiceImpl| url: `$baseUrl$subUrl` data: $data parameters: $parameters headers: $headers',
       );
-      if (!(await networkInfo.isConnected)) {
-        // throw OfflineException();
-      }
+      // if (!(await networkInfo.isConnected)) {
+      // throw OfflineException();
+      // }
       await Future.delayed(const Duration(seconds: 3));
       final response = await client.delete(
         Uri.http(

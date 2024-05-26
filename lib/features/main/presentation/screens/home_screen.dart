@@ -3,6 +3,7 @@ import 'package:consultations_app/core/constants/app_routes.dart';
 import 'package:consultations_app/core/enums/experts_types.dart';
 import 'package:consultations_app/core/widgets/primary_loader.dart';
 import 'package:consultations_app/features/main/domain/entities/home_data_entity.dart';
+import 'package:consultations_app/features/main/presentation/cubits/experts_filters_cubit/experts_filters_cubit.dart';
 import 'package:consultations_app/features/main/presentation/cubits/main_cubit/main_cubit.dart';
 import 'package:consultations_app/features/main/presentation/widgets/header_section.dart';
 import 'package:consultations_app/features/main/presentation/widgets/home_appbar.dart';
@@ -30,7 +31,14 @@ class HomeScreen extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate.fixed(
               [
-                BlocBuilder<MainCubit, MainState>(
+                BlocConsumer<MainCubit, MainState>(
+                  listener: (context, state) {
+                    state.whenOrNull(
+                      loaded: (homeData) {
+                        context.read<ExpertsFiltersCubit>().mainCategories = homeData.mainCategories;
+                      },
+                    );
+                  },
                   builder: (context, state) {
                     return state.maybeWhen(
                       loading: () => Center(
