@@ -10,7 +10,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ExpertsScreen extends StatelessWidget {
   final String titleScreen;
 
-  const ExpertsScreen({super.key, required this.titleScreen});
+  const ExpertsScreen({
+    super.key,
+    required this.titleScreen,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,10 @@ class ExpertsScreen extends StatelessWidget {
         controller: context.read<ExpertCubit>().scrollController,
         physics: const BouncingScrollPhysics(),
         slivers: [
-          ExpertsAppbar(title: titleScreen),
+          ExpertsAppbar(
+            title: titleScreen,
+            expertCubitContext: context,
+          ),
           SliverList(
             delegate: SliverChildListDelegate.fixed(
               [
@@ -36,45 +42,61 @@ class ExpertsScreen extends StatelessWidget {
                         ),
                       ),
                       orElse: () => const SizedBox(),
-                      loaded: (experts) => ListView(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        children: List.generate(
-                          experts.length + 1,
-                          (index) {
-                            if (index < experts.length) {
-                              return Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 10.w).copyWith(
-                                  bottom: 10.h,
-                                ),
-                                child: ExpertFullInfoCard(
-                                  expert: experts[index],
-                                ),
-                              );
-                            } else {
-                              return expertCubit.loaded
-                                  ? const SizedBox()
-                                  : Container(
-                                      padding: EdgeInsets.symmetric(vertical: 30.h),
-                                      child: expertCubit.hasMore
-                                          ? PrimaryLoader(
-                                              size: 30.w,
-                                            )
-                                          : Center(
-                                              child: Text(
-                                                "No More Any Expert",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                    color: AppColors.primary,
-                                                    fontSize: 18.sp,
-                                                    fontWeight: FontWeight.w700),
-                                              ),
-                                            ),
+                      loaded: (experts) => experts.isNotEmpty
+                          ? ListView(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              children: List.generate(
+                                experts.length + 1,
+                                (index) {
+                                  if (index < experts.length) {
+                                    return Padding(
+                                      padding: EdgeInsets.symmetric(horizontal: 10.w).copyWith(
+                                        bottom: 10.h,
+                                      ),
+                                      child: ExpertFullInfoCard(
+                                        expert: experts[index],
+                                      ),
                                     );
-                            }
-                          },
-                        ),
-                      ),
+                                  } else {
+                                    return expertCubit.loaded
+                                        ? const SizedBox()
+                                        : Container(
+                                            padding: EdgeInsets.symmetric(vertical: 30.h),
+                                            child: expertCubit.hasMore
+                                                ? PrimaryLoader(
+                                                    size: 30.w,
+                                                  )
+                                                : Center(
+                                                    child: Text(
+                                                      "No More Any Expert",
+                                                      textAlign: TextAlign.center,
+                                                      style: TextStyle(
+                                                        color: AppColors.primary,
+                                                        fontSize: 18.sp,
+                                                        fontWeight: FontWeight.w700,
+                                                      ),
+                                                    ),
+                                                  ),
+                                          );
+                                  }
+                                },
+                              ),
+                            )
+                          : Center(
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(vertical: 250.h),
+                                child: Text(
+                                  "No  Any Expert",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: AppColors.primary,
+                                    fontSize: 18.sp,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                              ),
+                            ),
                     );
                   },
                 ),

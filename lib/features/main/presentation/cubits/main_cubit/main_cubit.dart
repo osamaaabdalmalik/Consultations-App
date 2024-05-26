@@ -24,7 +24,7 @@ class MainCubit extends Cubit<MainState> {
 
   /// Data
   HomeData? homeData;
-  List<Expert>? resultSearchExperts;
+  List<Expert> resultSearchExperts = [];
 
   /// variables
   bool isInitMain = false;
