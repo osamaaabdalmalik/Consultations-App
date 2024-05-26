@@ -14,10 +14,9 @@ import 'package:consultations_app/features/auth/domain/usecases/register_use_cas
 import 'package:consultations_app/features/main/domain/usecases/get_expert_details_use_case.dart';
 import 'package:consultations_app/features/main/domain/usecases/get_experts_use_case.dart';
 import 'package:consultations_app/features/main/domain/usecases/get_home_data_use_case.dart';
-import 'package:consultations_app/features/main/domain/usecases/get_main_category_details_use_case.dart';
 import 'package:consultations_app/features/main/domain/usecases/search_use_case.dart';
 import 'package:consultations_app/features/main/presentation/cubits/expert_cubit/expert_cubit.dart';
-import 'package:consultations_app/features/main/presentation/cubits/main_category_details_cubit/main_category_details_cubit.dart';
+import 'package:consultations_app/features/main/presentation/cubits/experts_filters_cubit/experts_filters_cubit.dart';
 import 'package:consultations_app/features/main/presentation/cubits/main_cubit/main_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -119,9 +118,6 @@ abstract class InjectionContainer {
       () => GetHomeDataUseCase(mainRepo: getIt()),
     );
     GetIt.instance.registerLazySingleton(
-      () => GetMainCategoryDetailsUseCase(mainRepo: getIt()),
-    );
-    GetIt.instance.registerLazySingleton(
       () => GetExpertsUseCase(mainRepo: getIt()),
     );
     GetIt.instance.registerLazySingleton(
@@ -130,7 +126,7 @@ abstract class InjectionContainer {
 
     /// Cubits and Blocs
     GetIt.instance.registerFactory(() => MainCubit());
-    GetIt.instance.registerFactory(() => MainCategoryDetailsCubit());
+    GetIt.instance.registerFactory(() => ExpertsFiltersCubit());
     GetIt.instance.registerFactory(() => ExpertCubit());
 
     isMainDependenciesInitialized = true;
