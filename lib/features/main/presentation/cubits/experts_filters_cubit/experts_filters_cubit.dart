@@ -97,13 +97,6 @@ class ExpertsFiltersCubit extends Cubit<ExpertsFiltersState> {
     } else {
       isFiltersChanged = false;
     }
-    if (mainCategory == null &&
-        newExpertsFilters.selectedSubCategory == null &&
-        newExpertsFilters.selectedExpertsType == initialExpertsFilters.selectedExpertsType) {
-      isFiltersShowInAppbar = false;
-    } else {
-      isFiltersShowInAppbar = true;
-    }
     _update(const ExpertsFiltersState.loaded());
   }
 
@@ -136,6 +129,13 @@ class ExpertsFiltersCubit extends Cubit<ExpertsFiltersState> {
     currentExpertsFilters = newExpertsFilters.copyWith();
     isFiltersApplied = true;
     isFiltersChanged = false;
+    if (newExpertsFilters.selectedMainCategory == null &&
+        newExpertsFilters.selectedSubCategory == null &&
+        newExpertsFilters.selectedExpertsType == initialExpertsFilters.selectedExpertsType) {
+      isFiltersShowInAppbar = false;
+    } else {
+      isFiltersShowInAppbar = true;
+    }
     _update(const ExpertsFiltersState.loaded());
   }
 

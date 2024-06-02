@@ -57,9 +57,9 @@ class CurrentExpertsFilters extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 10.w),
                       children: [
                         if (expertsFiltersCubit.initialExpertsFilters.selectedExpertsType == ExpertsTypes.allExperts &&
-                            expertsFiltersCubit.newExpertsFilters.selectedExpertsType != ExpertsTypes.allExperts)
+                            expertsFiltersCubit.currentExpertsFilters.selectedExpertsType != ExpertsTypes.allExperts)
                           CustomFilterChip(
-                            label: expertsFiltersCubit.newExpertsFilters.selectedExpertsType.label,
+                            label: expertsFiltersCubit.currentExpertsFilters.selectedExpertsType.label,
                             onDeleted: () {
                               expertsFiltersCubit.onChangeIndexExpertType(
                                 index: 0,
@@ -74,9 +74,9 @@ class CurrentExpertsFilters extends StatelessWidget {
                           width: 5.w,
                         ),
                         if (expertsFiltersCubit.initialExpertsFilters.selectedMainCategory == null &&
-                            expertsFiltersCubit.newExpertsFilters.selectedMainCategory != null)
+                            expertsFiltersCubit.currentExpertsFilters.selectedMainCategory != null)
                           CustomFilterChip(
-                            label: expertsFiltersCubit.newExpertsFilters.selectedMainCategory!.name,
+                            label: expertsFiltersCubit.currentExpertsFilters.selectedMainCategory!.name,
                             onDeleted: () {
                               expertsFiltersCubit.isFiltersShowInAppbar = false;
                               expertsFiltersCubit.onChangeIndexMainCategory(
@@ -91,9 +91,9 @@ class CurrentExpertsFilters extends StatelessWidget {
                         SizedBox(
                           width: 5.w,
                         ),
-                        if (expertsFiltersCubit.newExpertsFilters.selectedSubCategory != null)
+                        if (expertsFiltersCubit.currentExpertsFilters.selectedSubCategory != null)
                           CustomFilterChip(
-                            label: expertsFiltersCubit.newExpertsFilters.selectedSubCategory!.name,
+                            label: expertsFiltersCubit.currentExpertsFilters.selectedSubCategory!.name,
                             onDeleted: () {
                               expertsFiltersCubit.onChangeIndexSubCategory(
                                 index: 0,
