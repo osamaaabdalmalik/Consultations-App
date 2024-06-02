@@ -43,6 +43,7 @@ class RouterService {
             },
             child: ExpertsScreen(
               titleScreen: (state.extra as Map?)?[AppKeys.titleScreen],
+              isSearchMode: (state.extra as Map?)?[AppKeys.isSearchMode] ?? false,
             ),
           ),
         ),

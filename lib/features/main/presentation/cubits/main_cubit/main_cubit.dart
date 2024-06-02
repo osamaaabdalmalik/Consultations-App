@@ -6,6 +6,7 @@ import 'package:consultations_app/features/main/domain/entities/home_data_entity
 import 'package:consultations_app/features/main/domain/usecases/get_home_data_use_case.dart';
 import 'package:consultations_app/features/main/domain/usecases/search_use_case.dart';
 import 'package:consultations_app/injection_container.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logger/logger.dart';
 
@@ -25,6 +26,9 @@ class MainCubit extends Cubit<MainState> {
   /// Data
   HomeData? homeData;
   List<Expert> resultSearchExperts = [];
+
+  /// Controllers
+  final TextEditingController searchTextController = TextEditingController();
 
   /// variables
   bool isInitMain = false;

@@ -9,10 +9,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ExpertsScreen extends StatelessWidget {
   final String titleScreen;
+  final bool isSearchMode;
 
   const ExpertsScreen({
     super.key,
     required this.titleScreen,
+    required this.isSearchMode,
   });
 
   @override
@@ -28,6 +30,7 @@ class ExpertsScreen extends StatelessWidget {
           ExpertsAppbar(
             title: titleScreen,
             expertCubitContext: context,
+            isSearchMode: isSearchMode,
           ),
           SliverList(
             delegate: SliverChildListDelegate.fixed(

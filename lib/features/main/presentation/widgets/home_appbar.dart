@@ -1,9 +1,13 @@
 import 'package:consultations_app/core/constants/app_colors.dart';
+import 'package:consultations_app/core/constants/app_keys.dart';
+import 'package:consultations_app/core/constants/app_routes.dart';
+import 'package:consultations_app/core/enums/experts_types.dart';
 import 'package:consultations_app/core/widgets/custom_sliver_appbar.dart';
 import 'package:consultations_app/features/main/presentation/widgets/custom_icon_button.dart';
 import 'package:flutter/cupertino.dart' as cupertino;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeAppbar extends StatelessWidget {
   const HomeAppbar({super.key});
@@ -62,14 +66,10 @@ class HomeAppbar extends StatelessWidget {
           cursorWidth: 0.8,
           textInputAction: TextInputAction.search,
           decoration: InputDecoration(
-            hintText: 'Search',
-            suffixIcon: InkWell(
-              borderRadius: BorderRadius.circular(15.r),
-              onTap: () {},
-              child: const Icon(
-                Icons.search,
-                color: AppColors.gray,
-              ),
+            hintText: 'Search about experts',
+            suffixIcon: const Icon(
+              Icons.search,
+              color: AppColors.gray,
             ),
             fillColor: AppColors.primary.withOpacity(0.1),
             filled: true,
@@ -79,12 +79,19 @@ class HomeAppbar extends StatelessWidget {
               borderSide: BorderSide.none,
             ),
           ),
-          onTapOutside: (event) {
-            FocusManager.instance.primaryFocus?.unfocus();
+          readOnly: true,
+          onTap: () {
+            context.push(
+              AppRoutes.expertsScreen,
+              extra: {
+                AppKeys.expertsType: ExpertsTypes.topExperts,
+                AppKeys.titleScreen: 'Top Experts',
+                AppKeys.isSearchMode: true,
+              },
+            );
           },
         ),
       ),
-      // sliverBottomPadding: EdgeInsets.symmetric(horizontal: 15),
     );
   }
 }

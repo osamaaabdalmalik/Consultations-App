@@ -87,7 +87,10 @@ class StatusHandlerService {
     EasyLoading.dismiss(animation: true);
   }
 
-  static showToast({required String message}) {
+  static showToast({
+    required String message,
+    EasyLoadingToastPosition toastPosition = EasyLoadingToastPosition.bottom,
+  }) {
     EasyLoading.instance
       ..userInteractions = true
       ..displayDuration = const Duration(seconds: 5);
@@ -95,7 +98,7 @@ class StatusHandlerService {
       message,
       dismissOnTap: true,
       maskType: EasyLoadingMaskType.black,
-      toastPosition: EasyLoadingToastPosition.bottom,
+      toastPosition: toastPosition,
     );
   }
 }

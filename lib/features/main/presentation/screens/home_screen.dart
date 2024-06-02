@@ -52,8 +52,10 @@ class HomeScreen extends StatelessWidget {
                         if (homeData != null) {
                           return HomeContent(homeData: homeData);
                         }
-                        return const Center(
-                          child: PrimaryLoader(),
+                        return Center(
+                          child: PrimaryLoader(
+                            padding: EdgeInsets.symmetric(vertical: 250.h),
+                          ),
                         );
                       },
                     );
