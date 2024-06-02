@@ -9,11 +9,14 @@ abstract class AppAssets {
   // SVG Icons Paths
   static const String rootSVGIcons = "assets/svgs/icons";
   static const String categoriesIconSvg = "$rootSVGIcons/categories.svg";
+  static const String facebookLogo = "$rootSVGIcons/facebook_logo.svg";
+  static const String googleLogo = "$rootSVGIcons/google_logo.svg";
 
   //-------------------------------------------
 
   // SVG Images Paths
-  static const String rootSVGImages = "assets/svg/images";
+  static const String rootSVGImages = "assets/svgs/images";
   static const String choseImage = '$rootSVGImages/chose_image.svg';
+  static const String appLogo = '$rootSVGImages/app_logo.svg';
 ////-------------------------------------------
 }
