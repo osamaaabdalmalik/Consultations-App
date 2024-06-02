@@ -25,11 +25,13 @@ class PrimaryButton extends StatelessWidget {
         disabledColor: AppColors.primary.withOpacity(0.5),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.r), side: BorderSide.none),
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
           child: Text(
             text,
             style: const TextStyle(
               color: AppColors.white,
+              fontWeight: FontWeight.w600,
+              fontSize: 18,
             ),
           ),
         ),

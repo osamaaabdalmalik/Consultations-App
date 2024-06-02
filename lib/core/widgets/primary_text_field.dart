@@ -84,8 +84,14 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
                               });
                             },
                             icon: isVisibleText
-                                ? const Icon(Icons.visibility_off_outlined)
-                                : const Icon(Icons.visibility_outlined),
+                                ? Icon(
+                                    Icons.visibility_off_outlined,
+                                    color: AppColors.gray.withOpacity(0.5),
+                                  )
+                                : Icon(
+                                    Icons.visibility_outlined,
+                                    color: AppColors.gray.withOpacity(0.5),
+                                  ),
                           )
                         : null),
                 enabledBorder: OutlineInputBorder(
