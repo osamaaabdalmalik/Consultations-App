@@ -139,7 +139,7 @@ class SignUpScreen extends StatelessWidget {
                   onPressed: () {},
                 ),
                 SizedBox(
-                  width: 40.h,
+                  width: 25.h,
                 ),
                 PrimaryIconButton(
                   icon: SvgPicture.asset(

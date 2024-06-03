@@ -75,7 +75,7 @@ class SignInScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 25.h,
+              height: 20.h,
             ),
             PrimaryTextField(
               labelText: 'Email',
@@ -84,7 +84,7 @@ class SignInScreen extends StatelessWidget {
               inputType: TextInputType.emailAddress,
             ),
             SizedBox(
-              height: 25.h,
+              height: 20.h,
             ),
             PrimaryTextField(
               labelText: 'Password',
@@ -92,8 +92,21 @@ class SignInScreen extends StatelessWidget {
               controller: TextEditingController(),
               isObscureText: true,
             ),
-            SizedBox(
-              height: 30.h,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 5.h),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  PrimaryTextButton(
+                    label: "forget password",
+                    color: AppColors.primary,
+                    fontSize: 14,
+                    onPressed: () {
+                      // context.push(AppRoutes.signUpScreen);
+                    },
+                  ),
+                ],
+              ),
             ),
             PrimaryButton(
               text: 'Sign in',
@@ -134,7 +147,7 @@ class SignInScreen extends StatelessWidget {
                   onPressed: () {},
                 ),
                 SizedBox(
-                  width: 40.h,
+                  width: 25.h,
                 ),
                 PrimaryIconButton(
                   icon: SvgPicture.asset(
@@ -167,6 +180,15 @@ class SignInScreen extends StatelessWidget {
                   },
                 ),
               ],
+            ),
+            SizedBox(
+              height: 15.h,
+            ),
+            PrimaryTextButton(
+              label: "skip this now",
+              onPressed: () {
+                context.push(AppRoutes.mainScreen);
+              },
             ),
             if (MediaQuery.of(context).viewInsets.bottom != 0)
               SizedBox(
