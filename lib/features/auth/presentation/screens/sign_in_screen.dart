@@ -3,6 +3,7 @@ import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:consultations_app/core/constants/app_routes.dart';
 import 'package:consultations_app/core/widgets/primary_button.dart';
 import 'package:consultations_app/core/widgets/primary_icon_button.dart';
+import 'package:consultations_app/core/widgets/primary_snack_bar.dart';
 import 'package:consultations_app/core/widgets/primary_text_button.dart';
 import 'package:consultations_app/core/widgets/primary_text_field.dart';
 import 'package:flutter/material.dart';
@@ -111,7 +112,17 @@ class SignInScreen extends StatelessWidget {
               ),
               PrimaryButton(
                 text: 'Sign in',
-                onPressed: () {},
+                onPressed: () {
+                  ScaffoldMessenger.of(context)
+                    ..hideCurrentSnackBar()
+                    ..showSnackBar(
+                      PrimarySnackBar(
+                        context: context,
+                        title: 'Ops!',
+                        message: 'This is an example success message that will be shown in the body of snack bar!',
+                      ).build(),
+                    );
+                },
               ),
               SizedBox(
                 height: 20.h,
