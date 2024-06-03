@@ -34,64 +34,67 @@ class ExpertsAppbar extends StatelessWidget {
           leading: isSearchMode
               ? SizedBox(
                   width: 348.w,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.w).copyWith(top: 10.h),
-                    child: TextFormField(
-                      controller: context.read<MainCubit>().searchTextController,
-                      style: const TextStyle(
-                        fontSize: 14,
-                      ),
-                      cursorColor: AppColors.black,
-                      cursorWidth: 0.8,
-                      textInputAction: TextInputAction.search,
-                      decoration: InputDecoration(
-                        hintText: 'Search about experts',
-                        suffixIcon: InkWell(
-                          borderRadius: BorderRadius.circular(15.r),
-                          onTap: () {
-                            if (context.read<MainCubit>().searchTextController.text.isEmpty) {
-                              StatusHandlerService.showToast(
-                                message: 'please type anything and click again',
-                                toastPosition: EasyLoadingToastPosition.center,
-                              );
-                            }
-                          },
-                          child: const Icon(
-                            Icons.search,
-                            color: AppColors.gray,
+                  child: Hero(
+                    tag: 'Search about experts',
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 10.w).copyWith(top: 10.h),
+                      child: TextFormField(
+                        controller: context.read<MainCubit>().searchTextController,
+                        style: const TextStyle(
+                          fontSize: 14,
+                        ),
+                        cursorColor: AppColors.black,
+                        cursorWidth: 0.8,
+                        textInputAction: TextInputAction.search,
+                        decoration: InputDecoration(
+                          hintText: 'Search about experts',
+                          suffixIcon: InkWell(
+                            borderRadius: BorderRadius.circular(15.r),
+                            onTap: () {
+                              if (context.read<MainCubit>().searchTextController.text.isEmpty) {
+                                StatusHandlerService.showToast(
+                                  message: 'please type anything and click again',
+                                  toastPosition: EasyLoadingToastPosition.center,
+                                );
+                              }
+                            },
+                            child: const Icon(
+                              Icons.search,
+                              color: AppColors.gray,
+                            ),
+                          ),
+                          prefixIcon: IconButton(
+                            padding: EdgeInsets.only(left: 8.w),
+                            onPressed: () {
+                              context.pop();
+                              expertsFiltersCubit.clearFilters();
+                            },
+                            icon: const Icon(
+                              Icons.arrow_back_ios,
+                              color: AppColors.gray,
+                              size: 20,
+                            ),
+                          ),
+                          fillColor: AppColors.primary.withOpacity(0.1),
+                          filled: true,
+                          contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15.r),
+                            borderSide: BorderSide.none,
                           ),
                         ),
-                        prefixIcon: IconButton(
-                          padding: EdgeInsets.only(left: 8.w),
-                          onPressed: () {
-                            context.pop();
-                            expertsFiltersCubit.clearFilters();
-                          },
-                          icon: const Icon(
-                            Icons.arrow_back_ios,
-                            color: AppColors.gray,
-                            size: 20,
-                          ),
-                        ),
-                        fillColor: AppColors.primary.withOpacity(0.1),
-                        filled: true,
-                        contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15.r),
-                          borderSide: BorderSide.none,
-                        ),
+                        onFieldSubmitted: (value) {
+                          if (context.read<MainCubit>().searchTextController.text.isEmpty) {
+                            StatusHandlerService.showToast(
+                              message: 'please type anything and click again',
+                              toastPosition: EasyLoadingToastPosition.center,
+                            );
+                          }
+                        },
+                        onTapOutside: (event) {
+                          FocusManager.instance.primaryFocus?.unfocus();
+                        },
                       ),
-                      onFieldSubmitted: (value) {
-                        if (context.read<MainCubit>().searchTextController.text.isEmpty) {
-                          StatusHandlerService.showToast(
-                            message: 'please type anything and click again',
-                            toastPosition: EasyLoadingToastPosition.center,
-                          );
-                        }
-                      },
-                      onTapOutside: (event) {
-                        FocusManager.instance.primaryFocus?.unfocus();
-                      },
                     ),
                   ),
                 )

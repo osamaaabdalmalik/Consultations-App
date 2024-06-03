@@ -53,40 +53,43 @@ class HomeAppbar extends StatelessWidget {
           ),
         ),
       ],
-      sliverBottom: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10.w),
-        child: TextFormField(
-          style: const TextStyle(
-            fontSize: 14,
-          ),
-          cursorColor: AppColors.black,
-          cursorWidth: 0.8,
-          textInputAction: TextInputAction.search,
-          decoration: InputDecoration(
-            hintText: 'Search about experts',
-            suffixIcon: const Icon(
-              Icons.search,
-              color: AppColors.gray,
+      sliverBottom: Hero(
+        tag: 'Search about experts',
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10.w),
+          child: TextFormField(
+            style: const TextStyle(
+              fontSize: 14,
             ),
-            fillColor: AppColors.primary.withOpacity(0.1),
-            filled: true,
-            contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15.r),
-              borderSide: BorderSide.none,
+            cursorColor: AppColors.black,
+            cursorWidth: 0.8,
+            textInputAction: TextInputAction.search,
+            decoration: InputDecoration(
+              hintText: 'Search about experts',
+              suffixIcon: const Icon(
+                Icons.search,
+                color: AppColors.gray,
+              ),
+              fillColor: AppColors.primary.withOpacity(0.1),
+              filled: true,
+              contentPadding: EdgeInsets.symmetric(horizontal: 10.w),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15.r),
+                borderSide: BorderSide.none,
+              ),
             ),
+            readOnly: true,
+            onTap: () {
+              context.push(
+                AppRoutes.expertsScreen,
+                extra: {
+                  AppKeys.expertsType: ExpertsTypes.topExperts,
+                  AppKeys.titleScreen: 'Top Experts',
+                  AppKeys.isSearchMode: true,
+                },
+              );
+            },
           ),
-          readOnly: true,
-          onTap: () {
-            context.push(
-              AppRoutes.expertsScreen,
-              extra: {
-                AppKeys.expertsType: ExpertsTypes.topExperts,
-                AppKeys.titleScreen: 'Top Experts',
-                AppKeys.isSearchMode: true,
-              },
-            );
-          },
         ),
       ),
     );
