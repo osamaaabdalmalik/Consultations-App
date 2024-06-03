@@ -2,6 +2,7 @@ import 'package:consultations_app/core/constants/app_keys.dart';
 import 'package:consultations_app/core/constants/app_routes.dart';
 import 'package:consultations_app/core/enums/experts_types.dart';
 import 'package:consultations_app/core/services/caching_service.dart';
+import 'package:consultations_app/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:consultations_app/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:consultations_app/features/main/domain/entities/experts_filters_entity/experts_filters_entity.dart';
 import 'package:consultations_app/features/main/presentation/cubits/expert_cubit/expert_cubit.dart';
@@ -20,7 +21,7 @@ class RouterService {
     String initialLocation = _cacheService.getData<String>(
           key: AppKeys.initialLocationRoute,
         ) ??
-        AppRoutes.authScreen;
+        AppRoutes.signInScreen;
     router = GoRouter(
       routes: [
         GoRoute(
@@ -48,8 +49,12 @@ class RouterService {
           ),
         ),
         GoRoute(
-          path: AppRoutes.authScreen,
+          path: AppRoutes.signUpScreen,
           builder: (context, state) => const SignUpScreen(),
+        ),
+        GoRoute(
+          path: AppRoutes.signInScreen,
+          builder: (context, state) => const SignInScreen(),
         ),
         //-------------------------------------------
       ],

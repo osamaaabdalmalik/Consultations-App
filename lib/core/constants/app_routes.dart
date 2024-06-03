@@ -1,9 +1,8 @@
-
-
 abstract class AppRoutes {
   // FeatureName Routes
   static const String mainScreen = "/";
-  static const String authScreen = "/authScreen";
+  static const String signUpScreen = "/signUpScreen";
+  static const String signInScreen = "/signInScreen";
   static const String expertsScreen = "/expertsScreen";
 
 //-------------------------------------------

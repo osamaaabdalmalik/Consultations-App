@@ -10,8 +10,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+class SignInScreen extends StatelessWidget {
+  const SignInScreen({super.key});
 
   Duration get loginTime => const Duration(milliseconds: 2250);
 
@@ -22,21 +22,24 @@ class SignUpScreen extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 50.h),
-              child: Row(
+              padding: EdgeInsets.symmetric(horizontal: 20.w).copyWith(
+                top: 50.h,
+                bottom: 20.h,
+              ),
+              child: Column(
                 children: [
                   SvgPicture.asset(
                     AppAssets.appLogo,
                     width: 60.w,
                   ),
                   SizedBox(
-                    width: 10.w,
+                    height: 10.w,
                   ),
                   const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         "Top EX",
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 30,
                           color: AppColors.primary,
@@ -61,7 +64,7 @@ class SignUpScreen extends StatelessWidget {
               child: const Row(
                 children: [
                   Text(
-                    "Sign up for free",
+                    "Sign in for free",
                     style: TextStyle(
                       fontSize: 20,
                       color: AppColors.black,
@@ -70,14 +73,6 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
-            SizedBox(
-              height: 15.h,
-            ),
-            PrimaryTextField(
-              labelText: 'Full Name',
-              hintText: 'use real name',
-              controller: TextEditingController(),
             ),
             SizedBox(
               height: 25.h,
@@ -93,7 +88,7 @@ class SignUpScreen extends StatelessWidget {
             ),
             PrimaryTextField(
               labelText: 'Password',
-              hintText: 'make it strong',
+              hintText: 'more than 8 character',
               controller: TextEditingController(),
               isObscureText: true,
             ),
@@ -101,7 +96,7 @@ class SignUpScreen extends StatelessWidget {
               height: 30.h,
             ),
             PrimaryButton(
-              text: 'Sign up',
+              text: 'Sign in',
               onPressed: () {},
             ),
             SizedBox(
@@ -157,7 +152,7 @@ class SignUpScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  "Already have an account? ",
+                  "Don't have an account? ",
                   style: TextStyle(
                     fontSize: 16,
                     color: AppColors.gray,
@@ -165,10 +160,10 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ),
                 PrimaryTextButton(
-                  label: "Sign in",
+                  label: "Sign up",
                   color: AppColors.primary,
                   onPressed: () {
-                    context.push(AppRoutes.signInScreen);
+                    context.push(AppRoutes.signUpScreen);
                   },
                 ),
               ],
