@@ -22,7 +22,11 @@ class MainScreen extends StatelessWidget {
     return BlocBuilder<MainCubit, MainState>(
       builder: (context, state) {
         return Scaffold(
-          body: tabs[context.read<MainCubit>().currentTab],
+          body: PageView(
+            controller: context.read<MainCubit>().pageController,
+            physics: const NeverScrollableScrollPhysics(),
+            children: tabs,
+          ),
           bottomNavigationBar: BottomNavbar(
             currentTab: context.read<MainCubit>().currentTab,
             changeCurrentTab: context.read<MainCubit>().changeCurrentTab,

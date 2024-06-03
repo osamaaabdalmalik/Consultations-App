@@ -29,6 +29,7 @@ class MainCubit extends Cubit<MainState> {
 
   /// Controllers
   final TextEditingController searchTextController = TextEditingController();
+  final PageController pageController = PageController();
 
   /// variables
   bool isInitMain = false;
@@ -87,6 +88,11 @@ class MainCubit extends Cubit<MainState> {
   void changeCurrentTab(int index) {
     _update(const MainState.loading());
     currentTab = index;
+    pageController.animateToPage(
+      currentTab,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeIn,
+    );
     _update(MainState.changeTabSuccess(homeData));
   }
 
