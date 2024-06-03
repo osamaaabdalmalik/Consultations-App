@@ -19,94 +19,96 @@ class ExpertsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RefreshIndicator(
-      onRefresh: () async {
-        context.read<ExpertCubit>().getExperts();
-      },
-      child: CustomScrollView(
-        controller: context.read<ExpertCubit>().scrollController,
-        physics: const BouncingScrollPhysics(),
-        slivers: [
-          ExpertsAppbar(
-            title: titleScreen,
-            expertCubitContext: context,
-            isSearchMode: isSearchMode,
-          ),
-          SliverList(
-            delegate: SliverChildListDelegate.fixed(
-              [
-                BlocBuilder<ExpertCubit, ExpertState>(
-                  builder: (context, state) {
-                    final expertCubit = context.read<ExpertCubit>();
-                    return state.maybeWhen(
-                      loading: () => Center(
-                        child: PrimaryLoader(
-                          padding: EdgeInsets.symmetric(vertical: 250.h),
+    return Scaffold(
+      body: RefreshIndicator(
+        onRefresh: () async {
+          context.read<ExpertCubit>().getExperts();
+        },
+        child: CustomScrollView(
+          controller: context.read<ExpertCubit>().scrollController,
+          physics: const BouncingScrollPhysics(),
+          slivers: [
+            ExpertsAppbar(
+              title: titleScreen,
+              expertCubitContext: context,
+              isSearchMode: isSearchMode,
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate.fixed(
+                [
+                  BlocBuilder<ExpertCubit, ExpertState>(
+                    builder: (context, state) {
+                      final expertCubit = context.read<ExpertCubit>();
+                      return state.maybeWhen(
+                        loading: () => Center(
+                          child: PrimaryLoader(
+                            padding: EdgeInsets.symmetric(vertical: 250.h),
+                          ),
                         ),
-                      ),
-                      orElse: () => const SizedBox(),
-                      loaded: (experts) => experts.isNotEmpty
-                          ? ListView(
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              children: List.generate(
-                                experts.length + 1,
-                                (index) {
-                                  if (index < experts.length) {
-                                    return Padding(
-                                      padding: EdgeInsets.symmetric(horizontal: 10.w).copyWith(
-                                        bottom: 10.h,
-                                      ),
-                                      child: ExpertFullInfoCard(
-                                        expert: experts[index],
-                                      ),
-                                    );
-                                  } else {
-                                    return expertCubit.loaded
-                                        ? const SizedBox()
-                                        : Container(
-                                            padding: EdgeInsets.symmetric(vertical: 30.h),
-                                            child: expertCubit.hasMore
-                                                ? PrimaryLoader(
-                                                    size: 30.w,
-                                                  )
-                                                : Center(
-                                                    child: Text(
-                                                      "No More Any Expert",
-                                                      textAlign: TextAlign.center,
-                                                      style: TextStyle(
-                                                        color: AppColors.primary,
-                                                        fontSize: 18.sp,
-                                                        fontWeight: FontWeight.w700,
+                        orElse: () => const SizedBox(),
+                        loaded: (experts) => experts.isNotEmpty
+                            ? ListView(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                children: List.generate(
+                                  experts.length + 1,
+                                  (index) {
+                                    if (index < experts.length) {
+                                      return Padding(
+                                        padding: EdgeInsets.symmetric(horizontal: 10.w).copyWith(
+                                          bottom: 10.h,
+                                        ),
+                                        child: ExpertFullInfoCard(
+                                          expert: experts[index],
+                                        ),
+                                      );
+                                    } else {
+                                      return expertCubit.loaded
+                                          ? const SizedBox()
+                                          : Container(
+                                              padding: EdgeInsets.symmetric(vertical: 30.h),
+                                              child: expertCubit.hasMore
+                                                  ? PrimaryLoader(
+                                                      size: 30.w,
+                                                    )
+                                                  : Center(
+                                                      child: Text(
+                                                        "No More Any Expert",
+                                                        textAlign: TextAlign.center,
+                                                        style: TextStyle(
+                                                          color: AppColors.primary,
+                                                          fontSize: 18.sp,
+                                                          fontWeight: FontWeight.w700,
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-                                          );
-                                  }
-                                },
-                              ),
-                            )
-                          : Center(
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(vertical: 250.h),
-                                child: Text(
-                                  "No  Any Expert",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: AppColors.primary,
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.w700,
+                                            );
+                                    }
+                                  },
+                                ),
+                              )
+                            : Center(
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 250.h),
+                                  child: Text(
+                                    "No  Any Expert",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: AppColors.primary,
+                                      fontSize: 18.sp,
+                                      fontWeight: FontWeight.w700,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                    );
-                  },
-                ),
-              ],
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
