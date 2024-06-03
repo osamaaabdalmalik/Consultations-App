@@ -35,6 +35,8 @@ dependencies:
   shimmer: ^3.0.0
   flutter_svg: ^2.0.9
   bottom_navy_bar: ^6.0.0
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.4.0
 
 dev_dependencies:
   flutter_test:
@@ -45,6 +47,16 @@ dev_dependencies:
   freezed: ^2.5.2
   json_serializable: ^6.7.1
 
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/app_icon.png"
+
+flutter_native_splash:
+  color: "#150050"
+  image: assets/images/splash_screen.png
+  android_gravity: fill
+  fullscreen: true
 
 flutter:
 
