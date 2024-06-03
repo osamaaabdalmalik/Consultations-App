@@ -1,3 +1,4 @@
+import 'package:consultations_app/core/constants/app_assets.dart';
 import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:consultations_app/core/constants/app_keys.dart';
 import 'package:consultations_app/core/constants/app_routes.dart';
@@ -7,6 +8,7 @@ import 'package:consultations_app/features/main/presentation/widgets/custom_icon
 import 'package:flutter/cupertino.dart' as cupertino;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 class HomeAppbar extends StatelessWidget {
@@ -19,18 +21,13 @@ class HomeAppbar extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.0.w),
-            child: CustomIconButton(
-              icon: cupertino.CupertinoIcons.paintbrush_fill,
-              iconColor: AppColors.white,
-              backgroundColor: AppColors.primary,
-              size: 40,
-              iconSize: 20,
-              radius: 15,
-              onPressed: () {},
+            child: SvgPicture.asset(
+              AppAssets.appLogo,
+              width: 30.w,
             ),
           ),
           const Text(
-            'Copilot',
+            'Top Ex',
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.w700,
