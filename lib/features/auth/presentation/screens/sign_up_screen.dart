@@ -1,6 +1,8 @@
 import 'package:consultations_app/core/constants/app_assets.dart';
 import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:consultations_app/core/widgets/primary_button.dart';
+import 'package:consultations_app/core/widgets/primary_icon_button.dart';
+import 'package:consultations_app/core/widgets/primary_text_button.dart';
 import 'package:consultations_app/core/widgets/primary_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -112,31 +114,47 @@ class SignUpScreen extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 10.h,
+              height: 5.h,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SvgPicture.asset(
-                  AppAssets.facebookLogo,
-                  height: 30.w,
+                PrimaryIconButton(
+                  icon: SvgPicture.asset(
+                    AppAssets.facebookLogo,
+                    height: 30.w,
+                  ),
+                  onPressed: () {},
+                ),
+                SizedBox(
+                  width: 25.h,
+                ),
+                PrimaryIconButton(
+                  icon: SvgPicture.asset(
+                    AppAssets.appleLogo,
+                    height: 30.w,
+                  ),
+                  onPressed: () {},
                 ),
                 SizedBox(
                   width: 40.h,
                 ),
-                SvgPicture.asset(
-                  AppAssets.googleLogo,
-                  height: 28.w,
+                PrimaryIconButton(
+                  icon: SvgPicture.asset(
+                    AppAssets.googleLogo,
+                    height: 28.w,
+                  ),
+                  onPressed: () {},
                 ),
               ],
             ),
             SizedBox(
-              height: 20.h,
+              height: 5.h,
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   "Already have account? ",
                   style: TextStyle(
                     fontSize: 16,
@@ -144,19 +162,17 @@ class SignUpScreen extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                Text(
-                  "Sign in",
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: AppColors.primary,
-                    fontWeight: FontWeight.w500,
-                  ),
+                PrimaryTextButton(
+                  label: "Sign in",
+                  color: AppColors.primary,
+                  onPressed: () {},
                 ),
               ],
             ),
-            SizedBox(
-              height: 25.h,
-            ),
+            if (MediaQuery.of(context).viewInsets.bottom != 0)
+              SizedBox(
+                height: 300.h,
+              ),
           ],
         ),
       ),

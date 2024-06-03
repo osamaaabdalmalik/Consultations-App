@@ -70,47 +70,60 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
               FocusManager.instance.primaryFocus?.unfocus();
             },
             decoration: InputDecoration(
-                hintText: widget.hintText,
-                hintStyle: TextStyle(color: AppColors.gray.withOpacity(0.5)),
-                errorMaxLines: 3,
-                filled: true,
-                fillColor: AppColors.primary20,
-                suffixIcon: widget.suffixIcon ??
-                    (widget.isObscureText
-                        ? IconButton(
-                            onPressed: () {
-                              setState(() {
-                                isVisibleText = !isVisibleText;
-                              });
-                            },
-                            icon: isVisibleText
-                                ? Icon(
-                                    Icons.visibility_off_outlined,
-                                    color: AppColors.gray.withOpacity(0.5),
-                                  )
-                                : Icon(
-                                    Icons.visibility_outlined,
-                                    color: AppColors.gray.withOpacity(0.5),
-                                  ),
-                          )
-                        : null),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.r),
-                  borderSide: BorderSide.none,
+              hintText: widget.hintText,
+              hintStyle: TextStyle(color: AppColors.gray.withOpacity(0.5)),
+              errorMaxLines: 3,
+              filled: true,
+              fillColor: AppColors.primary20,
+              suffixIcon: widget.suffixIcon ??
+                  (widget.isObscureText
+                      ? IconButton(
+                          onPressed: () {
+                            setState(() {
+                              isVisibleText = !isVisibleText;
+                            });
+                          },
+                          icon: isVisibleText
+                              ? Icon(
+                                  Icons.visibility_off_outlined,
+                                  color: AppColors.gray.withOpacity(0.5),
+                                )
+                              : Icon(
+                                  Icons.visibility_outlined,
+                                  color: AppColors.gray.withOpacity(0.5),
+                                ),
+                        )
+                      : null),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8.r),
+                borderSide: const BorderSide(
+                  width: 0.6,
+                  color: AppColors.gray,
                 ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.r),
-                  borderSide: BorderSide.none,
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8.r),
+                borderSide: const BorderSide(
+                  width: 1,
+                  color: AppColors.primary,
                 ),
-                errorBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.r),
-                  borderSide: BorderSide.none,
+              ),
+              errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8.r),
+                borderSide: const BorderSide(
+                  width: 1,
+                  color: AppColors.danger,
                 ),
-                focusedErrorBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.r),
-                  borderSide: BorderSide.none,
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8.r),
+                borderSide: const BorderSide(
+                  width: 1,
+                  color: AppColors.danger,
                 ),
-                contentPadding: EdgeInsets.all(8.w)),
+              ),
+              contentPadding: EdgeInsets.all(8.w),
+            ),
             keyboardType: widget.inputType,
             obscureText: widget.isObscureText && !isVisibleText,
             maxLines: widget.isTextArea ? 4 : 1,
