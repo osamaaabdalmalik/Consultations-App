@@ -11,6 +11,7 @@ abstract class AppAssets {
   static const String categoriesIconSvg = "$rootSVGIcons/categories.svg";
   static const String facebookLogo = "$rootSVGIcons/facebook_logo.svg";
   static const String googleLogo = "$rootSVGIcons/google_logo.svg";
+  static const String appleLogo = "$rootSVGIcons/apple_logo.svg";
 
   //-------------------------------------------
 
