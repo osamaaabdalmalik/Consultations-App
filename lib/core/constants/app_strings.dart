@@ -1,19 +1,4 @@
 class AppStrings {
-  static const String success = 'Success';
-  static const String waiting = 'Waiting...';
-  static const String cancel = 'Cancel';
-
-  // Failure Messages
-  static const String forbidden = 'Sorry, you must be logged in to access this resource';
-  static const String unauthorized = 'Sorry, you do not have sufficient permissions to access this resource';
-  static const String notFound = 'Sorry, the requested resource could not be found';
-  static const String itWasDoneSuccessfully = 'It was done successfully';
-  static const String internalServerError =
-      'Sorry, a server error occurred, the request cannot be executed at this time';
-  static const String offline =
-      'Can`t connect to the internet.\n Please check your network connection and try again later';
-  static const String unexpectedException = 'Unexpected error. Please try again later';
-
   //-------------------------------------------
   // Auth Strings
   //-------------------------------------------
@@ -60,7 +45,23 @@ class AppStrings {
   static const String applyFilters = "Apply Filters";
 
   //-------------------------------------------
-  // Failure Messages
+  // Failure Messages Strings
+  //-------------------------------------------
+  static const String success = 'Success';
+  static const String waiting = 'Waiting...';
+  static const String cancel = 'Cancel';
+  static const String forbidden = 'Sorry, you must be logged in to access this resource';
+  static const String unauthorized = 'Sorry, you do not have sufficient permissions to access this resource';
+  static const String notFound = 'Sorry, the requested resource could not be found';
+  static const String itWasDoneSuccessfully = 'It was done successfully';
+  static const String internalServerError =
+      'Sorry, a server error occurred, the request cannot be executed at this time';
+  static const String offline =
+      'Can`t connect to the internet.\n Please check your network connection and try again later';
+  static const String unexpectedException = 'Unexpected error. Please try again later';
+
+  //-------------------------------------------
+  // Validation Messages Strings
   //-------------------------------------------
   static const String emailIsRequired = 'Email is required';
   static const String theEmailIsNotValid = 'The email is not valid';
