@@ -1,6 +1,7 @@
 import 'package:consultations_app/core/constants/app_assets.dart';
 import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:consultations_app/core/constants/app_routes.dart';
+import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/core/widgets/primary_button.dart';
 import 'package:consultations_app/core/widgets/primary_icon_button.dart';
 import 'package:consultations_app/core/widgets/primary_snack_bar.dart';
@@ -40,7 +41,7 @@ class SignInScreen extends StatelessWidget {
                     const Column(
                       children: [
                         Text(
-                          "Top EX",
+                          AppStrings.topEx,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 30,
@@ -49,7 +50,7 @@ class SignInScreen extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          "for consultations",
+                          AppStrings.forConsultations,
                           style: TextStyle(
                             fontSize: 18,
                             color: AppColors.gray,
@@ -66,7 +67,7 @@ class SignInScreen extends StatelessWidget {
                 child: const Row(
                   children: [
                     Text(
-                      "Sign in for free",
+                      AppStrings.signInForFree,
                       style: TextStyle(
                         fontSize: 20,
                         color: AppColors.black,
@@ -80,8 +81,8 @@ class SignInScreen extends StatelessWidget {
                 height: 20.h,
               ),
               PrimaryTextField(
-                labelText: 'Email',
-                hintText: 'example@mail.com',
+                labelText: AppStrings.email,
+                hintText: AppStrings.exampleMail,
                 controller: TextEditingController(),
                 inputType: TextInputType.emailAddress,
               ),
@@ -89,8 +90,8 @@ class SignInScreen extends StatelessWidget {
                 height: 20.h,
               ),
               PrimaryTextField(
-                labelText: 'Password',
-                hintText: 'more than 8 character',
+                labelText: AppStrings.password,
+                hintText: AppStrings.moreThan8,
                 controller: TextEditingController(),
                 isObscureText: true,
               ),
@@ -100,7 +101,7 @@ class SignInScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     PrimaryTextButton(
-                      label: "forget password",
+                      label: AppStrings.forgetPassword,
                       color: AppColors.primary,
                       fontSize: 14,
                       onPressed: () {
@@ -111,7 +112,7 @@ class SignInScreen extends StatelessWidget {
                 ),
               ),
               PrimaryButton(
-                text: 'Sign in',
+                text: AppStrings.signIn,
                 onPressed: () {
                   ScaffoldMessenger.of(context)
                     ..hideCurrentSnackBar()
@@ -128,7 +129,7 @@ class SignInScreen extends StatelessWidget {
                 height: 20.h,
               ),
               const Text(
-                "or continue with",
+                AppStrings.orContinueWith,
                 style: TextStyle(
                   fontSize: 16,
                   color: AppColors.gray,
@@ -177,7 +178,7 @@ class SignInScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    "Don't have an account? ",
+                    AppStrings.doNotHaveAnAccount,
                     style: TextStyle(
                       fontSize: 16,
                       color: AppColors.gray,
@@ -185,7 +186,7 @@ class SignInScreen extends StatelessWidget {
                     ),
                   ),
                   PrimaryTextButton(
-                    label: "Sign up",
+                    label: AppStrings.signUp,
                     color: AppColors.primary,
                     onPressed: () {
                       context.push(AppRoutes.signUpScreen);
@@ -197,7 +198,7 @@ class SignInScreen extends StatelessWidget {
                 height: 15.h,
               ),
               PrimaryTextButton(
-                label: "skip this now",
+                label: AppStrings.skipThisNow,
                 onPressed: () {
                   context.push(AppRoutes.mainScreen);
                 },

@@ -16,6 +16,22 @@ class AppStrings {
 
 //-------------------------------------------
 
+  // Auth Strings
+  //-------------------------------------------
+  static const String topEx = 'Top EX';
+  static const String forConsultations = 'for consultations';
+  static const String signInForFree = 'Sign in for free';
+  static const String email = 'Email';
+  static const String exampleMail = 'example@mail.com';
+  static const String password = 'Password';
+  static const String moreThan8 = 'more than 8 character';
+  static const String forgetPassword = 'forget password';
+  static const String signIn = 'Sign in';
+  static const String signUp = 'Sign up';
+  static const String orContinueWith = 'or continue with';
+  static const String doNotHaveAnAccount = "Don't have an account? ";
+  static const String skipThisNow = "skip this now";
+
   // Failure Messages
   //-------------------------------------------
   static const String emailIsRequired = 'Email is required';
