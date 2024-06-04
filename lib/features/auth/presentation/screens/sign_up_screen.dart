@@ -1,5 +1,6 @@
 import 'package:consultations_app/core/constants/app_assets.dart';
 import 'package:consultations_app/core/constants/app_colors.dart';
+import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/core/widgets/primary_button.dart';
 import 'package:consultations_app/core/widgets/primary_icon_button.dart';
 import 'package:consultations_app/core/widgets/primary_text_button.dart';
@@ -36,7 +37,7 @@ class SignUpScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Top EX",
+                          AppStrings.topEx,
                           style: TextStyle(
                             fontSize: 30,
                             color: AppColors.primary,
@@ -44,7 +45,7 @@ class SignUpScreen extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          "for consultations",
+                          AppStrings.forConsultations,
                           style: TextStyle(
                             fontSize: 18,
                             color: AppColors.gray,
@@ -61,7 +62,7 @@ class SignUpScreen extends StatelessWidget {
                 child: const Row(
                   children: [
                     Text(
-                      "Sign up for free",
+                      AppStrings.signUpForFree,
                       style: TextStyle(
                         fontSize: 20,
                         color: AppColors.black,
@@ -75,16 +76,16 @@ class SignUpScreen extends StatelessWidget {
                 height: 15.h,
               ),
               PrimaryTextField(
-                labelText: 'Full Name',
-                hintText: 'use real name',
+                labelText: AppStrings.fullName,
+                hintText: AppStrings.useRealName,
                 controller: TextEditingController(),
               ),
               SizedBox(
                 height: 25.h,
               ),
               PrimaryTextField(
-                labelText: 'Email',
-                hintText: 'example@mail.com',
+                labelText: AppStrings.email,
+                hintText: AppStrings.exampleMail,
                 controller: TextEditingController(),
                 inputType: TextInputType.emailAddress,
               ),
@@ -92,8 +93,8 @@ class SignUpScreen extends StatelessWidget {
                 height: 25.h,
               ),
               PrimaryTextField(
-                labelText: 'Password',
-                hintText: 'make it strong',
+                labelText: AppStrings.password,
+                hintText: AppStrings.makeItStrong,
                 controller: TextEditingController(),
                 isObscureText: true,
               ),
@@ -101,14 +102,14 @@ class SignUpScreen extends StatelessWidget {
                 height: 30.h,
               ),
               PrimaryButton(
-                text: 'Sign up',
+                text: AppStrings.signUp,
                 onPressed: () {},
               ),
               SizedBox(
                 height: 20.h,
               ),
               const Text(
-                "or continue with",
+                AppStrings.orContinueWith,
                 style: TextStyle(
                   fontSize: 16,
                   color: AppColors.gray,
@@ -157,7 +158,7 @@ class SignUpScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    "Already have an account? ",
+                    AppStrings.alreadyHaveAnAccount,
                     style: TextStyle(
                       fontSize: 16,
                       color: AppColors.gray,
@@ -165,7 +166,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ),
                   PrimaryTextButton(
-                    label: "Sign in",
+                    label: AppStrings.signIn,
                     color: AppColors.primary,
                     onPressed: () {
                       context.pop();
