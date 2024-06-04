@@ -1,5 +1,6 @@
 import 'package:consultations_app/core/constants/app_keys.dart';
 import 'package:consultations_app/core/constants/app_routes.dart';
+import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/core/enums/experts_types.dart';
 import 'package:consultations_app/core/widgets/primary_loader.dart';
 import 'package:consultations_app/features/main/domain/entities/home_data_entity.dart';
@@ -80,17 +81,17 @@ class HomeContent extends StatelessWidget {
     return Column(
       children: [
         const HeaderSection(
-          title: "Specialists",
+          title: AppStrings.specialists,
         ),
         SpecialistsList(mainCategories: homeData.mainCategories),
         HeaderSection(
-          title: "Top Experts",
+          title: AppStrings.topExperts,
           onSeeAllTap: () {
             context.push(
               AppRoutes.expertsScreen,
               extra: {
                 AppKeys.expertsType: ExpertsTypes.topExperts,
-                AppKeys.titleScreen: 'Top Experts',
+                AppKeys.titleScreen: AppStrings.topExperts,
               },
             );
           },
@@ -99,13 +100,13 @@ class HomeContent extends StatelessWidget {
           experts: homeData.highestRatedExperts,
         ),
         HeaderSection(
-          title: "Recommended Experts",
+          title: AppStrings.recommendedExperts,
           onSeeAllTap: () {
             context.push(
               AppRoutes.expertsScreen,
               extra: {
                 AppKeys.expertsType: ExpertsTypes.recommendedExperts,
-                AppKeys.titleScreen: 'Recommended Experts',
+                AppKeys.titleScreen: AppStrings.recommendedExperts,
               },
             );
           },

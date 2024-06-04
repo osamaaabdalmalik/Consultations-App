@@ -2,6 +2,7 @@ import 'package:consultations_app/core/constants/app_assets.dart';
 import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:consultations_app/core/constants/app_keys.dart';
 import 'package:consultations_app/core/constants/app_routes.dart';
+import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/core/enums/experts_types.dart';
 import 'package:consultations_app/core/widgets/custom_sliver_appbar.dart';
 import 'package:consultations_app/features/main/presentation/widgets/custom_icon_button.dart';
@@ -27,7 +28,7 @@ class HomeAppbar extends StatelessWidget {
             ),
           ),
           const Text(
-            'Top Ex',
+            AppStrings.topEx,
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.w700,
@@ -54,7 +55,7 @@ class HomeAppbar extends StatelessWidget {
         ),
       ],
       sliverBottom: Hero(
-        tag: 'Search about experts',
+        tag: AppStrings.searchAboutExperts,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 10.w),
           child: TextFormField(
@@ -65,7 +66,7 @@ class HomeAppbar extends StatelessWidget {
             cursorWidth: 0.8,
             textInputAction: TextInputAction.search,
             decoration: InputDecoration(
-              hintText: 'Search about experts',
+              hintText: AppStrings.searchAboutExperts,
               suffixIcon: const Icon(
                 Icons.search,
                 color: AppColors.gray,
@@ -84,7 +85,7 @@ class HomeAppbar extends StatelessWidget {
                 AppRoutes.expertsScreen,
                 extra: {
                   AppKeys.expertsType: ExpertsTypes.topExperts,
-                  AppKeys.titleScreen: 'Top Experts',
+                  AppKeys.titleScreen: AppStrings.topExperts,
                   AppKeys.isSearchMode: true,
                 },
               );

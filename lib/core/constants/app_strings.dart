@@ -14,8 +14,7 @@ class AppStrings {
       'Can`t connect to the internet.\n Please check your network connection and try again later';
   static const String unexpectedException = 'Unexpected error. Please try again later';
 
-//-------------------------------------------
-
+  //-------------------------------------------
   // Auth Strings
   //-------------------------------------------
   static const String topEx = 'Top EX';
@@ -37,6 +36,15 @@ class AppStrings {
   static const String alreadyHaveAnAccount = "Already have an account? ";
   static const String skipThisNow = "skip this now";
 
+  //-------------------------------------------
+  // Home Strings
+  //-------------------------------------------
+  static const String specialists = "Specialists";
+  static const String topExperts = "Top Experts";
+  static const String recommendedExperts = "Recommended Experts";
+  static const String searchAboutExperts = "Search about experts";
+
+  //-------------------------------------------
   // Failure Messages
   //-------------------------------------------
   static const String emailIsRequired = 'Email is required';
