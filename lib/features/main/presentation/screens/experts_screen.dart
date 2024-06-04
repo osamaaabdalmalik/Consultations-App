@@ -1,4 +1,5 @@
 import 'package:consultations_app/core/constants/app_colors.dart';
+import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/core/widgets/primary_loader.dart';
 import 'package:consultations_app/features/main/presentation/cubits/expert_cubit/expert_cubit.dart';
 import 'package:consultations_app/features/main/presentation/widgets/expert_full_info_card.dart';
@@ -73,7 +74,7 @@ class ExpertsScreen extends StatelessWidget {
                                                     )
                                                   : Center(
                                                       child: Text(
-                                                        "No More Any Expert",
+                                                        AppStrings.noMoreAnyExpert,
                                                         textAlign: TextAlign.center,
                                                         style: TextStyle(
                                                           color: AppColors.primary,
@@ -91,7 +92,7 @@ class ExpertsScreen extends StatelessWidget {
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(vertical: 250.h),
                                   child: Text(
-                                    "No  Any Expert",
+                                    AppStrings.noMoreAnyExpert,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       color: AppColors.primary,

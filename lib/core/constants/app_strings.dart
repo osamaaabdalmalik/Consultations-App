@@ -43,6 +43,8 @@ class AppStrings {
   static const String topExperts = "Top Experts";
   static const String recommendedExperts = "Recommended Experts";
   static const String searchAboutExperts = "Search about experts";
+  static const String noMoreAnyExpert = "No More Any Expert";
+  static const String pleaseTypeAnythingAndClickAgain = "please type anything and click again";
 
   //-------------------------------------------
   // Failure Messages

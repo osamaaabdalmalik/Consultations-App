@@ -1,4 +1,5 @@
 import 'package:consultations_app/core/constants/app_colors.dart';
+import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/core/services/status_handler_service.dart';
 import 'package:consultations_app/core/widgets/custom_sliver_appbar.dart';
 import 'package:consultations_app/features/main/presentation/cubits/expert_cubit/expert_cubit.dart';
@@ -35,7 +36,7 @@ class ExpertsAppbar extends StatelessWidget {
               ? SizedBox(
                   width: 348.w,
                   child: Hero(
-                    tag: 'Search about experts',
+                    tag: AppStrings.searchAboutExperts,
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10.w).copyWith(top: 10.h),
                       child: TextFormField(
@@ -47,13 +48,13 @@ class ExpertsAppbar extends StatelessWidget {
                         cursorWidth: 0.8,
                         textInputAction: TextInputAction.search,
                         decoration: InputDecoration(
-                          hintText: 'Search about experts',
+                          hintText: AppStrings.searchAboutExperts,
                           suffixIcon: InkWell(
                             borderRadius: BorderRadius.circular(15.r),
                             onTap: () {
                               if (context.read<MainCubit>().searchTextController.text.isEmpty) {
                                 StatusHandlerService.showToast(
-                                  message: 'please type anything and click again',
+                                  message: AppStrings.pleaseTypeAnythingAndClickAgain,
                                   toastPosition: EasyLoadingToastPosition.center,
                                 );
                               }
@@ -86,7 +87,7 @@ class ExpertsAppbar extends StatelessWidget {
                         onFieldSubmitted: (value) {
                           if (context.read<MainCubit>().searchTextController.text.isEmpty) {
                             StatusHandlerService.showToast(
-                              message: 'please type anything and click again',
+                              message: AppStrings.pleaseTypeAnythingAndClickAgain,
                               toastPosition: EasyLoadingToastPosition.center,
                             );
                           }
