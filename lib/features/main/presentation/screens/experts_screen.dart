@@ -22,12 +22,13 @@ class ExpertsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: RefreshIndicator(
+        edgeOffset: 100.h,
         onRefresh: () async {
           context.read<ExpertCubit>().getExperts();
         },
         child: CustomScrollView(
           controller: context.read<ExpertCubit>().scrollController,
-          physics: const BouncingScrollPhysics(),
+          physics: const AlwaysScrollableScrollPhysics(),
           slivers: [
             ExpertsAppbar(
               title: titleScreen,

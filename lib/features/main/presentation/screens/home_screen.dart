@@ -22,11 +22,12 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
+      edgeOffset: 175.h,
       onRefresh: () async {
         context.read<MainCubit>().getHomeData();
       },
       child: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
+        physics: const AlwaysScrollableScrollPhysics(),
         slivers: [
           const HomeAppbar(),
           SliverList(
