@@ -1,4 +1,5 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -22,14 +23,14 @@ class BottomNavbar extends StatelessWidget {
         BottomNavyBarItem(
             icon: const Icon(CupertinoIcons.house),
             title: const Text(
-              'Home',
+              AppStrings.home,
             ),
             textAlign: TextAlign.center),
         BottomNavyBarItem(
           icon: const Icon(CupertinoIcons.calendar),
           title: const FittedBox(
             child: Text(
-              'Appointment',
+              AppStrings.appointment,
             ),
           ),
           textAlign: TextAlign.center,
@@ -37,7 +38,7 @@ class BottomNavbar extends StatelessWidget {
         BottomNavyBarItem(
           icon: const Icon(CupertinoIcons.list_bullet_below_rectangle),
           title: const Text(
-            'History',
+            AppStrings.history,
           ),
           textAlign: TextAlign.center,
         ),
@@ -47,7 +48,7 @@ class BottomNavbar extends StatelessWidget {
             size: 25,
           ),
           title: const Text(
-            'Profile',
+            AppStrings.profile,
           ),
           textAlign: TextAlign.center,
         ),

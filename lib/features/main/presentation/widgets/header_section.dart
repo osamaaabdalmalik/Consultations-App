@@ -1,4 +1,5 @@
 import 'package:consultations_app/core/constants/app_colors.dart';
+import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -35,7 +36,7 @@ class HeaderSection extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.all(5.h),
               child: Text(
-                hasSeeAll ? "See all" : '',
+                hasSeeAll ? AppStrings.seeAll : '',
                 style: TextStyle(
                   color: onSeeAllTap != null ? AppColors.primary : AppColors.white,
                   fontWeight: FontWeight.w400,

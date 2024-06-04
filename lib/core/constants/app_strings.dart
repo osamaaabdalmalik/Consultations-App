@@ -45,6 +45,19 @@ class AppStrings {
   static const String searchAboutExperts = "Search about experts";
   static const String noMoreAnyExpert = "No More Any Expert";
   static const String pleaseTypeAnythingAndClickAgain = "please type anything and click again";
+  static const String home = "Home";
+  static const String appointment = "Appointment";
+  static const String history = "History";
+  static const String profile = "Profile";
+  static const String filters = "Filters:";
+  static const String clear = "clear";
+  static const String expertsFilters = "Experts Filters";
+  static const String mainCategory = "Main Category:";
+  static const String subCategory = "Sub Category:";
+  static const String all = "All";
+  static const String seeAll = "See all";
+  static const String expertsTypes = "Experts Types:";
+  static const String applyFilters = "Apply Filters";
 
   //-------------------------------------------
   // Failure Messages

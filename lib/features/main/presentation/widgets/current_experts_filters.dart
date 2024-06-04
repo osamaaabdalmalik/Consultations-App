@@ -1,4 +1,5 @@
 import 'package:consultations_app/core/constants/app_colors.dart';
+import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/core/enums/experts_types.dart';
 import 'package:consultations_app/core/widgets/primary_text_button.dart';
 import 'package:consultations_app/features/main/presentation/cubits/expert_cubit/expert_cubit.dart';
@@ -31,11 +32,11 @@ class CurrentExpertsFilters extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         const Text(
-                          'Filters:',
+                          AppStrings.filters,
                           style: TextStyle(color: AppColors.primary),
                         ),
                         PrimaryTextButton(
-                          label: 'clear',
+                          label: AppStrings.clear,
                           onPressed: () {
                             expertsFiltersCubit.clearFilters(useInitFilters: true);
                             expertCubitContext.read<ExpertCubit>().getExperts(

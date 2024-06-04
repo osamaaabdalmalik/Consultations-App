@@ -1,4 +1,5 @@
 import 'package:consultations_app/core/constants/app_colors.dart';
+import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/core/enums/experts_types.dart';
 import 'package:consultations_app/core/widgets/primary_button.dart';
 import 'package:consultations_app/features/main/presentation/cubits/experts_filters_cubit/experts_filters_cubit.dart';
@@ -28,7 +29,7 @@ class ExpertsFiltersSheet extends StatelessWidget {
             children: [
               Center(
                 child: Text(
-                  "Experts Filters",
+                  AppStrings.expertsFilters,
                   style: TextStyle(
                     fontSize: 22.sp,
                     fontWeight: FontWeight.bold,
@@ -43,7 +44,7 @@ class ExpertsFiltersSheet extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Text(
-                    "Main Category:",
+                    AppStrings.mainCategory,
                     style: TextStyle(
                       fontSize: 18.sp,
                       fontWeight: FontWeight.w700,
@@ -57,7 +58,7 @@ class ExpertsFiltersSheet extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemCount: expertsFiltersCubit.mainCategories.length + 1,
                     itemBuilder: (BuildContext context, int index) => SubCategoryChip(
-                      label: index == 0 ? 'All' : expertsFiltersCubit.mainCategories[index - 1].name,
+                      label: index == 0 ? AppStrings.all : expertsFiltersCubit.mainCategories[index - 1].name,
                       isSelected: index == expertsFiltersCubit.selectedIndexMainCategory,
                       onSelected: (isSelected) {
                         expertsFiltersCubit.onChangeIndexMainCategory(
@@ -79,7 +80,7 @@ class ExpertsFiltersSheet extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Text(
-                    "Sub Category:",
+                    AppStrings.subCategory,
                     style: TextStyle(
                       fontSize: 18.sp,
                       fontWeight: FontWeight.w700,
@@ -94,7 +95,7 @@ class ExpertsFiltersSheet extends StatelessWidget {
                     itemCount: expertsFiltersCubit.newExpertsFilters.selectedMainCategory!.subCategories.length + 1,
                     itemBuilder: (BuildContext context, int index) => SubCategoryChip(
                       label: index == 0
-                          ? 'All'
+                          ? AppStrings.all
                           : expertsFiltersCubit.newExpertsFilters.selectedMainCategory!.subCategories[index - 1].name,
                       isSelected: index == expertsFiltersCubit.selectedIndexSubCategory,
                       onSelected: (isSelected) {
@@ -119,7 +120,7 @@ class ExpertsFiltersSheet extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Text(
-                    "Experts Types:",
+                    AppStrings.expertsTypes,
                     style: TextStyle(
                       fontSize: 18.sp,
                       fontWeight: FontWeight.w700,
@@ -155,7 +156,7 @@ class ExpertsFiltersSheet extends StatelessWidget {
                 height: 30.h,
               ),
               PrimaryButton(
-                text: 'Apply Filters',
+                text: AppStrings.applyFilters,
                 onPressed: expertsFiltersCubit.isFiltersChanged
                     ? () {
                         context.pop();

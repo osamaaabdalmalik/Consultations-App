@@ -27,7 +27,9 @@ class _SubCategoryChipState extends State<SubCategoryChip> {
       selectedColor: AppColors.primary,
       backgroundColor: AppColors.white,
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.sp), side: const BorderSide(color: AppColors.primary)),
+        borderRadius: BorderRadius.circular(15.sp),
+        side: const BorderSide(color: AppColors.primary),
+      ),
       label: Text(
         widget.label,
         style: TextStyle(
