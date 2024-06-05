@@ -2,8 +2,10 @@ import 'package:consultations_app/core/constants/app_keys.dart';
 import 'package:consultations_app/core/constants/app_routes.dart';
 import 'package:consultations_app/core/enums/experts_types.dart';
 import 'package:consultations_app/core/services/caching_service.dart';
+import 'package:consultations_app/features/auth/presentation/screens/forget_password_screen.dart';
 import 'package:consultations_app/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:consultations_app/features/auth/presentation/screens/sign_up_screen.dart';
+import 'package:consultations_app/features/auth/presentation/screens/verification_screen.dart';
 import 'package:consultations_app/features/main/domain/entities/experts_filters_entity/experts_filters_entity.dart';
 import 'package:consultations_app/features/main/presentation/cubits/expert_cubit/expert_cubit.dart';
 import 'package:consultations_app/features/main/presentation/cubits/experts_filters_cubit/experts_filters_cubit.dart';
@@ -54,28 +56,40 @@ class RouterService {
                 );
 
                 return InjectionContainer.getIt<ExpertCubit>()
-                      ..getExperts(
-                        newExpertsFilters: context
-                            .read<ExpertsFiltersCubit>()
-                            .initialExpertsFilters,
-                      );
-                  },
-                  child: ExpertsScreen(
-                    titleScreen: (state.extra as Map?)?[AppKeys.titleScreen],
-                    isSearchMode: (state.extra as Map?)?[AppKeys.isSearchMode] ?? false,
-                  ),
-                ),
-                transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                  return FadeTransition(
-                    opacity: animation,
-                    child: child,
+                  ..getExperts(
+                    newExpertsFilters: context.read<ExpertsFiltersCubit>().initialExpertsFilters,
                   );
-                },
+              },
+              child: ExpertsScreen(
+                titleScreen: (state.extra as Map?)?[AppKeys.titleScreen],
+                isSearchMode: (state.extra as Map?)?[AppKeys.isSearchMode] ?? false,
               ),
+            ),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              return FadeTransition(
+                opacity: animation,
+                child: child,
+              );
+            },
+          ),
         ),
         //-------------------------------------------
         // Authentication Routes
         //-------------------------------------------
+        GoRoute(
+          path: AppRoutes.signInScreen,
+          pageBuilder: (context, state) => CustomTransitionPage(
+            key: state.pageKey,
+            child: const SignInScreen(),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              final tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
+              return SlideTransition(
+                position: animation.drive(tween),
+                child: child,
+              );
+            },
+          ),
+        ),
         GoRoute(
           path: AppRoutes.signUpScreen,
           pageBuilder: (context, state) => CustomTransitionPage(
@@ -91,10 +105,24 @@ class RouterService {
           ),
         ),
         GoRoute(
-          path: AppRoutes.signInScreen,
+          path: AppRoutes.forgetPasswordScreen,
           pageBuilder: (context, state) => CustomTransitionPage(
             key: state.pageKey,
-            child: const SignInScreen(),
+            child: const ForgetPasswordScreen(),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              final tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
+              return SlideTransition(
+                position: animation.drive(tween),
+                child: child,
+              );
+            },
+          ),
+        ),
+        GoRoute(
+          path: AppRoutes.verificationScreen,
+          pageBuilder: (context, state) => CustomTransitionPage(
+            key: state.pageKey,
+            child: const VerificationScreen(),
             transitionsBuilder: (context, animation, secondaryAnimation, child) {
               final tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
               return SlideTransition(

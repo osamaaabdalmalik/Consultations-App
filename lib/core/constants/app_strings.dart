@@ -16,8 +16,15 @@ class AppStrings {
   static const String forgetPassword = 'forget password';
   static const String signIn = 'Sign in';
   static const String signUp = 'Sign up';
+  static const String getCode = 'Get code';
+  static const String verify = 'Verify';
   static const String orContinueWith = 'or continue with';
   static const String doNotHaveAnAccount = "Don't have an account? ";
+  static const String enterYourRegisteredEmail = "Enter your registered email below to receive verification OTP on it";
+  static const String enterTheCodeSent = "Enter the OTP that sent to ";
+  static const String doNotReceiveCode = "Don't receive code? ";
+  static const String resend = "Re-send";
+  static const String sec = "Sec";
   static const String alreadyHaveAnAccount = "Already have an account? ";
   static const String skipThisNow = "skip this now";
 
