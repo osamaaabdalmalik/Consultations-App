@@ -7,6 +7,7 @@ class PrimaryTextButton extends StatelessWidget {
   final Color color;
   final FontWeight fontWeight;
   final double fontSize;
+  final EdgeInsetsGeometry? padding;
   final void Function()? onPressed;
 
   const PrimaryTextButton({
@@ -15,6 +16,7 @@ class PrimaryTextButton extends StatelessWidget {
     this.fontWeight = FontWeight.bold,
     this.fontSize = 16,
     this.onPressed,
+    this.padding,
     super.key,
   });
 
@@ -24,7 +26,7 @@ class PrimaryTextButton extends StatelessWidget {
       onTap: onPressed,
       borderRadius: BorderRadius.circular(5.r),
       child: Padding(
-        padding: EdgeInsets.all(5.w),
+        padding: padding ?? EdgeInsets.all(5.w),
         child: Text(
           label,
           style: Theme.of(context).textTheme.labelMedium!.copyWith(
