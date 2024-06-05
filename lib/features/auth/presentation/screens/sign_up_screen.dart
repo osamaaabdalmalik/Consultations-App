@@ -1,5 +1,6 @@
 import 'package:consultations_app/core/constants/app_assets.dart';
 import 'package:consultations_app/core/constants/app_colors.dart';
+import 'package:consultations_app/core/constants/app_routes.dart';
 import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/core/widgets/primary_button.dart';
 import 'package:consultations_app/core/widgets/primary_text_button.dart';
@@ -202,7 +203,9 @@ class SignUpScreen extends StatelessWidget {
               ),
               PrimaryButton(
                 text: AppStrings.signUp,
-                onPressed: () {},
+                onPressed: () {
+                  context.push(AppRoutes.expertInfoScreen);
+                },
               ),
               const ContinueWithSection(),
               Row(
