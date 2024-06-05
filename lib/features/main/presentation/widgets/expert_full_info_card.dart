@@ -2,7 +2,7 @@ import 'package:consultations_app/core/constants/app_assets.dart';
 import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:consultations_app/features/main/domain/entities/expert_entity.dart';
 import 'package:consultations_app/features/main/presentation/widgets/custom_icon_button.dart';
-import 'package:flutter/cupertino.dart' as cupertino;
+import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -45,18 +45,20 @@ class ExpertFullInfoCard extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            expert.fullName,
-                            overflow: TextOverflow.clip,
-                            maxLines: 1,
-                            style: TextStyle(
-                              color: AppColors.black,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 18.sp,
+                          Expanded(
+                            child: Text(
+                              expert.fullName,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                              style: TextStyle(
+                                color: AppColors.black,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 18.sp,
+                              ),
                             ),
                           ),
                           CustomIconButton(
-                            icon: cupertino.CupertinoIcons.heart_fill,
+                            icon: CupertinoIcons.heart_fill,
                             iconColor: AppColors.primary,
                             iconSize: 20,
                             size: 35,
@@ -68,7 +70,7 @@ class ExpertFullInfoCard extends StatelessWidget {
                       Row(
                         children: [
                           const Icon(
-                            cupertino.CupertinoIcons.bag,
+                            CupertinoIcons.bag,
                             size: 15,
                             color: AppColors.primary,
                           ),
