@@ -3,10 +3,10 @@ import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:consultations_app/core/constants/app_routes.dart';
 import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/core/widgets/primary_button.dart';
-import 'package:consultations_app/core/widgets/primary_icon_button.dart';
 import 'package:consultations_app/core/widgets/primary_snack_bar.dart';
 import 'package:consultations_app/core/widgets/primary_text_button.dart';
 import 'package:consultations_app/core/widgets/primary_text_field.dart';
+import 'package:consultations_app/features/auth/presentation/widgets/continue_with_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -125,55 +125,7 @@ class SignInScreen extends StatelessWidget {
                     );
                 },
               ),
-              SizedBox(
-                height: 20.h,
-              ),
-              const Text(
-                AppStrings.orContinueWith,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: AppColors.gray,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              SizedBox(
-                height: 5.h,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  PrimaryIconButton(
-                    icon: SvgPicture.asset(
-                      AppAssets.facebookLogo,
-                      height: 30.w,
-                    ),
-                    onPressed: () {},
-                  ),
-                  SizedBox(
-                    width: 25.h,
-                  ),
-                  PrimaryIconButton(
-                    icon: SvgPicture.asset(
-                      AppAssets.appleLogo,
-                      height: 30.w,
-                    ),
-                    onPressed: () {},
-                  ),
-                  SizedBox(
-                    width: 25.h,
-                  ),
-                  PrimaryIconButton(
-                    icon: SvgPicture.asset(
-                      AppAssets.googleLogo,
-                      height: 28.w,
-                    ),
-                    onPressed: () {},
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 5.h,
-              ),
+              const ContinueWithSection(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
