@@ -56,16 +56,21 @@ class ContinueWithSection extends StatelessWidget {
                 AppAssets.facebookLogo,
                 height: 30.w,
               ),
+              borderRadius: BorderRadius.circular(50.r),
               onPressed: () {},
             ),
             SizedBox(
               width: 25.h,
             ),
             PrimaryIconButton(
-              icon: SvgPicture.asset(
-                AppAssets.appleLogo,
-                height: 30.w,
+              icon: Transform.translate(
+                offset: const Offset(0, -2),
+                child: SvgPicture.asset(
+                  AppAssets.appleLogo,
+                  height: 30.w,
+                ),
               ),
+              borderRadius: BorderRadius.circular(50.r),
               onPressed: () {},
             ),
             SizedBox(
@@ -76,6 +81,7 @@ class ContinueWithSection extends StatelessWidget {
                 AppAssets.googleLogo,
                 height: 28.w,
               ),
+              borderRadius: BorderRadius.circular(50.r),
               onPressed: () {},
             ),
           ],
