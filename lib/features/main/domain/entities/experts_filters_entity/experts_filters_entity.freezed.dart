@@ -17,9 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ExpertsFilters {
   ExpertsTypes get selectedExpertsType => throw _privateConstructorUsedError;
-
   MainCategory? get selectedMainCategory => throw _privateConstructorUsedError;
-
   SubCategory? get selectedSubCategory => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,7 +28,6 @@ mixin _$ExpertsFilters {
 abstract class $ExpertsFiltersCopyWith<$Res> {
   factory $ExpertsFiltersCopyWith(ExpertsFilters value, $Res Function(ExpertsFilters) then) =
       _$ExpertsFiltersCopyWithImpl<$Res, ExpertsFilters>;
-
   @useResult
   $Res call({ExpertsTypes selectedExpertsType, MainCategory? selectedMainCategory, SubCategory? selectedSubCategory});
 }
@@ -41,7 +38,6 @@ class _$ExpertsFiltersCopyWithImpl<$Res, $Val extends ExpertsFilters> implements
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -73,7 +69,6 @@ class _$ExpertsFiltersCopyWithImpl<$Res, $Val extends ExpertsFilters> implements
 abstract class _$$ExpertsFiltersImplCopyWith<$Res> implements $ExpertsFiltersCopyWith<$Res> {
   factory _$$ExpertsFiltersImplCopyWith(_$ExpertsFiltersImpl value, $Res Function(_$ExpertsFiltersImpl) then) =
       __$$ExpertsFiltersImplCopyWithImpl<$Res>;
-
   @override
   @useResult
   $Res call({ExpertsTypes selectedExpertsType, MainCategory? selectedMainCategory, SubCategory? selectedSubCategory});
@@ -157,13 +152,10 @@ abstract class _ExpertsFilters implements ExpertsFilters {
 
   @override
   ExpertsTypes get selectedExpertsType;
-
   @override
   MainCategory? get selectedMainCategory;
-
   @override
   SubCategory? get selectedSubCategory;
-
   @override
   @JsonKey(ignore: true)
   _$$ExpertsFiltersImplCopyWith<_$ExpertsFiltersImpl> get copyWith => throw _privateConstructorUsedError;
