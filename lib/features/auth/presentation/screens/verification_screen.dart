@@ -1,5 +1,6 @@
 import 'package:consultations_app/core/constants/app_assets.dart';
 import 'package:consultations_app/core/constants/app_colors.dart';
+import 'package:consultations_app/core/constants/app_routes.dart';
 import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/core/widgets/primary_button.dart';
 import 'package:consultations_app/core/widgets/primary_otp_text_field.dart';
@@ -7,6 +8,7 @@ import 'package:consultations_app/core/widgets/primary_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class VerificationScreen extends StatelessWidget {
   const VerificationScreen({super.key});
@@ -82,7 +84,9 @@ class VerificationScreen extends StatelessWidget {
                 PrimaryButton(
                   text: AppStrings.verify,
                   width: 200.w,
-                  onPressed: () {},
+                  onPressed: () {
+                    context.push(AppRoutes.resetPasswordScreen);
+                  },
                 ),
                 SizedBox(
                   height: 15.h,
