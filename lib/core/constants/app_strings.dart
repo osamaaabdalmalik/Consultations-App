@@ -24,13 +24,19 @@ class AppStrings {
   static const String reset = 'Reset';
   static const String orContinueWith = 'or continue with';
   static const String doNotHaveAnAccount = "Don't have an account? ";
-  static const String enterYourRegisteredEmail = "Enter your registered email below to receive verification OTP on it";
+  static const String enterYourRegisteredEmail = "Enter your registered email below to receive verification OTP";
   static const String enterTheCodeSent = "Enter the OTP that sent to ";
   static const String doNotReceiveCode = "Don't receive code? ";
   static const String resend = "Re-send";
   static const String sec = "Sec";
   static const String alreadyHaveAnAccount = "Already have an account? ";
   static const String skipThisNow = "skip this now";
+  static const String signUpAsUser = "Sign up as user";
+  static const String signUpAsExpert = "Sign up as expert";
+  static const String iAgreeOn = "I agree";
+  static const String privacyPolicies = "privacy policies";
+  static const String tearm = "Tearm";
+  static const String moreInfo = "(more info)";
 
   //-------------------------------------------
   // Home Strings

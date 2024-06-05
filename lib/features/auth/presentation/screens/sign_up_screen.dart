@@ -21,7 +21,12 @@ class SignUpScreen extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 50.h),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 20.w,
+                  vertical: 40.h,
+                ).copyWith(
+                  bottom: 20,
+                ),
                 child: Row(
                   children: [
                     SvgPicture.asset(
@@ -79,7 +84,7 @@ class SignUpScreen extends StatelessWidget {
                 controller: TextEditingController(),
               ),
               SizedBox(
-                height: 25.h,
+                height: 15.h,
               ),
               PrimaryTextField(
                 labelText: AppStrings.email,
@@ -88,7 +93,7 @@ class SignUpScreen extends StatelessWidget {
                 inputType: TextInputType.emailAddress,
               ),
               SizedBox(
-                height: 25.h,
+                height: 15.h,
               ),
               PrimaryTextField(
                 labelText: AppStrings.password,
@@ -96,8 +101,104 @@ class SignUpScreen extends StatelessWidget {
                 controller: TextEditingController(),
                 isObscureText: true,
               ),
-              SizedBox(
-                height: 30.h,
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 20.w,
+                ).copyWith(
+                  top: 5.h,
+                ),
+                child: InkWell(
+                  onTap: () {},
+                  borderRadius: BorderRadius.circular(5.r),
+                  child: Row(
+                    children: [
+                      Checkbox(
+                        value: false, //isAcceptPolicies
+                        side: BorderSide(
+                          color: AppColors.primary,
+                          width: 1.w,
+                        ),
+                        onChanged: (val) {
+                          // controller.isAcceptPolicies = !controller.isAcceptPolicies;
+                        },
+                      ),
+                      Expanded(
+                        child: Wrap(
+                          alignment: WrapAlignment.start,
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: [
+                            Text(
+                              "${AppStrings.iAgreeOn} ",
+                              style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                                    fontSize: 14,
+                                    color: AppColors.gray,
+                                  ),
+                            ),
+                            PrimaryTextButton(
+                              label: AppStrings.privacyPolicies,
+                              fontSize: 14,
+                              padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 5.w),
+                              onPressed: () {},
+                            ),
+                            Text(
+                              "&",
+                              style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                                    fontSize: 14,
+                                    color: AppColors.gray,
+                                  ),
+                            ),
+                            PrimaryTextButton(
+                              label: AppStrings.tearm,
+                              fontSize: 14,
+                              padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 5.w),
+                              onPressed: () {},
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 20.w,
+                ).copyWith(
+                  bottom: 5.h,
+                ),
+                child: InkWell(
+                  onTap: () {},
+                  borderRadius: BorderRadius.circular(5.r),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Checkbox(
+                        value: false, //isAcceptPolicies
+                        side: BorderSide(
+                          color: AppColors.primary,
+                          width: 1.w,
+                        ),
+                        onChanged: (val) {
+                          // controller.isAcceptPolicies = !controller.isAcceptPolicies;
+                        },
+                      ),
+                      Text(
+                        "${AppStrings.signUpAsExpert} ",
+                        style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                              fontSize: 14,
+                              color: AppColors.gray,
+                            ),
+                      ),
+                      PrimaryTextButton(
+                        label: AppStrings.moreInfo,
+                        fontSize: 14,
+                        padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 5.w),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                ),
               ),
               PrimaryButton(
                 text: AppStrings.signUp,
