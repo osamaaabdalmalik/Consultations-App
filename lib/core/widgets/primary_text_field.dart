@@ -73,8 +73,6 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
               hintText: widget.hintText,
               hintStyle: TextStyle(color: AppColors.gray.withOpacity(0.5)),
               errorMaxLines: 3,
-              filled: true,
-              fillColor: AppColors.primary20,
               suffixIcon: widget.suffixIcon ??
                   (widget.isObscureText
                       ? IconButton(
