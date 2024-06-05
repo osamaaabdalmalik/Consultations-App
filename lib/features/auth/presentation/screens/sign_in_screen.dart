@@ -15,8 +15,6 @@ import 'package:go_router/go_router.dart';
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
 
-  Duration get loginTime => const Duration(milliseconds: 2250);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -105,7 +103,7 @@ class SignInScreen extends StatelessWidget {
                       color: AppColors.primary,
                       fontSize: 14,
                       onPressed: () {
-                        // context.push(AppRoutes.signUpScreen);
+                        context.push(AppRoutes.forgetPasswordScreen);
                       },
                     ),
                   ],
