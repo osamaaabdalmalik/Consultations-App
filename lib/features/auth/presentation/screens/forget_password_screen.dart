@@ -31,17 +31,20 @@ class ForgetPasswordScreen extends StatelessWidget {
               SizedBox(
                 height: 20.h,
               ),
-              const Text(
-                AppStrings.enterYourRegisteredEmail,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: AppColors.gray,
-                  fontWeight: FontWeight.w500,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                child: const Text(
+                  AppStrings.enterYourRegisteredEmail,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: AppColors.gray,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
               SizedBox(
-                height: 20.h,
+                height: 35.h,
               ),
               PrimaryTextField(
                 labelText: AppStrings.email,
