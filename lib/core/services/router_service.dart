@@ -3,6 +3,7 @@ import 'package:consultations_app/core/constants/app_routes.dart';
 import 'package:consultations_app/core/enums/experts_types.dart';
 import 'package:consultations_app/core/services/caching_service.dart';
 import 'package:consultations_app/features/auth/presentation/screens/forget_password_screen.dart';
+import 'package:consultations_app/features/auth/presentation/screens/reset_password_screen.dart';
 import 'package:consultations_app/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:consultations_app/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:consultations_app/features/auth/presentation/screens/verification_screen.dart';
@@ -123,6 +124,20 @@ class RouterService {
           pageBuilder: (context, state) => CustomTransitionPage(
             key: state.pageKey,
             child: const VerificationScreen(),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              final tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
+              return SlideTransition(
+                position: animation.drive(tween),
+                child: child,
+              );
+            },
+          ),
+        ),
+        GoRoute(
+          path: AppRoutes.resetPasswordScreen,
+          pageBuilder: (context, state) => CustomTransitionPage(
+            key: state.pageKey,
+            child: const ResetPasswordScreen(),
             transitionsBuilder: (context, animation, secondaryAnimation, child) {
               final tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
               return SlideTransition(

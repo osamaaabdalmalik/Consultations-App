@@ -6,11 +6,14 @@ class AppStrings {
   static const String forConsultations = 'for consultations';
   static const String signInForFree = 'Sign in for free';
   static const String signUpForFree = 'Sign up for free';
+  static const String resetYourPassword = 'Reset your password';
   static const String email = 'Email';
   static const String exampleMail = 'example@mail.com';
   static const String password = 'Password';
+  static const String confirmPassword = 'Confirm password';
   static const String moreThan8 = 'more than 8 character';
   static const String makeItStrong = 'make it strong';
+  static const String reEnterPassword = 're-enter password';
   static const String fullName = 'Full Name';
   static const String useRealName = 'use real name';
   static const String forgetPassword = 'forget password';
@@ -18,6 +21,7 @@ class AppStrings {
   static const String signUp = 'Sign up';
   static const String getCode = 'Get code';
   static const String verify = 'Verify';
+  static const String reset = 'Reset';
   static const String orContinueWith = 'or continue with';
   static const String doNotHaveAnAccount = "Don't have an account? ";
   static const String enterYourRegisteredEmail = "Enter your registered email below to receive verification OTP on it";
