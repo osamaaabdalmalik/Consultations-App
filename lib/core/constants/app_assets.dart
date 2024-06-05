@@ -19,5 +19,7 @@ abstract class AppAssets {
   static const String rootSVGImages = "assets/svgs/images";
   static const String choseImage = '$rootSVGImages/chose_image.svg';
   static const String appLogo = '$rootSVGImages/app_logo.svg';
+  static const String forgotPassword = '$rootSVGImages/forgot_password.svg';
+  static const String verifyCode = '$rootSVGImages/verification.svg';
 ////-------------------------------------------
 }
