@@ -3,10 +3,11 @@ abstract class AppRoutes {
   static const String mainScreen = "/";
   static const String signUpScreen = "/signUpScreen";
   static const String signInScreen = "/signInScreen";
-  static const String forgetPasswordScreen = "/ForgetPasswordScreen";
-  static const String verificationScreen = "/VerificationScreen";
-  static const String resetPasswordScreen = "/ResetPasswordScreen";
+  static const String forgetPasswordScreen = "/forgetPasswordScreen";
+  static const String verificationScreen = "/verificationScreen";
+  static const String resetPasswordScreen = "/resetPasswordScreen";
   static const String expertsScreen = "/expertsScreen";
+  static const String expertInfoScreen = "/expertInfoScreen";
 
 //-------------------------------------------
 ////-------------------------------------------

@@ -37,6 +37,9 @@ class AppStrings {
   static const String privacyPolicies = "privacy policies";
   static const String tearm = "Tearm";
   static const String moreInfo = "(more info)";
+  static const String profileImage = "Profile image";
+  static const String uploadProfileImage = "Upload profile image";
+  static const String setUpYourProfile = "Setup Your Profile";
 
   //-------------------------------------------
   // Home Strings
@@ -67,6 +70,7 @@ class AppStrings {
   static const String success = 'Success';
   static const String waiting = 'Waiting...';
   static const String cancel = 'Cancel';
+  static const String confirm = 'Confirm';
   static const String forbidden = 'Sorry, you must be logged in to access this resource';
   static const String unauthorized = 'Sorry, you do not have sufficient permissions to access this resource';
   static const String notFound = 'Sorry, the requested resource could not be found';
