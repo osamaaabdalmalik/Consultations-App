@@ -24,12 +24,8 @@ class ForgetPasswordScreen extends StatelessWidget {
                   top: 50.h,
                   bottom: 20.h,
                 ),
-                child: Column(
-                  children: [
-                    SvgPicture.asset(
-                      AppAssets.forgotPassword,
-                    ),
-                  ],
+                child: SvgPicture.asset(
+                  AppAssets.forgotPassword,
                 ),
               ),
               SizedBox(
