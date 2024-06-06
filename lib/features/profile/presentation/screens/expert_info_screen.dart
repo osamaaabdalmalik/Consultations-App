@@ -1,13 +1,15 @@
 import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:consultations_app/core/constants/app_strings.dart';
+import 'package:consultations_app/core/helpers/pickers.dart';
 import 'package:consultations_app/core/widgets/primary_button.dart';
+import 'package:consultations_app/core/widgets/primary_choice_boxes.dart';
+import 'package:consultations_app/core/widgets/primary_expansion_title.dart';
 import 'package:consultations_app/core/widgets/primary_image_picker.dart';
-import 'package:consultations_app/core/widgets/primary_text_button.dart';
+import 'package:consultations_app/core/widgets/primary_multi_select_item.dart';
+import 'package:consultations_app/core/widgets/primary_select_item.dart';
 import 'package:consultations_app/core/widgets/primary_text_field.dart';
-import 'package:consultations_app/features/auth/presentation/widgets/continue_with_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 
 class ExpertInfoScreen extends StatelessWidget {
   const ExpertInfoScreen({super.key});
@@ -18,6 +20,7 @@ class ExpertInfoScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 height: 30.h,
@@ -29,7 +32,7 @@ class ExpertInfoScreen extends StatelessWidget {
                     Text(
                       AppStrings.setUpYourProfile,
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 24,
                         color: AppColors.black,
                         fontWeight: FontWeight.w500,
                       ),
@@ -43,152 +46,164 @@ class ExpertInfoScreen extends StatelessWidget {
               SizedBox(
                 height: 15.h,
               ),
-              PrimaryTextField(
-                labelText: AppStrings.fullName,
-                hintText: AppStrings.useRealName,
-                controller: TextEditingController(),
+              const PrimaryTextField(
+                labelText: AppStrings.about,
+                hintText: AppStrings.aboutHint,
+                isTextArea: true,
+              ),
+              SizedBox(
+                height: 15.h,
+              ),
+              const PrimaryTextField(
+                labelText: AppStrings.address,
+                hintText: AppStrings.addressHint,
+                suffixIcon: Icon(
+                  Icons.location_on_outlined,
+                  color: AppColors.gray,
+                ),
               ),
               SizedBox(
                 height: 15.h,
               ),
               PrimaryTextField(
-                labelText: AppStrings.email,
-                hintText: AppStrings.exampleMail,
-                controller: TextEditingController(),
-                inputType: TextInputType.emailAddress,
+                labelText: AppStrings.birthDate,
+                hintText: AppStrings.birthDateHint,
+                suffixIcon: const Icon(
+                  Icons.date_range,
+                  color: AppColors.gray,
+                ),
+                onTap: () async {
+                  String? date = await Pickers.choseDate(context);
+                  if (date != null) {}
+                },
               ),
               SizedBox(
                 height: 15.h,
               ),
-              PrimaryTextField(
-                labelText: AppStrings.password,
-                hintText: AppStrings.makeItStrong,
-                controller: TextEditingController(),
-                isObscureText: true,
+              const PrimaryChoiceBoxes(
+                title: AppStrings.gender,
+                label1: AppStrings.male,
+                label2: AppStrings.female,
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 20.w,
-                ).copyWith(
-                  top: 5.h,
-                ),
-                child: InkWell(
-                  onTap: () {},
-                  borderRadius: BorderRadius.circular(5.r),
-                  child: Row(
-                    children: [
-                      Checkbox(
-                        value: false, //isAcceptPolicies
-                        side: BorderSide(
-                          color: AppColors.primary,
-                          width: 1.w,
-                        ),
-                        onChanged: (val) {
-                          // controller.isAcceptPolicies = !controller.isAcceptPolicies;
-                        },
-                      ),
-                      Expanded(
-                        child: Wrap(
-                          alignment: WrapAlignment.start,
-                          crossAxisAlignment: WrapCrossAlignment.center,
-                          children: [
-                            Text(
-                              "${AppStrings.iAgreeOn} ",
-                              style: Theme.of(context).textTheme.labelSmall!.copyWith(
-                                    fontSize: 14,
-                                    color: AppColors.gray,
-                                  ),
-                            ),
-                            PrimaryTextButton(
-                              label: AppStrings.privacyPolicies,
-                              fontSize: 14,
-                              padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 5.w),
-                              onPressed: () {},
-                            ),
-                            Text(
-                              "&",
-                              style: Theme.of(context).textTheme.labelSmall!.copyWith(
-                                    fontSize: 14,
-                                    color: AppColors.gray,
-                                  ),
-                            ),
-                            PrimaryTextButton(
-                              label: AppStrings.tearm,
-                              fontSize: 14,
-                              padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 5.w),
-                              onPressed: () {},
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+              SizedBox(
+                height: 15.h,
+              ),
+              PrimarySelectItem<String>(
+                labelText: AppStrings.specialist,
+                hintText: AppStrings.specialistHint,
+                onChanged: (value) {},
+                items: const [
+                  DropdownMenuItem(
+                    value: 'cat1',
+                    child: Text('cat1'),
                   ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 20.w,
-                ).copyWith(
-                  bottom: 5.h,
-                ),
-                child: InkWell(
-                  onTap: () {},
-                  borderRadius: BorderRadius.circular(5.r),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Checkbox(
-                        value: false, //isAcceptPolicies
-                        side: BorderSide(
-                          color: AppColors.primary,
-                          width: 1.w,
-                        ),
-                        onChanged: (val) {
-                          // controller.isAcceptPolicies = !controller.isAcceptPolicies;
-                        },
-                      ),
-                      Text(
-                        "${AppStrings.signUpAsExpert} ",
-                        style: Theme.of(context).textTheme.labelSmall!.copyWith(
-                              fontSize: 14,
-                              color: AppColors.gray,
-                            ),
-                      ),
-                      PrimaryTextButton(
-                        label: AppStrings.moreInfo,
-                        fontSize: 14,
-                        padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 5.w),
-                        onPressed: () {},
-                      ),
-                    ],
+                  DropdownMenuItem(
+                    value: 'cat2',
+                    child: Text('cat2'),
                   ),
-                ),
-              ),
-              PrimaryButton(
-                text: AppStrings.signUp,
-                onPressed: () {},
-              ),
-              const ContinueWithSection(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    AppStrings.alreadyHaveAnAccount,
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: AppColors.gray,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  PrimaryTextButton(
-                    label: AppStrings.signIn,
-                    color: AppColors.primary,
-                    onPressed: () {
-                      context.pop();
-                    },
+                  DropdownMenuItem(
+                    value: 'cat3',
+                    child: Text('cat3'),
                   ),
                 ],
+                selectedItem: null,
+                suffixIcon: const Icon(
+                  Icons.workspace_premium_sharp,
+                  color: AppColors.gray,
+                ),
+              ),
+              SizedBox(
+                height: 15.h,
+              ),
+              PrimaryMultiSelectItem(
+                labelText: AppStrings.subSpecialist,
+                hintText: AppStrings.subSpecialistHint,
+                onChanged: (values) {},
+                allItems: const [],
+                selectedItems: const [],
+                selectedItemsValue: const [],
+                suffixIcon: const Icon(
+                  Icons.workspaces_outline,
+                  color: AppColors.gray,
+                ),
+              ),
+              SizedBox(
+                height: 15.h,
+              ),
+              PrimaryMultiSelectItem(
+                labelText: AppStrings.experiences,
+                hintText: AppStrings.experiencesHint,
+                onChanged: (values) {},
+                allItems: const [],
+                selectedItems: const [],
+                selectedItemsValue: const [],
+                suffixIcon: const Icon(
+                  Icons.work_outline,
+                  color: AppColors.gray,
+                ),
+              ),
+              SizedBox(
+                height: 15.h,
+              ),
+              const PrimaryChoiceBoxes(
+                title: AppStrings.contactTypes,
+                label1: AppStrings.messages,
+                label2: AppStrings.voiceCalls,
+              ),
+              SizedBox(
+                height: 15.h,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                child: Text(
+                  AppStrings.workTimes,
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                        color: AppColors.gray,
+                        fontSize: 14,
+                      ),
+                ),
+              ),
+              PrimaryExpansionTile(
+                title: 'Saturday',
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        'Start',
+                        style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                              color: AppColors.gray,
+                              fontSize: 14,
+                            ),
+                      ),
+                    ],
+                  ),
+                  Text(
+                    'End',
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                          color: AppColors.gray,
+                          fontSize: 14,
+                        ),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                ],
+              ),
+              const PrimaryExpansionTile(title: 'Sunday'),
+              const PrimaryExpansionTile(title: 'Monday'),
+              const PrimaryExpansionTile(title: 'Tuesday'),
+              const PrimaryExpansionTile(title: 'Wednesday'),
+              const PrimaryExpansionTile(title: 'Thursday'),
+              const PrimaryExpansionTile(title: 'Friday'),
+              SizedBox(
+                height: 30.h,
+              ),
+              PrimaryButton(
+                text: AppStrings.save,
+                onPressed: () {},
+              ),
+              SizedBox(
+                height: 30.h,
               ),
               if (MediaQuery.of(context).viewInsets.bottom != 0)
                 SizedBox(
