@@ -83,23 +83,12 @@ class _PrimaryImagePickerState extends State<PrimaryImagePicker> {
             Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  PrimaryIconButton(
-                    onPressed: () async {
-                      setState(() => file = null);
-                    },
-                    padding: EdgeInsets.all(10.w),
-                    icon: const Icon(
-                      Icons.delete,
-                      color: AppColors.danger,
-                    ),
-                  ),
                   Container(
                     width: 150.w,
                     height: 150.w,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8.sp),
+                      shape: BoxShape.circle,
                       image: DecorationImage(
                         image: FileImage(
                           File(file!.path),
@@ -108,18 +97,37 @@ class _PrimaryImagePickerState extends State<PrimaryImagePicker> {
                       ),
                     ),
                   ),
-                  PrimaryIconButton(
-                    onPressed: () async {
-                      File? file = await Pickers.pickImage(ImageSource.gallery);
-                      if (file != null) {
-                        setState(() => this.file = file);
-                        if (widget.onImagePick != null) {
-                          widget.onImagePick!.call(file);
-                        }
-                      }
-                    },
-                    padding: EdgeInsets.all(10.w),
-                    icon: const Icon(Icons.image_search),
+                  Column(
+                    children: [
+                      PrimaryIconButton(
+                        onPressed: () async {
+                          setState(() => file = null);
+                        },
+                        padding: EdgeInsets.all(5.w),
+                        borderRadius: BorderRadius.circular(50.sp),
+                        icon: const Icon(
+                          Icons.delete,
+                          color: AppColors.danger,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5.h,
+                      ),
+                      PrimaryIconButton(
+                        onPressed: () async {
+                          File? file = await Pickers.pickImage(ImageSource.gallery);
+                          if (file != null) {
+                            setState(() => this.file = file);
+                            if (widget.onImagePick != null) {
+                              widget.onImagePick!.call(file);
+                            }
+                          }
+                        },
+                        padding: EdgeInsets.all(5.w),
+                        borderRadius: BorderRadius.circular(50.sp),
+                        icon: const Icon(Icons.image_search),
+                      ),
+                    ],
                   ),
                 ],
               ),
