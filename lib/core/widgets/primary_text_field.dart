@@ -1,4 +1,5 @@
 import 'package:consultations_app/core/constants/app_colors.dart';
+import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,9 +12,10 @@ class PrimaryTextField extends StatefulWidget {
   final bool autofocus;
   final Widget? suffixIcon;
   final TextInputType inputType;
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final TextInputAction textInputAction;
   final FormFieldValidator? validator;
+  final EdgeInsetsGeometry? padding;
   final void Function()? onTap;
 
   const PrimaryTextField({
@@ -23,13 +25,14 @@ class PrimaryTextField extends StatefulWidget {
     this.isTextArea = false,
     this.isEnabled = true,
     this.inputType = TextInputType.text,
-    required this.controller,
+    this.controller,
     this.onTap,
     this.validator,
     this.suffixIcon,
     this.textInputAction = TextInputAction.next,
     this.autofocus = false,
     this.hintText,
+    this.padding,
   });
 
   @override
@@ -42,7 +45,7 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
+      padding: widget.padding ?? EdgeInsets.symmetric(horizontal: 20.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -82,13 +85,13 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
                             });
                           },
                           icon: isVisibleText
-                              ? Icon(
-                                  Icons.visibility_off_outlined,
-                                  color: AppColors.gray.withOpacity(0.5),
+                              ? const Icon(
+                                  CupertinoIcons.lock_slash,
+                                  color: AppColors.gray,
                                 )
-                              : Icon(
-                                  Icons.visibility_outlined,
-                                  color: AppColors.gray.withOpacity(0.5),
+                              : const Icon(
+                                  CupertinoIcons.lock,
+                                  color: AppColors.gray,
                                 ),
                         )
                       : null),
