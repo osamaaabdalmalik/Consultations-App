@@ -80,6 +80,8 @@ class SignUpScreen extends StatelessWidget {
                   children: [
                     Checkbox(
                       value: false, //isAcceptPolicies
+                      visualDensity: VisualDensity.compact,
+                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       side: BorderSide(
                         color: AppColors.primary,
                         width: 1.w,
