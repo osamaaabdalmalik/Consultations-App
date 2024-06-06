@@ -75,19 +75,17 @@ class ResetPasswordScreen extends StatelessWidget {
               SizedBox(
                 height: 20.h,
               ),
-              PrimaryTextField(
+              const PrimaryTextField(
                 labelText: AppStrings.password,
                 hintText: AppStrings.makeItStrong,
-                controller: TextEditingController(),
                 isObscureText: true,
               ),
               SizedBox(
                 height: 25.h,
               ),
-              PrimaryTextField(
+              const PrimaryTextField(
                 labelText: AppStrings.confirmPassword,
                 hintText: AppStrings.reEnterPassword,
-                controller: TextEditingController(),
                 isObscureText: true,
               ),
               SizedBox(

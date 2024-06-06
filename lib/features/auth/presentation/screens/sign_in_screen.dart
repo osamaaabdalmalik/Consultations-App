@@ -7,6 +7,7 @@ import 'package:consultations_app/core/widgets/primary_snack_bar.dart';
 import 'package:consultations_app/core/widgets/primary_text_button.dart';
 import 'package:consultations_app/core/widgets/primary_text_field.dart';
 import 'package:consultations_app/features/auth/presentation/widgets/continue_with_section.dart';
+import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -78,19 +79,21 @@ class SignInScreen extends StatelessWidget {
               SizedBox(
                 height: 20.h,
               ),
-              PrimaryTextField(
+              const PrimaryTextField(
                 labelText: AppStrings.email,
                 hintText: AppStrings.exampleMail,
-                controller: TextEditingController(),
+                suffixIcon: Icon(
+                  CupertinoIcons.mail,
+                  color: AppColors.gray,
+                ),
                 inputType: TextInputType.emailAddress,
               ),
               SizedBox(
                 height: 20.h,
               ),
-              PrimaryTextField(
+              const PrimaryTextField(
                 labelText: AppStrings.password,
                 hintText: AppStrings.moreThan8,
-                controller: TextEditingController(),
                 isObscureText: true,
               ),
               Padding(

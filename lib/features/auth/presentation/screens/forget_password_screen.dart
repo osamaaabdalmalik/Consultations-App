@@ -4,6 +4,7 @@ import 'package:consultations_app/core/constants/app_routes.dart';
 import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/core/widgets/primary_button.dart';
 import 'package:consultations_app/core/widgets/primary_text_field.dart';
+import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -46,10 +47,13 @@ class ForgetPasswordScreen extends StatelessWidget {
               SizedBox(
                 height: 35.h,
               ),
-              PrimaryTextField(
+              const PrimaryTextField(
                 labelText: AppStrings.email,
                 hintText: AppStrings.exampleMail,
-                controller: TextEditingController(),
+                suffixIcon: Icon(
+                  CupertinoIcons.mail,
+                  color: AppColors.gray,
+                ),
                 inputType: TextInputType.emailAddress,
               ),
               SizedBox(
