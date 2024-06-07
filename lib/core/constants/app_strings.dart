@@ -36,6 +36,17 @@ class AppStrings {
   static const String experiencesHint = 'click to chose experiences';
   static const String forgetPassword = 'forget password';
   static const String save = 'Save';
+  static const String schedule = 'Schedule';
+  static const String alwaysOpen = 'always open';
+  static const String selectedHours = 'selected hours';
+  static const String am = 'AM';
+  static const String pm = 'PM';
+  static const String from = 'From';
+  static const String to = 'To';
+  static const String open24Hours = 'Open 24 hours';
+  static const String closed = 'Closed';
+  static const String consultation = 'Consultation';
+  static const String consultationCostRange = 'Consultation Cost range';
   static const String male = 'Male';
   static const String female = 'Female';
   static const String messages = 'Messages';
@@ -63,7 +74,8 @@ class AppStrings {
   static const String moreInfo = "(more info)";
   static const String profileImage = "Profile image";
   static const String uploadProfileImage = "Upload profile image";
-  static const String setUpYourProfile = "Setup Your Profile";
+  static const String profileInfo = "Profile Info";
+  static const String experiencesInfo = "Experiences Info";
 
   //-------------------------------------------
   // Home Strings
