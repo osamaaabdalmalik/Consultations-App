@@ -25,7 +25,7 @@ class ProfilePhotoSection extends StatelessWidget {
                   border: Border.all(color: AppColors.primary, width: 2),
                   image: const DecorationImage(
                     image: AssetImage(
-                      AppAssets.image,
+                      AppAssets.expert1,
                     ),
                   ),
                 ),
