@@ -10,8 +10,13 @@ import 'package:go_router/go_router.dart';
 
 class ExpertFullInfoCard extends StatelessWidget {
   final Expert expert;
+  final bool showFavoriteButton;
 
-  const ExpertFullInfoCard({super.key, required this.expert});
+  const ExpertFullInfoCard({
+    super.key,
+    required this.expert,
+    this.showFavoriteButton = true,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,22 +31,21 @@ class ExpertFullInfoCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(15.r),
         clipBehavior: Clip.antiAliasWithSaveLayer,
         child: InkWell(
-          onTap: () {
-            context.push(AppRoutes.expertDetailsScreen, extra: expert);
-          },
+          onTap: showFavoriteButton
+              ? () {
+                  context.push(AppRoutes.expertDetailsScreen, extra: expert);
+                }
+              : null,
           child: Row(
             children: [
-              Hero(
-                tag: expert.fullName,
-                child: Ink.image(
-                  width: 100.w,
-                  height: 120.h,
-                  image: const AssetImage(
-                    AppAssets.expert,
-                  ),
-                  fit: BoxFit.cover,
-                  alignment: Alignment.topCenter,
+              Ink.image(
+                width: 100.w,
+                height: 120.h,
+                image: const AssetImage(
+                  AppAssets.expert,
                 ),
+                fit: BoxFit.cover,
+                alignment: Alignment.topCenter,
               ),
               Expanded(
                 child: Container(
@@ -64,14 +68,15 @@ class ExpertFullInfoCard extends StatelessWidget {
                               ),
                             ),
                           ),
-                          CustomIconButton(
-                            icon: CupertinoIcons.heart_fill,
-                            iconColor: AppColors.primary,
-                            iconSize: 20,
-                            size: 35,
-                            radius: 10,
-                            onPressed: () {},
-                          ),
+                          if (showFavoriteButton)
+                            CustomIconButton(
+                              icon: CupertinoIcons.heart_fill,
+                              iconColor: AppColors.primary,
+                              iconSize: 20,
+                              size: 35,
+                              radius: 10,
+                              onPressed: () {},
+                            ),
                         ],
                       ),
                       Row(
