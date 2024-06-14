@@ -2,8 +2,8 @@ import 'package:consultations_app/features/main/presentation/cubits/main_cubit/m
 import 'package:consultations_app/features/main/presentation/screens/appointment_screen.dart';
 import 'package:consultations_app/features/main/presentation/screens/history_screen.dart';
 import 'package:consultations_app/features/main/presentation/screens/home_screen.dart';
-import 'package:consultations_app/features/main/presentation/screens/profile_screen.dart';
 import 'package:consultations_app/features/main/presentation/widgets/bottom_navbar.dart';
+import 'package:consultations_app/features/profile/presentation/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

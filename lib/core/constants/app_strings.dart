@@ -7,6 +7,8 @@ class AppStrings {
   static const String signInForFree = 'Sign in for free';
   static const String signUpForFree = 'Sign up for free';
   static const String resetYourPassword = 'Reset your password';
+  static const String changePassword = 'Change password';
+  static const String logout = 'Logout';
   static const String email = 'Email';
   static const String exampleMail = 'example@mail.com';
   static const String password = 'Password';
@@ -99,6 +101,10 @@ class AppStrings {
   static const String seeAll = "See all";
   static const String expertsTypes = "Experts Types:";
   static const String applyFilters = "Apply Filters";
+  static const String profileDetail = "Profile Details";
+  static const String notifications = "Notifications";
+  static const String myFavorite = "My Favorite";
+  static const String help = "Help";
 
   //-------------------------------------------
   // Failure Messages Strings
