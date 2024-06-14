@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:consultations_app/core/enums/experts_types.dart';
-import 'package:consultations_app/features/main/domain/entities/experts_filters_entity/experts_filters_entity.dart';
+import 'package:consultations_app/features/expert/domain/entities/experts_filters_entity/experts_filters_entity.dart';
 import 'package:consultations_app/features/main/domain/entities/main_category_entity.dart';
 import 'package:consultations_app/features/main/domain/entities/sub_category_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

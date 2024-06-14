@@ -1,4 +1,4 @@
-import 'package:consultations_app/features/main/data/models/expert_model.dart';
+import 'package:consultations_app/features/expert/data/models/expert_model.dart';
 import 'package:consultations_app/features/main/data/models/main_category_model.dart';
 import 'package:consultations_app/features/main/domain/entities/home_data_entity.dart';
 

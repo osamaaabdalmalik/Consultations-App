@@ -2,7 +2,7 @@ import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/core/enums/experts_types.dart';
 import 'package:consultations_app/core/widgets/primary_button.dart';
-import 'package:consultations_app/features/main/presentation/cubits/experts_filters_cubit/experts_filters_cubit.dart';
+import 'package:consultations_app/features/expert/presentation/cubits/experts_filters_cubit/experts_filters_cubit.dart';
 import 'package:consultations_app/features/main/presentation/widgets/sub_category_chip.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

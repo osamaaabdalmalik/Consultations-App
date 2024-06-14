@@ -295,6 +295,11 @@ class _TimeRangePickerState extends State<TimeRangePicker> {
                       width: size.width * .07,
                       height: size.height * .038,
                       alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: isAmFrom == true ? widget.activeDayNightColor : widget.defaultDayNightColor,
+                          borderRadius: BorderRadiusDirectional.only(
+                              topStart: Radius.circular(widget.dayNightBorderRadius!),
+                              topEnd: Radius.circular(widget.dayNightBorderRadius!))),
                       child: FittedBox(
                         child: Text(
                           widget.dayText!,
@@ -304,11 +309,6 @@ class _TimeRangePickerState extends State<TimeRangePicker> {
                               fontSize: 10),
                         ),
                       ),
-                      decoration: BoxDecoration(
-                          color: isAmFrom == true ? widget.activeDayNightColor : widget.defaultDayNightColor,
-                          borderRadius: BorderRadiusDirectional.only(
-                              topStart: Radius.circular(widget.dayNightBorderRadius!),
-                              topEnd: Radius.circular(widget.dayNightBorderRadius!))),
                     ),
                   ),
                   SizedBox(
@@ -325,6 +325,11 @@ class _TimeRangePickerState extends State<TimeRangePicker> {
                       width: size.width * .07,
                       height: size.height * .038,
                       alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: isAmFrom == true ? widget.defaultDayNightColor : widget.activeDayNightColor,
+                          borderRadius: BorderRadiusDirectional.only(
+                              bottomEnd: Radius.circular(widget.dayNightBorderRadius!),
+                              bottomStart: Radius.circular(widget.dayNightBorderRadius!))),
                       child: FittedBox(
                         child: Text(
                           widget.nightText!,
@@ -334,11 +339,6 @@ class _TimeRangePickerState extends State<TimeRangePicker> {
                               fontSize: 10),
                         ),
                       ),
-                      decoration: BoxDecoration(
-                          color: isAmFrom == true ? widget.defaultDayNightColor : widget.activeDayNightColor,
-                          borderRadius: BorderRadiusDirectional.only(
-                              bottomEnd: Radius.circular(widget.dayNightBorderRadius!),
-                              bottomStart: Radius.circular(widget.dayNightBorderRadius!))),
                     ),
                   )
                 ],
@@ -389,6 +389,11 @@ class _TimeRangePickerState extends State<TimeRangePicker> {
                       width: size.width * .07,
                       height: size.height * .038,
                       alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: isAmTo == true ? widget.activeDayNightColor : widget.defaultDayNightColor,
+                          borderRadius: BorderRadiusDirectional.only(
+                              topStart: Radius.circular(widget.dayNightBorderRadius!),
+                              topEnd: Radius.circular(widget.dayNightBorderRadius!))),
                       child: FittedBox(
                         child: Text(
                           widget.dayText!,
@@ -398,11 +403,6 @@ class _TimeRangePickerState extends State<TimeRangePicker> {
                               fontSize: 10),
                         ),
                       ),
-                      decoration: BoxDecoration(
-                          color: isAmTo == true ? widget.activeDayNightColor : widget.defaultDayNightColor,
-                          borderRadius: BorderRadiusDirectional.only(
-                              topStart: Radius.circular(widget.dayNightBorderRadius!),
-                              topEnd: Radius.circular(widget.dayNightBorderRadius!))),
                     ),
                   ),
                   SizedBox(
@@ -419,6 +419,11 @@ class _TimeRangePickerState extends State<TimeRangePicker> {
                       width: size.width * .07,
                       height: size.height * .038,
                       alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: isAmTo == true ? widget.defaultDayNightColor : widget.activeDayNightColor,
+                          borderRadius: BorderRadiusDirectional.only(
+                              bottomEnd: Radius.circular(widget.dayNightBorderRadius!),
+                              bottomStart: Radius.circular(widget.dayNightBorderRadius!))),
                       child: FittedBox(
                         child: Text(
                           widget.nightText!,
@@ -428,11 +433,6 @@ class _TimeRangePickerState extends State<TimeRangePicker> {
                               fontSize: 10),
                         ),
                       ),
-                      decoration: BoxDecoration(
-                          color: isAmTo == true ? widget.defaultDayNightColor : widget.activeDayNightColor,
-                          borderRadius: BorderRadiusDirectional.only(
-                              bottomEnd: Radius.circular(widget.dayNightBorderRadius!),
-                              bottomStart: Radius.circular(widget.dayNightBorderRadius!))),
                     ),
                   )
                 ],
@@ -477,7 +477,7 @@ class _TimeRangePickerState extends State<TimeRangePicker> {
                           });
                         }
                       },
-                      child: Container(
+                      child: SizedBox(
                         width: size.width * .06,
                         child: Icon(
                           widget.upIcon,
@@ -500,7 +500,7 @@ class _TimeRangePickerState extends State<TimeRangePicker> {
                           });
                         }
                       },
-                      child: Container(
+                      child: SizedBox(
                         width: size.width * .06,
                         child: Icon(
                           widget.downIcon,
@@ -579,7 +579,7 @@ class _TimeRangePickerState extends State<TimeRangePicker> {
                           });
                         }
                       },
-                      child: Container(
+                      child: SizedBox(
                         width: size.width * .06,
                         child: Icon(
                           widget.upIcon,
@@ -602,7 +602,7 @@ class _TimeRangePickerState extends State<TimeRangePicker> {
                           });
                         }
                       },
-                      child: Container(
+                      child: SizedBox(
                         width: size.width * .06,
                         child: Icon(
                           widget.downIcon,

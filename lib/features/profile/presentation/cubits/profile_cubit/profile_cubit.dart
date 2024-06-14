@@ -1,10 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:consultations_app/core/enums/general_states.dart';
 import 'package:consultations_app/core/helpers/get_state_from_failure.dart';
-import 'package:consultations_app/features/main/domain/entities/expert_entity.dart';
+import 'package:consultations_app/features/expert/domain/entities/expert_entity.dart';
 import 'package:consultations_app/features/main/domain/entities/home_data_entity.dart';
 import 'package:consultations_app/features/main/domain/usecases/get_home_data_use_case.dart';
-import 'package:consultations_app/features/main/domain/usecases/search_use_case.dart';
 import 'package:consultations_app/injection_container.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:logger/logger.dart';
@@ -17,7 +16,6 @@ class ProfileCubit extends Cubit<ProfileState> {
 
   /// Use Cases
   final GetHomeDataUseCase getHomeDataUseCase = InjectionContainer.getIt();
-  final SearchUseCase searchUseCase = InjectionContainer.getIt();
   GeneralStates generalState = GeneralStates.init;
 
   /// Data

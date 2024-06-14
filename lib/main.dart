@@ -1,6 +1,6 @@
 import 'package:consultations_app/core/constants/app_themes.dart';
 import 'package:consultations_app/core/services/router_service.dart';
-import 'package:consultations_app/features/main/presentation/cubits/experts_filters_cubit/experts_filters_cubit.dart';
+import 'package:consultations_app/features/expert/presentation/cubits/experts_filters_cubit/experts_filters_cubit.dart';
 import 'package:consultations_app/features/main/presentation/cubits/main_cubit/main_cubit.dart';
 import 'package:consultations_app/injection_container.dart';
 import 'package:flutter/material.dart';

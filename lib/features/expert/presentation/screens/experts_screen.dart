@@ -1,9 +1,9 @@
 import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/core/widgets/primary_loader.dart';
-import 'package:consultations_app/features/main/presentation/cubits/expert_cubit/expert_cubit.dart';
-import 'package:consultations_app/features/main/presentation/widgets/expert_full_info_card.dart';
-import 'package:consultations_app/features/main/presentation/widgets/experts_appbar.dart';
+import 'package:consultations_app/features/expert/presentation/cubits/expert_cubit/expert_cubit.dart';
+import 'package:consultations_app/features/expert/presentation/widgets/expert_full_info_card.dart';
+import 'package:consultations_app/features/expert/presentation/widgets/experts_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

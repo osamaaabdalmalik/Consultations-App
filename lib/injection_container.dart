@@ -11,12 +11,13 @@ import 'package:consultations_app/features/auth/domain/repository/auth_repo.dart
 import 'package:consultations_app/features/auth/domain/usecases/login_use_case.dart';
 import 'package:consultations_app/features/auth/domain/usecases/logout_use_case.dart';
 import 'package:consultations_app/features/auth/domain/usecases/register_use_case.dart';
-import 'package:consultations_app/features/main/domain/usecases/get_expert_details_use_case.dart';
-import 'package:consultations_app/features/main/domain/usecases/get_experts_use_case.dart';
+import 'package:consultations_app/features/expert/data/data_sources/expert_remote_data_source.dart';
+import 'package:consultations_app/features/expert/data/repository/expert_repo_impl.dart';
+import 'package:consultations_app/features/expert/domain/repository/expert_repo.dart';
+import 'package:consultations_app/features/expert/domain/usecases/get_experts_use_case.dart';
+import 'package:consultations_app/features/expert/presentation/cubits/expert_cubit/expert_cubit.dart';
+import 'package:consultations_app/features/expert/presentation/cubits/experts_filters_cubit/experts_filters_cubit.dart';
 import 'package:consultations_app/features/main/domain/usecases/get_home_data_use_case.dart';
-import 'package:consultations_app/features/main/domain/usecases/search_use_case.dart';
-import 'package:consultations_app/features/main/presentation/cubits/expert_cubit/expert_cubit.dart';
-import 'package:consultations_app/features/main/presentation/cubits/experts_filters_cubit/experts_filters_cubit.dart';
 import 'package:consultations_app/features/main/presentation/cubits/main_cubit/main_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -32,22 +33,14 @@ import 'features/main/domain/repository/main_repo.dart';
 abstract class InjectionContainer {
   static GetIt getIt = GetIt.instance;
 
-  static bool isCoreServicesInitialized = false;
-  static bool isDependenciesInitialized = false;
-  static bool isMainDependenciesInitialized = false;
-  static bool isAuthenticationDependenciesInitialized = false;
-
   static Future<void> initAppDependencies() async {
-    if (isDependenciesInitialized) return;
     await initCoreServices();
     await initAuthenticationDependencies();
     await initMainDependencies();
-    isDependenciesInitialized = true;
+    await initExpertDependencies();
   }
 
   static Future<void> initCoreServices() async {
-    if (isCoreServicesInitialized) return;
-
     /// Helper Services
     GetIt.instance.registerSingleton(Logger());
     GetIt.instance.registerSingleton(StatusHandlerService());
@@ -84,12 +77,9 @@ abstract class InjectionContainer {
         cacheService: getIt<CacheService>(),
       ),
     );
-    isCoreServicesInitialized = true;
   }
 
   static Future<void> initMainDependencies() async {
-    if (isMainDependenciesInitialized) return;
-
     /// Data Sources
     GetIt.instance.registerLazySingleton<MainRemoteDataSource>(
       () => MainRemoteDataSourceImpl(
@@ -112,29 +102,45 @@ abstract class InjectionContainer {
 
     /// UseCases
     GetIt.instance.registerLazySingleton(
-      () => SearchUseCase(mainRepo: getIt()),
-    );
-    GetIt.instance.registerLazySingleton(
       () => GetHomeDataUseCase(mainRepo: getIt()),
-    );
-    GetIt.instance.registerLazySingleton(
-      () => GetExpertsUseCase(mainRepo: getIt()),
-    );
-    GetIt.instance.registerLazySingleton(
-      () => GetExpertDetailsUseCase(mainRepo: getIt()),
     );
 
     /// Cubits and Blocs
     GetIt.instance.registerFactory(() => MainCubit());
+  }
+
+  static Future<void> initExpertDependencies() async {
+    /// Data Sources
+    GetIt.instance.registerLazySingleton<ExpertRemoteDataSource>(
+      () => ExpertRemoteDataSourceImpl(
+        apiService: getIt(),
+      ),
+    );
+    // GetIt.instance.registerLazySingleton<MainLocalDataSource>(
+    //   () => MainLocalDataSourceImpl(
+    //     cacheService: getIt(),
+    //   ),
+    // );
+
+    /// Repositories
+    GetIt.instance.registerLazySingleton<ExpertRepo>(
+      () => ExpertRepoImpl(
+        expertRemoteDataSource: getIt(),
+        // mainLocalDataSource: getIt(),
+      ),
+    );
+
+    /// UseCases
+    GetIt.instance.registerLazySingleton(
+      () => GetExpertsUseCase(expertRepo: getIt()),
+    );
+
+    /// Cubits and Blocs
     GetIt.instance.registerFactory(() => ExpertsFiltersCubit());
     GetIt.instance.registerFactory(() => ExpertCubit());
-
-    isMainDependenciesInitialized = true;
   }
 
   static Future<void> initAuthenticationDependencies() async {
-    if (isAuthenticationDependenciesInitialized) return;
-
     /// Data Sources
     GetIt.instance.registerLazySingleton<AuthRemoteDataSource>(
       () => AuthRemoteDataSourceImpl(
@@ -167,7 +173,5 @@ abstract class InjectionContainer {
     );
 
     /// Cubits and Blocs
-
-    isAuthenticationDependenciesInitialized = true;
   }
 }

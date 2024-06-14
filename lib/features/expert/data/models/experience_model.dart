@@ -1,4 +1,4 @@
-import 'package:consultations_app/features/main/domain/entities/experience_entity.dart';
+import 'package:consultations_app/features/expert/domain/entities/experience_entity.dart';
 
 class ExperienceModel extends Experience {
   const ExperienceModel({

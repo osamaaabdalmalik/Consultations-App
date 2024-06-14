@@ -1,6 +1,6 @@
 import 'package:consultations_app/core/constants/app_assets.dart';
 import 'package:consultations_app/core/constants/app_colors.dart';
-import 'package:consultations_app/features/main/domain/entities/expert_entity.dart';
+import 'package:consultations_app/features/expert/domain/entities/expert_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

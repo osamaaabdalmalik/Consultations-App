@@ -7,10 +7,10 @@ import 'package:consultations_app/features/auth/presentation/screens/reset_passw
 import 'package:consultations_app/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:consultations_app/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:consultations_app/features/auth/presentation/screens/verification_screen.dart';
-import 'package:consultations_app/features/main/domain/entities/experts_filters_entity/experts_filters_entity.dart';
-import 'package:consultations_app/features/main/presentation/cubits/expert_cubit/expert_cubit.dart';
-import 'package:consultations_app/features/main/presentation/cubits/experts_filters_cubit/experts_filters_cubit.dart';
-import 'package:consultations_app/features/main/presentation/screens/experts_screen.dart';
+import 'package:consultations_app/features/expert/domain/entities/experts_filters_entity/experts_filters_entity.dart';
+import 'package:consultations_app/features/expert/presentation/cubits/expert_cubit/expert_cubit.dart';
+import 'package:consultations_app/features/expert/presentation/cubits/experts_filters_cubit/experts_filters_cubit.dart';
+import 'package:consultations_app/features/expert/presentation/screens/experts_screen.dart';
 import 'package:consultations_app/features/main/presentation/screens/main_screen.dart';
 import 'package:consultations_app/features/profile/presentation/screens/expert_info_screen.dart';
 import 'package:consultations_app/features/profile/presentation/screens/profile_details_screen.dart';

@@ -1,4 +1,4 @@
-import 'package:consultations_app/features/main/domain/entities/expert_entity.dart';
+import 'package:consultations_app/features/expert/domain/entities/expert_entity.dart';
 
 class ExpertModel extends Expert {
   const ExpertModel({

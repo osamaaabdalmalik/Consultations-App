@@ -1,5 +1,5 @@
-import 'package:consultations_app/features/main/domain/entities/expert_entity.dart';
-import 'package:consultations_app/features/main/presentation/widgets/expert_full_info_card.dart';
+import 'package:consultations_app/features/expert/domain/entities/expert_entity.dart';
+import 'package:consultations_app/features/expert/presentation/widgets/expert_full_info_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

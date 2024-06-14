@@ -1,6 +1,6 @@
-import 'package:consultations_app/features/main/data/models/experience_model.dart';
+import 'package:consultations_app/features/expert/data/models/experience_model.dart';
+import 'package:consultations_app/features/expert/domain/entities/expert_details_data_entity.dart';
 import 'package:consultations_app/features/main/data/models/sub_category_model.dart';
-import 'package:consultations_app/features/main/domain/entities/expert_details_data_entity.dart';
 
 class ExpertDetailsModel extends ExpertDetails {
   const ExpertDetailsModel({
