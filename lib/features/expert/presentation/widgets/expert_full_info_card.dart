@@ -39,8 +39,8 @@ class ExpertFullInfoCard extends StatelessWidget {
           child: Row(
             children: [
               Ink.image(
-                width: 100.w,
-                height: 120.h,
+                width: 80.w,
+                height: 90.h,
                 image: const AssetImage(
                   AppAssets.expert,
                 ),
@@ -64,7 +64,7 @@ class ExpertFullInfoCard extends StatelessWidget {
                               style: TextStyle(
                                 color: AppColors.black,
                                 fontWeight: FontWeight.w500,
-                                fontSize: 18.sp,
+                                fontSize: 16.sp,
                               ),
                             ),
                           ),
@@ -72,8 +72,8 @@ class ExpertFullInfoCard extends StatelessWidget {
                             CustomIconButton(
                               icon: CupertinoIcons.heart_fill,
                               iconColor: AppColors.primary,
-                              iconSize: 20,
-                              size: 35,
+                              iconSize: 18,
+                              size: 30,
                               radius: 10,
                               onPressed: () {},
                             ),

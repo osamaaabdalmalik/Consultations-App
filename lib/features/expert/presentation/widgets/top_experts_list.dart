@@ -11,7 +11,7 @@ class TopExpertsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 290.h,
+      height: 250.h,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
