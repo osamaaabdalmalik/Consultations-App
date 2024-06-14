@@ -1,8 +1,9 @@
 abstract class AppAssets {
   // Images Paths
   static const String rootImages = "assets/images";
-  static const String image = "$rootImages/1.png";
+  static const String image = "$rootImages/app_icon.png";
   static const String expert = "$rootImages/expert.png";
+  static const String expert1 = "$rootImages/expert1.png";
 
   //-------------------------------------------
 
