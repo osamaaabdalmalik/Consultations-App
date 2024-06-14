@@ -1,15 +1,29 @@
 abstract class AppRoutes {
-  // FeatureName Routes
+  //-------------------------------------------
+  // Main Routes
+  //-------------------------------------------
   static const String mainScreen = "/";
-  static const String signUpScreen = "/signUpScreen";
+
+  //-------------------------------------------
+  // Experts Routes
+  //-------------------------------------------
+  static const String expertsScreen = "/expertsScreen";
+  static const String expertDetailsScreen = "/expertDetailsScreen";
+
+  //-------------------------------------------
+  // Profile Routes
+  //-------------------------------------------
+  static const String completeExpertInfoScreen = "/completeExpertInfoScreen";
+  static const String expertProfileDetailsScreen = "/expertProfileDetailsScreen";
+
+  //-------------------------------------------
+  // Authentication Routes
+  //-------------------------------------------
   static const String signInScreen = "/signInScreen";
+  static const String signUpScreen = "/signUpScreen";
   static const String forgetPasswordScreen = "/forgetPasswordScreen";
   static const String verificationScreen = "/verificationScreen";
   static const String resetPasswordScreen = "/resetPasswordScreen";
-  static const String expertsScreen = "/expertsScreen";
-  static const String expertInfoScreen = "/expertInfoScreen";
-  static const String profileDetailsScreen = "/profileDetailsScreen";
 
-//-------------------------------------------
 ////-------------------------------------------
 }

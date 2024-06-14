@@ -28,7 +28,7 @@ class ProfileTab extends StatelessWidget {
               title: AppStrings.profileDetail,
               icon: CupertinoIcons.person_fill,
               onTap: () {
-                context.push(AppRoutes.profileDetailsScreen);
+                context.push(AppRoutes.expertProfileDetailsScreen);
               },
             ),
             ProfileSettingCard(

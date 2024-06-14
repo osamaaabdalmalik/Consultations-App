@@ -131,7 +131,7 @@ class SignUpScreen extends StatelessWidget {
               PrimaryButton(
                 text: AppStrings.signUp,
                 onPressed: () {
-                  context.push(AppRoutes.expertInfoScreen);
+                  context.push(AppRoutes.completeExpertInfoScreen);
                 },
               ),
               const ContinueWithSection(),

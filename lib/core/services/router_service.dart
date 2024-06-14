@@ -7,9 +7,11 @@ import 'package:consultations_app/features/auth/presentation/screens/reset_passw
 import 'package:consultations_app/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:consultations_app/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:consultations_app/features/auth/presentation/screens/verification_screen.dart';
+import 'package:consultations_app/features/expert/domain/entities/expert_entity.dart';
 import 'package:consultations_app/features/expert/domain/entities/experts_filters_entity/experts_filters_entity.dart';
 import 'package:consultations_app/features/expert/presentation/cubits/expert_cubit/expert_cubit.dart';
 import 'package:consultations_app/features/expert/presentation/cubits/experts_filters_cubit/experts_filters_cubit.dart';
+import 'package:consultations_app/features/expert/presentation/screens/expert_details_screen.dart';
 import 'package:consultations_app/features/expert/presentation/screens/experts_screen.dart';
 import 'package:consultations_app/features/main/presentation/screens/main_screen.dart';
 import 'package:consultations_app/features/profile/presentation/screens/complete_expert_info_screen.dart';
@@ -47,6 +49,9 @@ class RouterService {
             },
           ),
         ),
+        //-------------------------------------------
+        // Experts Routes
+        //-------------------------------------------
         GoRoute(
           path: AppRoutes.expertsScreen,
           pageBuilder: (context, state) => CustomTransitionPage(
@@ -78,7 +83,40 @@ class RouterService {
           ),
         ),
         GoRoute(
-          path: AppRoutes.profileDetailsScreen,
+          path: AppRoutes.expertDetailsScreen,
+          pageBuilder: (context, state) => CustomTransitionPage(
+            key: state.pageKey,
+            child: ExpertDetailsScreen(
+              expert: state.extra as Expert,
+            ),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              final tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
+              return SlideTransition(
+                position: animation.drive(tween),
+                child: child,
+              );
+            },
+          ),
+        ),
+        //-------------------------------------------
+        // Profile Routes
+        //-------------------------------------------
+        GoRoute(
+          path: AppRoutes.completeExpertInfoScreen,
+          pageBuilder: (context, state) => CustomTransitionPage(
+            key: state.pageKey,
+            child: const CompleteExpertInfoScreen(),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              final tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
+              return SlideTransition(
+                position: animation.drive(tween),
+                child: child,
+              );
+            },
+          ),
+        ),
+        GoRoute(
+          path: AppRoutes.expertProfileDetailsScreen,
           pageBuilder: (context, state) => CustomTransitionPage(
             key: state.pageKey,
             child: const ExpertProfileDetailsScreen(),
@@ -113,20 +151,6 @@ class RouterService {
           pageBuilder: (context, state) => CustomTransitionPage(
             key: state.pageKey,
             child: const SignUpScreen(),
-            transitionsBuilder: (context, animation, secondaryAnimation, child) {
-              final tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
-              return SlideTransition(
-                position: animation.drive(tween),
-                child: child,
-              );
-            },
-          ),
-        ),
-        GoRoute(
-          path: AppRoutes.expertInfoScreen,
-          pageBuilder: (context, state) => CustomTransitionPage(
-            key: state.pageKey,
-            child: const CompleteExpertInfoScreen(),
             transitionsBuilder: (context, animation, secondaryAnimation, child) {
               final tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
               return SlideTransition(
