@@ -2,6 +2,7 @@ import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/core/services/status_handler_service.dart';
 import 'package:consultations_app/core/widgets/custom_sliver_appbar.dart';
+import 'package:consultations_app/core/widgets/primary_icon_button.dart';
 import 'package:consultations_app/features/main/presentation/cubits/expert_cubit/expert_cubit.dart';
 import 'package:consultations_app/features/main/presentation/cubits/experts_filters_cubit/experts_filters_cubit.dart';
 import 'package:consultations_app/features/main/presentation/cubits/main_cubit/main_cubit.dart';
@@ -49,9 +50,14 @@ class ExpertsAppbar extends StatelessWidget {
                         textInputAction: TextInputAction.search,
                         decoration: InputDecoration(
                           hintText: AppStrings.searchAboutExperts,
-                          suffixIcon: InkWell(
-                            borderRadius: BorderRadius.circular(15.r),
-                            onTap: () {
+                          suffixIcon: PrimaryIconButton(
+                            icon: const Icon(
+                              Icons.search,
+                              color: AppColors.gray,
+                            ),
+                            color: AppColors.transparent,
+                            borderRadius: BorderRadius.circular(12.r),
+                            onPressed: () {
                               if (context.read<MainCubit>().searchTextController.text.isEmpty) {
                                 StatusHandlerService.showToast(
                                   message: AppStrings.pleaseTypeAnythingAndClickAgain,
@@ -59,22 +65,22 @@ class ExpertsAppbar extends StatelessWidget {
                                 );
                               }
                             },
-                            child: const Icon(
-                              Icons.search,
-                              color: AppColors.gray,
-                            ),
                           ),
-                          prefixIcon: IconButton(
-                            padding: EdgeInsets.only(left: 8.w),
-                            onPressed: () {
-                              context.pop();
-                              expertsFiltersCubit.clearFilters();
-                            },
-                            icon: const Icon(
+                          prefixIcon: PrimaryIconButton(
+                            icon: Icon(
                               Icons.arrow_back_ios,
                               color: AppColors.gray,
-                              size: 20,
+                              size: 20.w,
                             ),
+                            color: AppColors.transparent,
+                            borderRadius: BorderRadius.circular(12.r),
+                            padding: EdgeInsetsDirectional.all(10.h).copyWith(
+                              start: 15.h,
+                              end: 5.h,
+                            ),
+                            onPressed: () {
+                              context.pop();
+                            },
                           ),
                           fillColor: AppColors.primary.withOpacity(0.1),
                           filled: true,
@@ -101,14 +107,20 @@ class ExpertsAppbar extends StatelessWidget {
                 )
               : Row(
                   children: [
-                    IconButton(
-                      padding: EdgeInsets.only(left: 8.w),
-                      onPressed: () {
-                        context.pop();
-                        expertsFiltersCubit.clearFilters();
-                      },
-                      icon: const Icon(
-                        Icons.arrow_back_ios,
+                    Padding(
+                      padding: EdgeInsetsDirectional.only(start: 8.w),
+                      child: PrimaryIconButton(
+                        icon: const Icon(
+                          Icons.arrow_back_ios,
+                        ),
+                        color: AppColors.transparent,
+                        padding: EdgeInsetsDirectional.all(10.h).copyWith(
+                          start: 15.h,
+                          end: 5.h,
+                        ),
+                        onPressed: () {
+                          context.pop();
+                        },
                       ),
                     ),
                     Text(
