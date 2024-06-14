@@ -1,4 +1,5 @@
 import 'package:consultations_app/core/constants/app_colors.dart';
+import 'package:consultations_app/core/constants/app_routes.dart';
 import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/features/profile/presentation/widgets/profile_appbar.dart';
 import 'package:consultations_app/features/profile/presentation/widgets/profile_photo_section.dart';
@@ -6,6 +7,7 @@ import 'package:consultations_app/features/profile/presentation/widgets/profile_
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -16,7 +18,7 @@ class ProfileScreen extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
         children: [
-          const ProfileAppbar(),
+          const ProfileAppbar(title: AppStrings.profile),
           const ProfilePhotoSection(),
           SizedBox(
             height: 15.h,
@@ -24,7 +26,9 @@ class ProfileScreen extends StatelessWidget {
           ProfileSettingCard(
             title: AppStrings.profileDetail,
             icon: CupertinoIcons.person_fill,
-            onTap: () {},
+            onTap: () {
+              context.push(AppRoutes.profileDetailsScreen);
+            },
           ),
           ProfileSettingCard(
             title: AppStrings.notifications,

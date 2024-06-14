@@ -13,6 +13,7 @@ import 'package:consultations_app/features/main/presentation/cubits/experts_filt
 import 'package:consultations_app/features/main/presentation/screens/experts_screen.dart';
 import 'package:consultations_app/features/main/presentation/screens/main_screen.dart';
 import 'package:consultations_app/features/profile/presentation/screens/expert_info_screen.dart';
+import 'package:consultations_app/features/profile/presentation/screens/profile_details_screen.dart';
 import 'package:consultations_app/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -67,6 +68,19 @@ class RouterService {
                 isSearchMode: (state.extra as Map?)?[AppKeys.isSearchMode] ?? false,
               ),
             ),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              return FadeTransition(
+                opacity: animation,
+                child: child,
+              );
+            },
+          ),
+        ),
+        GoRoute(
+          path: AppRoutes.profileDetailsScreen,
+          pageBuilder: (context, state) => CustomTransitionPage(
+            key: state.pageKey,
+            child: const ProfileDetailsScreen(),
             transitionsBuilder: (context, animation, secondaryAnimation, child) {
               return FadeTransition(
                 opacity: animation,
