@@ -24,10 +24,9 @@ class PrimaryChoiceBoxes extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                      color: AppColors.gray,
-                      fontSize: 14,
-                    ),
+                style: const TextStyle(
+                  fontSize: 14,
+                ),
               ),
             ],
           ),

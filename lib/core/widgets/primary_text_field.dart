@@ -51,10 +51,9 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
         children: [
           Text(
             widget.labelText,
-            style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                  color: AppColors.gray,
-                  fontSize: 14,
-                ),
+            style: const TextStyle(
+              fontSize: 14,
+            ),
           ),
           SizedBox(
             height: 8.h,
