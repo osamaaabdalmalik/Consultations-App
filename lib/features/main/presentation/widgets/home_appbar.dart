@@ -30,7 +30,7 @@ class HomeAppbar extends StatelessWidget {
           const Text(
             AppStrings.topEx,
             style: TextStyle(
-              fontSize: 24,
+              fontSize: 20,
               fontWeight: FontWeight.w700,
               color: AppColors.black,
             ),

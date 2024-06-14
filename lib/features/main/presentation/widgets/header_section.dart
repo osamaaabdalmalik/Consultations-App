@@ -27,7 +27,7 @@ class HeaderSection extends StatelessWidget {
             style: TextStyle(
               color: AppColors.black,
               fontWeight: FontWeight.w700,
-              fontSize: 20.sp,
+              fontSize: 18.sp,
             ),
           ),
           InkWell(
