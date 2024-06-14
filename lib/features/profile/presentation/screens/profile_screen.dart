@@ -15,54 +15,56 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
-        children: [
-          const ProfileAppbar(title: AppStrings.profile),
-          const ProfilePhotoSection(),
-          SizedBox(
-            height: 15.h,
-          ),
-          ProfileSettingCard(
-            title: AppStrings.profileDetail,
-            icon: CupertinoIcons.person_fill,
-            onTap: () {
-              context.push(AppRoutes.profileDetailsScreen);
-            },
-          ),
-          ProfileSettingCard(
-            title: AppStrings.notifications,
-            icon: CupertinoIcons.bell_fill,
-            onTap: () {},
-          ),
-          ProfileSettingCard(
-            title: AppStrings.myFavorite,
-            icon: CupertinoIcons.heart_fill,
-            onTap: () {},
-          ),
-          ProfileSettingCard(
-            title: AppStrings.changePassword,
-            icon: CupertinoIcons.lock_fill,
-            onTap: () {},
-          ),
-          ProfileSettingCard(
-            title: AppStrings.about,
-            icon: CupertinoIcons.info_circle_fill,
-            onTap: () {},
-          ),
-          ProfileSettingCard(
-            title: AppStrings.help,
-            icon: Icons.help,
-            onTap: () {},
-          ),
-          ProfileSettingCard(
-            title: AppStrings.logout,
-            icon: Icons.logout,
-            iconColor: AppColors.danger,
-            showArrow: false,
-            onTap: () {},
-          ),
-        ],
+      child: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(vertical: 5.h),
+        child: Column(
+          children: [
+            const ProfileAppbar(title: AppStrings.profile),
+            const ProfilePhotoSection(),
+            SizedBox(
+              height: 15.h,
+            ),
+            ProfileSettingCard(
+              title: AppStrings.profileDetail,
+              icon: CupertinoIcons.person_fill,
+              onTap: () {
+                context.push(AppRoutes.profileDetailsScreen);
+              },
+            ),
+            ProfileSettingCard(
+              title: AppStrings.notifications,
+              icon: CupertinoIcons.bell_fill,
+              onTap: () {},
+            ),
+            ProfileSettingCard(
+              title: AppStrings.myFavorite,
+              icon: CupertinoIcons.heart_fill,
+              onTap: () {},
+            ),
+            ProfileSettingCard(
+              title: AppStrings.changePassword,
+              icon: CupertinoIcons.lock_fill,
+              onTap: () {},
+            ),
+            ProfileSettingCard(
+              title: AppStrings.about,
+              icon: CupertinoIcons.info_circle_fill,
+              onTap: () {},
+            ),
+            ProfileSettingCard(
+              title: AppStrings.help,
+              icon: Icons.help,
+              onTap: () {},
+            ),
+            ProfileSettingCard(
+              title: AppStrings.logout,
+              icon: Icons.logout,
+              iconColor: AppColors.danger,
+              showArrow: false,
+              onTap: () {},
+            ),
+          ],
+        ),
       ),
     );
   }
