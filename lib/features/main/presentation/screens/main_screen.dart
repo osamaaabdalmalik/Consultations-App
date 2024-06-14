@@ -1,9 +1,9 @@
 import 'package:consultations_app/features/main/presentation/cubits/main_cubit/main_cubit.dart';
-import 'package:consultations_app/features/main/presentation/screens/appointment_screen.dart';
-import 'package:consultations_app/features/main/presentation/screens/history_screen.dart';
-import 'package:consultations_app/features/main/presentation/screens/home_screen.dart';
+import 'package:consultations_app/features/main/presentation/screens/appointment_tab.dart';
+import 'package:consultations_app/features/main/presentation/screens/history_tab.dart';
+import 'package:consultations_app/features/main/presentation/screens/home_tab.dart';
 import 'package:consultations_app/features/main/presentation/widgets/bottom_navbar.dart';
-import 'package:consultations_app/features/profile/presentation/screens/profile_screen.dart';
+import 'package:consultations_app/features/profile/presentation/screens/profile_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,10 +11,10 @@ class MainScreen extends StatelessWidget {
   MainScreen({super.key});
 
   final List<Widget> tabs = [
-    const HomeScreen(),
-    const AppointmentScreen(),
-    const HistoryScreen(),
-    const ProfileScreen(),
+    const HomeTab(),
+    const AppointmentTab(),
+    const HistoryTab(),
+    const ProfileTab(),
   ];
 
   @override

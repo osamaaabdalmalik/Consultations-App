@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class HistoryScreen extends StatelessWidget {
-  const HistoryScreen({super.key});
+class AppointmentTab extends StatelessWidget {
+  const AppointmentTab({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Text(
-        'History Screen',
+        'Appointment Screen',
         style: Theme.of(context).textTheme.titleLarge,
       ),
     );
