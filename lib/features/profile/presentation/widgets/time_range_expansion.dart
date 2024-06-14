@@ -32,11 +32,11 @@ class _TimeRangePickerExpansionState extends State<TimeRangePickerExpansion> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
+      padding: EdgeInsets.symmetric(horizontal: 15.w),
       child: Column(
         children: [
           ExpansionTile(
-            tilePadding: EdgeInsetsDirectional.only(end: 10.w),
+            tilePadding: EdgeInsetsDirectional.zero,
             iconColor: AppColors.gray,
             collapsedIconColor: AppColors.gray,
             title: Padding(

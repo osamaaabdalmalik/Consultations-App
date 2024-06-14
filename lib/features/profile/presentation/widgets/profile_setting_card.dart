@@ -22,7 +22,7 @@ class ProfileSettingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 5.w),
+      padding: EdgeInsets.symmetric(horizontal: 15.w),
       child: InkWell(
         onTap: onTap,
         child: Column(

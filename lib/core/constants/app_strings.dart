@@ -78,6 +78,9 @@ class AppStrings {
   static const String uploadProfileImage = "Upload profile image";
   static const String profileInfo = "Profile Info";
   static const String experiencesInfo = "Experiences Info";
+  static const String includeTheFollowingContactTypes = "Include the following contact types";
+  static const String includeTheFollowingSubSpecialists = "Include the following sub specialists";
+  static const String includeTheFollowingExperiences = "Include the following experiences";
 
   //-------------------------------------------
   // Home Strings

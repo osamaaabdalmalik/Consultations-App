@@ -1,10 +1,8 @@
 import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:consultations_app/core/constants/app_strings.dart';
-import 'package:consultations_app/core/widgets/primary_choice_boxes.dart';
 import 'package:consultations_app/core/widgets/primary_multi_select_item.dart';
 import 'package:consultations_app/core/widgets/primary_select_item.dart';
-import 'package:consultations_app/core/widgets/primary_text_field.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:consultations_app/features/profile/presentation/widgets/consultation_cost_range_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -90,55 +88,7 @@ class ExperiencesInfoSection extends StatelessWidget {
         SizedBox(
           height: 30.h,
         ),
-        const PrimaryChoiceBoxes(
-          title: AppStrings.contactTypes,
-          label1: AppStrings.messages,
-          label2: AppStrings.voiceCalls,
-        ),
-        SizedBox(
-          height: 30.h,
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w),
-          child: Row(
-            children: [
-              Text(
-                AppStrings.consultationCostRange,
-                style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                      color: AppColors.gray,
-                      fontSize: 14,
-                    ),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(
-          height: 8.h,
-        ),
-        const Row(
-          children: [
-            Expanded(
-              child: PrimaryTextField(
-                labelText: AppStrings.from,
-                hintText: '0.0',
-                suffixIcon: Icon(
-                  CupertinoIcons.money_dollar,
-                  color: AppColors.gray,
-                ),
-              ),
-            ),
-            Expanded(
-              child: PrimaryTextField(
-                labelText: AppStrings.to,
-                hintText: '0.0',
-                suffixIcon: Icon(
-                  CupertinoIcons.money_dollar,
-                  color: AppColors.gray,
-                ),
-              ),
-            ),
-          ],
-        ),
+        const ConsultationCostRangeSection(),
       ],
     );
   }
