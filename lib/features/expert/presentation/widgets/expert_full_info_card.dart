@@ -1,10 +1,12 @@
 import 'package:consultations_app/core/constants/app_assets.dart';
 import 'package:consultations_app/core/constants/app_colors.dart';
+import 'package:consultations_app/core/constants/app_routes.dart';
 import 'package:consultations_app/features/expert/domain/entities/expert_entity.dart';
 import 'package:consultations_app/features/main/presentation/widgets/custom_icon_button.dart';
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class ExpertFullInfoCard extends StatelessWidget {
   final Expert expert;
@@ -24,17 +26,22 @@ class ExpertFullInfoCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(15.r),
         clipBehavior: Clip.antiAliasWithSaveLayer,
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            context.push(AppRoutes.expertDetailsScreen, extra: expert);
+          },
           child: Row(
             children: [
-              Ink.image(
-                width: 100.w,
-                height: 120.h,
-                image: const AssetImage(
-                  AppAssets.expert,
+              Hero(
+                tag: expert.fullName,
+                child: Ink.image(
+                  width: 100.w,
+                  height: 120.h,
+                  image: const AssetImage(
+                    AppAssets.expert,
+                  ),
+                  fit: BoxFit.cover,
+                  alignment: Alignment.topCenter,
                 ),
-                fit: BoxFit.cover,
-                alignment: Alignment.topCenter,
               ),
               Expanded(
                 child: Container(
