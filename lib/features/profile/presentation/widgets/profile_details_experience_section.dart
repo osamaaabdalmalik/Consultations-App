@@ -6,8 +6,8 @@ import 'package:consultations_app/features/profile/presentation/widgets/consulta
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ExperiencesInfoSection extends StatelessWidget {
-  const ExperiencesInfoSection({super.key});
+class ProfileDetailsExperienceSection extends StatelessWidget {
+  const ProfileDetailsExperienceSection({super.key});
 
   @override
   Widget build(BuildContext context) {

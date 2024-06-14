@@ -12,8 +12,8 @@ import 'package:consultations_app/features/expert/presentation/cubits/expert_cub
 import 'package:consultations_app/features/expert/presentation/cubits/experts_filters_cubit/experts_filters_cubit.dart';
 import 'package:consultations_app/features/expert/presentation/screens/experts_screen.dart';
 import 'package:consultations_app/features/main/presentation/screens/main_screen.dart';
-import 'package:consultations_app/features/profile/presentation/screens/expert_info_screen.dart';
-import 'package:consultations_app/features/profile/presentation/screens/profile_details_screen.dart';
+import 'package:consultations_app/features/profile/presentation/screens/complete_expert_info_screen.dart';
+import 'package:consultations_app/features/profile/presentation/screens/expert_profile_details_screen.dart';
 import 'package:consultations_app/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -81,7 +81,7 @@ class RouterService {
           path: AppRoutes.profileDetailsScreen,
           pageBuilder: (context, state) => CustomTransitionPage(
             key: state.pageKey,
-            child: const ProfileDetailsScreen(),
+            child: const ExpertProfileDetailsScreen(),
             transitionsBuilder: (context, animation, secondaryAnimation, child) {
               final tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
               return SlideTransition(
@@ -126,7 +126,7 @@ class RouterService {
           path: AppRoutes.expertInfoScreen,
           pageBuilder: (context, state) => CustomTransitionPage(
             key: state.pageKey,
-            child: const ExpertInfoScreen(),
+            child: const CompleteExpertInfoScreen(),
             transitionsBuilder: (context, animation, secondaryAnimation, child) {
               final tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
               return SlideTransition(

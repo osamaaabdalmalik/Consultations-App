@@ -7,8 +7,8 @@ import 'package:consultations_app/features/profile/presentation/widgets/work_tim
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ProfileDetailsScreen extends StatelessWidget {
-  const ProfileDetailsScreen({super.key});
+class ExpertProfileDetailsScreen extends StatelessWidget {
+  const ExpertProfileDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
