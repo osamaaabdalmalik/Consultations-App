@@ -69,8 +69,9 @@ class RouterService {
               ),
             ),
             transitionsBuilder: (context, animation, secondaryAnimation, child) {
-              return FadeTransition(
-                opacity: animation,
+              final tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
+              return SlideTransition(
+                position: animation.drive(tween),
                 child: child,
               );
             },
@@ -82,8 +83,9 @@ class RouterService {
             key: state.pageKey,
             child: const ProfileDetailsScreen(),
             transitionsBuilder: (context, animation, secondaryAnimation, child) {
-              return FadeTransition(
-                opacity: animation,
+              final tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
+              return SlideTransition(
+                position: animation.drive(tween),
                 child: child,
               );
             },
