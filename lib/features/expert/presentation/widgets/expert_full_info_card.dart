@@ -77,7 +77,7 @@ class ExpertFullInfoCard extends StatelessWidget {
                       Row(
                         children: [
                           const Icon(
-                            CupertinoIcons.bag,
+                            CupertinoIcons.star_fill,
                             size: 15,
                             color: AppColors.primary,
                           ),
@@ -87,13 +87,13 @@ class ExpertFullInfoCard extends StatelessWidget {
                           SizedBox(
                             width: 150.w,
                             child: Text(
-                              expert.address ?? '',
+                              '${expert.rating} (${expert.ratingNumber} reviews)',
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
                               style: TextStyle(
                                 color: AppColors.gray,
                                 fontWeight: FontWeight.w500,
-                                fontSize: 14.sp,
+                                fontSize: 12.sp,
                               ),
                             ),
                           ),
