@@ -49,15 +49,17 @@ class ExpertShortInfoCard extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text(
-                        expert.fullName,
-                        textAlign: TextAlign.center,
-                        overflow: TextOverflow.clip,
-                        maxLines: 1,
-                        style: TextStyle(
-                          color: AppColors.black,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 18.sp,
+                      FittedBox(
+                        child: Text(
+                          expert.fullName,
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.clip,
+                          maxLines: 1,
+                          style: TextStyle(
+                            color: AppColors.black,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 18.sp,
+                          ),
                         ),
                       ),
                       Row(
