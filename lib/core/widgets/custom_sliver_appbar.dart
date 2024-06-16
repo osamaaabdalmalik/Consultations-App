@@ -8,6 +8,7 @@ class CustomSliverAppbar extends StatelessWidget {
   final Widget sliverBottom;
   final EdgeInsetsGeometry? sliverBottomPadding;
   final double? expandedHeight;
+  final bool pinned;
 
   const CustomSliverAppbar({
     super.key,
@@ -16,13 +17,14 @@ class CustomSliverAppbar extends StatelessWidget {
     required this.sliverBottom,
     this.sliverBottomPadding,
     this.expandedHeight,
+    this.pinned = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
       expandedHeight: expandedHeight ?? 130.h,
-      pinned: true,
+      pinned: pinned,
       floating: true,
       snap: true,
       backgroundColor: AppColors.white,
