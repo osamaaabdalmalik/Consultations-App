@@ -1,5 +1,6 @@
 import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 abstract class AppThemes {
   static ThemeData themeEnglish = ThemeData(
@@ -14,14 +15,19 @@ abstract class AppThemes {
       primarySwatch: AppColors.materialPrimary,
       backgroundColor: AppColors.white,
     ),
-    appBarTheme: const AppBarTheme(
+    appBarTheme: AppBarTheme(
       color: AppColors.white,
-      iconTheme: IconThemeData(
+      iconTheme: const IconThemeData(
         color: AppColors.gray,
       ),
       elevation: 2,
       scrolledUnderElevation: 0,
       titleSpacing: 1,
+      systemOverlayStyle: SystemUiOverlayStyle(
+        systemNavigationBarColor: SystemUiOverlayStyle.dark.systemNavigationBarColor,
+        statusBarColor: AppColors.white,
+        statusBarIconBrightness: Brightness.dark,
+      ),
     ),
     indicatorColor: AppColors.materialPrimary.shade600,
     popupMenuTheme: PopupMenuThemeData(

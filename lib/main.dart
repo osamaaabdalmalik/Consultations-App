@@ -1,3 +1,4 @@
+import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:consultations_app/core/constants/app_themes.dart';
 import 'package:consultations_app/core/services/router_service.dart';
 import 'package:consultations_app/features/expert/presentation/cubits/experts_filters_cubit/experts_filters_cubit.dart';
@@ -19,6 +20,8 @@ Future<void> initSettings() async {
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
       systemNavigationBarColor: SystemUiOverlayStyle.dark.systemNavigationBarColor,
+      statusBarColor: AppColors.white,
+      statusBarIconBrightness: Brightness.dark,
     ),
   );
   await InjectionContainer.initAppDependencies();
