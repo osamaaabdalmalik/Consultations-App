@@ -13,7 +13,6 @@ class ProfilePhotoSection extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(
             horizontal: 10.w,
-            vertical: 10.h,
           ),
           child: Row(
             children: [
