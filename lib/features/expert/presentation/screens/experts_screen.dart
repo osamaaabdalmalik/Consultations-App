@@ -22,7 +22,7 @@ class ExpertsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: RefreshIndicator(
-        edgeOffset: 100.h,
+        edgeOffset: isSearchMode ? 95.h : 80.h,
         onRefresh: () async {
           context.read<ExpertCubit>().getExperts();
         },
@@ -49,9 +49,7 @@ class ExpertsScreen extends StatelessWidget {
                         ),
                         orElse: () => const SizedBox(),
                         loaded: (experts) => experts.isNotEmpty
-                            ? ListView(
-                                shrinkWrap: true,
-                                physics: const NeverScrollableScrollPhysics(),
+                            ? Column(
                                 children: List.generate(
                                   experts.length + 1,
                                   (index) {
