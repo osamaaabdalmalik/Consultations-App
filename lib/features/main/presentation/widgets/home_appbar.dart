@@ -4,7 +4,7 @@ import 'package:consultations_app/core/constants/app_keys.dart';
 import 'package:consultations_app/core/constants/app_routes.dart';
 import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/core/enums/experts_types.dart';
-import 'package:consultations_app/core/widgets/custom_sliver_appbar.dart';
+import 'package:consultations_app/core/widgets/primary_sliver_appbar.dart';
 import 'package:consultations_app/features/main/presentation/widgets/custom_icon_button.dart';
 import 'package:flutter/cupertino.dart' as cupertino;
 import 'package:flutter/material.dart';
@@ -17,7 +17,7 @@ class HomeAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomSliverAppbar(
+    return PrimarySliverAppbar(
       leading: Row(
         children: [
           Padding(
@@ -93,6 +93,7 @@ class HomeAppbar extends StatelessWidget {
           ),
         ),
       ),
+      expandedHeight: 120.h,
     );
   }
 }
