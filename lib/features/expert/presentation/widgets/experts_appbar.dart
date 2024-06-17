@@ -1,8 +1,8 @@
 import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/core/services/status_handler_service.dart';
-import 'package:consultations_app/core/widgets/custom_sliver_appbar.dart';
 import 'package:consultations_app/core/widgets/primary_icon_button.dart';
+import 'package:consultations_app/core/widgets/primary_sliver_appbar.dart';
 import 'package:consultations_app/features/expert/presentation/cubits/expert_cubit/expert_cubit.dart';
 import 'package:consultations_app/features/expert/presentation/cubits/experts_filters_cubit/experts_filters_cubit.dart';
 import 'package:consultations_app/features/expert/presentation/widgets/current_experts_filters.dart';
@@ -32,7 +32,7 @@ class ExpertsAppbar extends StatelessWidget {
     final expertsFiltersCubit = context.read<ExpertsFiltersCubit>();
     return BlocBuilder<ExpertsFiltersCubit, ExpertsFiltersState>(
       builder: (context, state) {
-        return CustomSliverAppbar(
+        return PrimarySliverAppbar(
           leading: isSearchMode
               ? SizedBox(
                   width: 348.w,
@@ -161,8 +161,11 @@ class ExpertsAppbar extends StatelessWidget {
           sliverBottom: CurrentExpertsFilters(
             expertCubitContext: expertCubitContext,
           ),
-          expandedHeight:
-              expertsFiltersCubit.isFiltersApplied && expertsFiltersCubit.isFiltersShowInAppbar ? 135.h : 70.h,
+          expandedHeight: expertsFiltersCubit.isFiltersApplied && expertsFiltersCubit.isFiltersShowInAppbar
+              ? 135.h
+              : isSearchMode
+                  ? 70.h
+                  : 60.h,
         );
       },
     );
