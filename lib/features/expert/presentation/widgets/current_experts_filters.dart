@@ -65,6 +65,7 @@ class CurrentExpertsFilters extends StatelessWidget {
                               expertsFiltersCubit.onChangeIndexExpertType(
                                 index: 0,
                                 expertsTypes: ExpertsTypes.allExperts,
+                                removeFilter: true,
                               );
                               expertCubitContext.read<ExpertCubit>().getExperts(
                                     newExpertsFilters: expertsFiltersCubit.currentExpertsFilters,
@@ -83,6 +84,7 @@ class CurrentExpertsFilters extends StatelessWidget {
                               expertsFiltersCubit.onChangeIndexMainCategory(
                                 index: 0,
                                 mainCategory: null,
+                                removeFilter: true,
                               );
                               expertCubitContext.read<ExpertCubit>().getExperts(
                                     newExpertsFilters: expertsFiltersCubit.currentExpertsFilters,
@@ -99,6 +101,7 @@ class CurrentExpertsFilters extends StatelessWidget {
                               expertsFiltersCubit.onChangeIndexSubCategory(
                                 index: 0,
                                 subCategory: null,
+                                removeFilter: true,
                               );
                               expertCubitContext.read<ExpertCubit>().getExperts(
                                     newExpertsFilters: expertsFiltersCubit.currentExpertsFilters,

@@ -61,7 +61,11 @@ class ExpertsFiltersCubit extends Cubit<ExpertsFiltersState> {
     _update(const ExpertsFiltersState.loaded());
   }
 
-  void onChangeIndexExpertType({required int index, required ExpertsTypes expertsTypes}) {
+  void onChangeIndexExpertType({
+    required int index,
+    required ExpertsTypes expertsTypes,
+    bool removeFilter = false,
+  }) {
     _update(const ExpertsFiltersState.loading());
     newExpertsFilters = newExpertsFilters.copyWith(
       selectedExpertsType: expertsTypes,
@@ -82,10 +86,17 @@ class ExpertsFiltersCubit extends Cubit<ExpertsFiltersState> {
     } else {
       isFiltersShowInAppbar = true;
     }
+    if (removeFilter) {
+      onFiltersApplied();
+    }
     _update(const ExpertsFiltersState.loaded());
   }
 
-  void onChangeIndexMainCategory({required int index, required MainCategory? mainCategory}) {
+  void onChangeIndexMainCategory({
+    required int index,
+    required MainCategory? mainCategory,
+    bool removeFilter = false,
+  }) {
     _update(const ExpertsFiltersState.loading());
     newExpertsFilters = newExpertsFilters.copyWith(
       selectedMainCategory: mainCategory,
@@ -97,10 +108,17 @@ class ExpertsFiltersCubit extends Cubit<ExpertsFiltersState> {
     } else {
       isFiltersChanged = false;
     }
+    if (removeFilter) {
+      onFiltersApplied();
+    }
     _update(const ExpertsFiltersState.loaded());
   }
 
-  void onChangeIndexSubCategory({required int index, required SubCategory? subCategory}) {
+  void onChangeIndexSubCategory({
+    required int index,
+    required SubCategory? subCategory,
+    bool removeFilter = false,
+  }) {
     _update(const ExpertsFiltersState.loading());
     newExpertsFilters = newExpertsFilters.copyWith(
       selectedSubCategory: subCategory,
@@ -120,6 +138,9 @@ class ExpertsFiltersCubit extends Cubit<ExpertsFiltersState> {
       isFiltersShowInAppbar = false;
     } else {
       isFiltersShowInAppbar = true;
+    }
+    if (removeFilter) {
+      onFiltersApplied();
     }
     _update(const ExpertsFiltersState.loaded());
   }
