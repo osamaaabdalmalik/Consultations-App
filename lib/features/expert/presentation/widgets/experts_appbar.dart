@@ -146,6 +146,7 @@ class ExpertsAppbar extends StatelessWidget {
                       isScrollControlled: true,
                       showDragHandle: true,
                       useSafeArea: true,
+                      barrierColor: AppColors.white,
                       builder: (c) => ExpertsFiltersSheet(
                         onApplyFilters: () {
                           expertCubitContext.read<ExpertCubit>().getExperts(
