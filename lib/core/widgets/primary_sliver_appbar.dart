@@ -2,19 +2,19 @@ import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomSliverAppbar extends StatelessWidget {
+class PrimarySliverAppbar extends StatelessWidget {
   final Widget leading;
   final List<Widget> actions;
-  final Widget sliverBottom;
+  final Widget? sliverBottom;
   final EdgeInsetsGeometry? sliverBottomPadding;
   final double? expandedHeight;
   final bool pinned;
 
-  const CustomSliverAppbar({
+  const PrimarySliverAppbar({
     super.key,
     required this.leading,
-    required this.actions,
-    required this.sliverBottom,
+    this.actions = const [],
+    this.sliverBottom,
     this.sliverBottomPadding,
     this.expandedHeight,
     this.pinned = false,
