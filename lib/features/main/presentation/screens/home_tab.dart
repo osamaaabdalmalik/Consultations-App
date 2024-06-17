@@ -22,7 +22,7 @@ class HomeTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
-      edgeOffset: 175.h,
+      edgeOffset: 160.h,
       onRefresh: () async {
         context.read<MainCubit>().getHomeData();
       },
