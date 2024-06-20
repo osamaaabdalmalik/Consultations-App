@@ -16,15 +16,18 @@ class ProfilePhotoSection extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Container(
-                width: 100.w,
-                height: 100.w,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: AppColors.primary, width: 2),
-                  image: const DecorationImage(
-                    image: AssetImage(
-                      AppAssets.expert1,
+              Hero(
+                tag: AppAssets.expert1,
+                child: Container(
+                  width: 100.w,
+                  height: 100.w,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: AppColors.primary, width: 2),
+                    image: const DecorationImage(
+                      image: AssetImage(
+                        AppAssets.expert1,
+                      ),
                     ),
                   ),
                 ),
@@ -36,17 +39,23 @@ class ProfilePhotoSection extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Osama Abd Al Malik',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
+                    Hero(
+                      tag: 'Osama Abd Al Malik',
+                      child: Text(
+                        'Osama Abd Al Malik',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                     ),
-                    Text(
-                      'osamaaabdalmalik@gmail.com',
-                      style: TextStyle(
-                        fontSize: 14,
+                    Hero(
+                      tag: 'osamaaabdalmalik@gmail.com',
+                      child: Text(
+                        'osamaaabdalmalik@gmail.com',
+                        style: TextStyle(
+                          fontSize: 14,
+                        ),
                       ),
                     ),
                   ],
