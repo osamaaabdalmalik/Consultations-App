@@ -1,11 +1,12 @@
+import 'package:consultations_app/core/constants/app_assets.dart';
 import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:consultations_app/core/constants/app_strings.dart';
+import 'package:consultations_app/core/widgets/primary_icon_button.dart';
 import 'package:consultations_app/core/widgets/sample_sliver_appbar.dart';
 import 'package:consultations_app/features/expert/domain/entities/expert_entity.dart';
-import 'package:consultations_app/features/expert/presentation/widgets/expert_full_info_card.dart';
 import 'package:consultations_app/features/main/presentation/widgets/custom_icon_button.dart';
 import 'package:consultations_app/features/profile/presentation/widgets/profile_experience_section.dart';
-import 'package:consultations_app/features/profile/presentation/widgets/work_times_section.dart';
+import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -26,9 +27,9 @@ class ExpertDetailsScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10.w),
                   child: CustomIconButton(
-                    icon: Icons.more_vert,
+                    icon: CupertinoIcons.heart_fill,
                     iconColor: AppColors.primary,
-                    iconSize: 25,
+                    iconSize: 20,
                     onPressed: () {},
                   ),
                 ),
@@ -37,15 +38,106 @@ class ExpertDetailsScreen extends StatelessWidget {
             SliverList(
               delegate: SliverChildListDelegate.fixed(
                 [
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 10.w,
-                      vertical: 20.h,
-                    ),
-                    child: ExpertFullInfoCard(
-                      expert: expert,
-                      showFavoriteButton: false,
-                    ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Hero(
+                        tag: expert.fullName,
+                        child: Container(
+                          width: 150.w,
+                          height: 150.w,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(color: AppColors.primary, width: 2),
+                            image: const DecorationImage(
+                              image: AssetImage(
+                                AppAssets.expert1,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      Text(
+                        expert.fullName,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Column(
+                              children: [
+                                PrimaryIconButton(
+                                  icon: const Icon(
+                                    Icons.collections_bookmark_rounded,
+                                    color: AppColors.primary,
+                                    size: 20,
+                                  ),
+                                  borderRadius: BorderRadius.circular(50.r),
+                                ),
+                                const Text(
+                                  '15 bookings',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: Column(
+                              children: [
+                                PrimaryIconButton(
+                                  icon: const Icon(
+                                    Icons.star_rounded,
+                                    color: AppColors.primary,
+                                    size: 20,
+                                  ),
+                                  borderRadius: BorderRadius.circular(50.r),
+                                ),
+                                const Text(
+                                  '4.7 Rating',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: Column(
+                              children: [
+                                PrimaryIconButton(
+                                  icon: const Icon(
+                                    Icons.reviews,
+                                    color: AppColors.primary,
+                                    size: 20,
+                                  ),
+                                  borderRadius: BorderRadius.circular(50.r),
+                                ),
+                                const Text(
+                                  '15 reviews',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20.h,
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
@@ -57,7 +149,7 @@ class ExpertDetailsScreen extends StatelessWidget {
                         const Text(
                           AppStrings.about,
                           style: TextStyle(
-                            fontSize: 24,
+                            fontSize: 18,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -77,12 +169,21 @@ class ExpertDetailsScreen extends StatelessWidget {
                     height: 20.h,
                   ),
                   const ProfileExperienceSection(),
-                  const WorkTimesSection(),
+                  SizedBox(
+                    height: 50.h,
+                  ),
                 ],
               ),
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.book),
+        // extendedPadding: EdgeInsets.symmetric(vertical: 0,horizontal: 10.w),
+        // icon: const Icon(Icons.book),
+        // label: const Text('Book now'),
       ),
     );
   }
