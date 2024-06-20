@@ -90,9 +90,9 @@ class RouterService {
               expert: state.extra as Expert,
             ),
             transitionsBuilder: (context, animation, secondaryAnimation, child) {
-              final tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
-              return SlideTransition(
-                position: animation.drive(tween),
+              // final tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
+              return FadeTransition(
+                opacity: animation,
                 child: child,
               );
             },
@@ -121,9 +121,9 @@ class RouterService {
             key: state.pageKey,
             child: const ExpertProfileDetailsScreen(),
             transitionsBuilder: (context, animation, secondaryAnimation, child) {
-              final tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
-              return SlideTransition(
-                position: animation.drive(tween),
+              // final tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
+              return FadeTransition(
+                opacity: animation,
                 child: child,
               );
             },
