@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class SubCategoryChip extends StatefulWidget {
   final String label;
   final bool isSelected;
+  final Color color;
   final void Function(bool isSelected)? onSelected;
 
   const SubCategoryChip({
@@ -12,6 +13,7 @@ class SubCategoryChip extends StatefulWidget {
     required this.label,
     required this.isSelected,
     this.onSelected,
+    this.color = AppColors.primary,
   });
 
   @override
@@ -24,16 +26,18 @@ class _SubCategoryChipState extends State<SubCategoryChip> {
     return FilterChip(
       padding: EdgeInsets.symmetric(horizontal: 5.w),
       showCheckmark: false,
-      selectedColor: AppColors.primary,
+      selectedColor: widget.color,
+      visualDensity: VisualDensity.compact,
       backgroundColor: AppColors.white,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15.sp),
-        side: const BorderSide(color: AppColors.primary),
+        borderRadius: BorderRadius.circular(10.sp),
+        side: BorderSide(color: widget.color),
       ),
       label: Text(
         widget.label,
         style: TextStyle(
-          color: widget.isSelected ? AppColors.white : AppColors.primary,
+          color: widget.isSelected ? AppColors.white : widget.color,
+          fontSize: 12,
         ),
       ),
       onSelected: widget.onSelected,

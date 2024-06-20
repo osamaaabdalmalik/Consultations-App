@@ -22,14 +22,16 @@ class _CustomFilterChipState extends State<CustomFilterChip> {
     return Chip(
       padding: EdgeInsets.symmetric(horizontal: 5.w),
       backgroundColor: AppColors.white,
+      visualDensity: VisualDensity.compact,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15.sp),
+        borderRadius: BorderRadius.circular(10.sp),
         side: const BorderSide(color: AppColors.primary),
       ),
       label: Text(
         widget.label,
         style: const TextStyle(
-          color: AppColors.black,
+          color: AppColors.primary,
+          fontSize: 12,
         ),
       ),
       onDeleted: widget.onDeleted,
