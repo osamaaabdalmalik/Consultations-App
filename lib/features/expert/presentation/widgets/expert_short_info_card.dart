@@ -30,6 +30,25 @@ class ExpertShortInfoCard extends StatelessWidget {
           },
           child: Column(
             children: [
+              /*
+              Hero(
+                tag: expert.fullName,
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(15.r),
+                    ),
+                  ),
+                  child: Image.asset(
+                    AppAssets.expert,
+                    width: 140.w,
+                    height: 140.w,
+                    fit: BoxFit.cover,
+                    alignment: Alignment.topCenter,
+                  ),
+                ),
+              ),
+               */
               Hero(
                 tag: expert.fullName,
                 child: Ink.image(
