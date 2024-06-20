@@ -36,6 +36,21 @@ class CompleteExpertInfoScreen extends StatelessWidget {
                 thickness: 0.5,
                 height: 50,
               ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                child: const Row(
+                  children: [
+                    Text(
+                      AppStrings.schedule,
+                      style: TextStyle(
+                        fontSize: 24,
+                        color: AppColors.black,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               const WorkTimesSection(),
               SizedBox(
                 height: 30.h,

@@ -1,4 +1,3 @@
-import 'package:consultations_app/core/constants/app_colors.dart';
 import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/core/widgets/primary_choice_boxes.dart';
 import 'package:consultations_app/features/profile/presentation/widgets/time_range_expansion.dart';
@@ -12,21 +11,6 @@ class WorkTimesSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w),
-          child: const Row(
-            children: [
-              Text(
-                AppStrings.schedule,
-                style: TextStyle(
-                  fontSize: 24,
-                  color: AppColors.black,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-          ),
-        ),
         const PrimaryChoiceBoxes(
           title: '',
           label1: AppStrings.alwaysOpen,
