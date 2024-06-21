@@ -1,5 +1,6 @@
 import 'package:consultations_app/core/constants/app_assets.dart';
 import 'package:consultations_app/core/constants/app_colors.dart';
+import 'package:consultations_app/core/constants/app_routes.dart';
 import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/core/widgets/primary_icon_button.dart';
 import 'package:consultations_app/core/widgets/sample_sliver_appbar.dart';
@@ -9,6 +10,7 @@ import 'package:consultations_app/features/profile/presentation/widgets/profile_
 import 'package:consultations_app/features/profile/presentation/widgets/work_times_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class ExpertProfileDetailsScreen extends StatelessWidget {
   const ExpertProfileDetailsScreen({super.key});
@@ -25,10 +27,12 @@ class ExpertProfileDetailsScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10.w),
                   child: CustomIconButton(
-                    icon: Icons.more_vert,
+                    icon: Icons.edit_note,
                     iconColor: AppColors.primary,
                     iconSize: 25,
-                    onPressed: () {},
+                    onPressed: () {
+                      context.push(AppRoutes.completeExpertInfoScreen);
+                    },
                   ),
                 ),
               ],
