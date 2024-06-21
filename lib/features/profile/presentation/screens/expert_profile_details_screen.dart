@@ -5,6 +5,7 @@ import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/core/widgets/primary_icon_button.dart';
 import 'package:consultations_app/core/widgets/sample_sliver_appbar.dart';
 import 'package:consultations_app/features/main/presentation/widgets/custom_icon_button.dart';
+import 'package:consultations_app/features/profile/presentation/widgets/consultation_cost_range_section.dart';
 import 'package:consultations_app/features/profile/presentation/widgets/profile_about_section.dart';
 import 'package:consultations_app/features/profile/presentation/widgets/profile_experience_section.dart';
 import 'package:consultations_app/features/profile/presentation/widgets/work_times_section.dart';
@@ -155,6 +156,13 @@ class ExpertProfileDetailsScreen extends StatelessWidget {
                   ),
                   const ProfileAboutSection(),
                   const ProfileExperienceSection(),
+                  const ConsultationCostRangeSection(isReadOnly: true),
+                  Divider(
+                    color: AppColors.grayAccent,
+                    height: 50.h,
+                    indent: 5.w,
+                    endIndent: 5.w,
+                  ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20.w),
                     child: const Row(

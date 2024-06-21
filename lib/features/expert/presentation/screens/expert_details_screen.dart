@@ -1,6 +1,8 @@
 import 'package:consultations_app/core/constants/app_assets.dart';
 import 'package:consultations_app/core/constants/app_colors.dart';
+import 'package:consultations_app/core/constants/app_routes.dart';
 import 'package:consultations_app/core/constants/app_strings.dart';
+import 'package:consultations_app/core/widgets/primary_button.dart';
 import 'package:consultations_app/core/widgets/primary_icon_button.dart';
 import 'package:consultations_app/core/widgets/sample_sliver_appbar.dart';
 import 'package:consultations_app/features/expert/domain/entities/expert_entity.dart';
@@ -9,6 +11,7 @@ import 'package:consultations_app/features/profile/presentation/widgets/profile_
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class ExpertDetailsScreen extends StatelessWidget {
   final Expert expert;
@@ -137,7 +140,7 @@ class ExpertDetailsScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    height: 20.h,
+                    height: 25.h,
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
@@ -166,11 +169,23 @@ class ExpertDetailsScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20.h,
+                    height: 25.h,
                   ),
                   const ProfileExperienceSection(),
                   SizedBox(
-                    height: 50.h,
+                    height: 25.h,
+                  ),
+                  PrimaryButton(
+                    text: AppStrings.makeAppointment,
+                    onPressed: () {
+                      context.push(
+                        AppRoutes.makeAppointmentScreen,
+                        extra: expert,
+                      );
+                    },
+                  ),
+                  SizedBox(
+                    height: 25.h,
                   ),
                 ],
               ),
@@ -178,13 +193,13 @@ class ExpertDetailsScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.book),
-        // extendedPadding: EdgeInsets.symmetric(vertical: 0,horizontal: 10.w),
-        // icon: const Icon(Icons.book),
-        // label: const Text('Book now'),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {},
+      //   child: const Icon(Icons.book),
+      //   // extendedPadding: EdgeInsets.symmetric(vertical: 0,horizontal: 10.w),
+      //   // icon: const Icon(Icons.book),
+      //   // label: const Text('Book now'),
+      // ),
     );
   }
 }

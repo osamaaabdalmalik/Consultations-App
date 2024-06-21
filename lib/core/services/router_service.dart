@@ -13,6 +13,7 @@ import 'package:consultations_app/features/expert/presentation/cubits/expert_cub
 import 'package:consultations_app/features/expert/presentation/cubits/experts_filters_cubit/experts_filters_cubit.dart';
 import 'package:consultations_app/features/expert/presentation/screens/expert_details_screen.dart';
 import 'package:consultations_app/features/expert/presentation/screens/experts_screen.dart';
+import 'package:consultations_app/features/expert/presentation/screens/make_appointment_screen.dart';
 import 'package:consultations_app/features/main/presentation/screens/main_screen.dart';
 import 'package:consultations_app/features/profile/presentation/screens/complete_expert_info_screen.dart';
 import 'package:consultations_app/features/profile/presentation/screens/expert_profile_details_screen.dart';
@@ -94,6 +95,22 @@ class RouterService {
               // final tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
               return FadeTransition(
                 opacity: animation,
+                child: child,
+              );
+            },
+          ),
+        ),
+        GoRoute(
+          path: AppRoutes.makeAppointmentScreen,
+          pageBuilder: (context, state) => CustomTransitionPage(
+            key: state.pageKey,
+            child: MakeAppointmentScreen(
+              expert: state.extra as Expert,
+            ),
+            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+              final tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
+              return SlideTransition(
+                position: animation.drive(tween),
                 child: child,
               );
             },

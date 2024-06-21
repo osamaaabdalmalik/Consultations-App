@@ -23,6 +23,13 @@ class AppStrings {
   static const String birthDate = 'Birth date';
   static const String birthDateHint = 'click to chose date';
   static const String about = 'About';
+  static const String makeAppointment = 'Make Appointment';
+  static const String selectDayAndHour = 'Select day and hour';
+  static const String day = 'Day';
+  static const String morningHours = 'Morning Hours';
+  static const String eveningHours = 'Evening Hours';
+  static const String yourProblem = 'Your Problem';
+  static const String problemHint = 'describe what do you want';
   static const String aboutHint = 'describe yourself in some words';
   static const String accountType = 'Account type';
   static const String expert = 'Expert';
@@ -48,7 +55,7 @@ class AppStrings {
   static const String open24Hours = 'Open 24 hours';
   static const String closed = 'Closed';
   static const String consultation = 'Consultation';
-  static const String consultationCostRange = 'Consultation Cost range';
+  static const String costRange = 'Cost range';
   static const String male = 'Male';
   static const String female = 'Female';
   static const String messages = 'Messages';

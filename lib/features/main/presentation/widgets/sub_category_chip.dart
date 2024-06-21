@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class SubCategoryChip extends StatefulWidget {
   final String label;
   final bool isSelected;
+  final Icon? icon;
   final Color color;
   final void Function(bool isSelected)? onSelected;
 
@@ -13,6 +14,7 @@ class SubCategoryChip extends StatefulWidget {
     required this.label,
     required this.isSelected,
     this.onSelected,
+    this.icon,
     this.color = AppColors.primary,
   });
 
@@ -29,9 +31,10 @@ class _SubCategoryChipState extends State<SubCategoryChip> {
       selectedColor: widget.color,
       visualDensity: VisualDensity.compact,
       backgroundColor: AppColors.white,
+      avatar: widget.icon,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.sp),
-        side: BorderSide(color: widget.color),
+        side: BorderSide(color: widget.color, width: 0.5),
       ),
       label: Text(
         widget.label,

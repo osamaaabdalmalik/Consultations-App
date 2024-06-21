@@ -73,7 +73,10 @@ class _PrimaryTextFieldState extends State<PrimaryTextField> {
             },
             decoration: InputDecoration(
               hintText: widget.hintText,
-              hintStyle: TextStyle(color: AppColors.gray.withOpacity(0.5)),
+              hintStyle: TextStyle(
+                fontSize: 14,
+                color: AppColors.gray.withOpacity(0.5),
+              ),
               errorMaxLines: 3,
               suffixIcon: widget.suffixIcon ??
                   (widget.isObscureText

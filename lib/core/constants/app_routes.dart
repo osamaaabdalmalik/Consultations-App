@@ -9,6 +9,7 @@ abstract class AppRoutes {
   //-------------------------------------------
   static const String expertsScreen = "/expertsScreen";
   static const String expertDetailsScreen = "/expertDetailsScreen";
+  static const String makeAppointmentScreen = "/makeAppointmentScreen";
 
   //-------------------------------------------
   // Profile Routes
