@@ -1,4 +1,5 @@
 import 'package:consultations_app/core/constants/app_colors.dart';
+import 'package:consultations_app/core/constants/app_keys.dart';
 import 'package:consultations_app/core/constants/app_routes.dart';
 import 'package:consultations_app/core/constants/app_strings.dart';
 import 'package:consultations_app/features/profile/presentation/widgets/profile_appbar.dart';
@@ -39,12 +40,22 @@ class ProfileTab extends StatelessWidget {
             ProfileSettingCard(
               title: AppStrings.myFavorite,
               icon: CupertinoIcons.heart_fill,
-              onTap: () {},
+              onTap: () {
+                context.push(
+                  AppRoutes.expertsScreen,
+                  extra: {
+                    AppKeys.titleScreen: AppStrings.myFavorite,
+                    AppKeys.isFavorite: true,
+                  },
+                );
+              },
             ),
             ProfileSettingCard(
               title: AppStrings.changePassword,
               icon: CupertinoIcons.lock_fill,
-              onTap: () {},
+              onTap: () {
+                context.push(AppRoutes.verificationScreen);
+              },
             ),
             ProfileSettingCard(
               title: AppStrings.about,

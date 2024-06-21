@@ -50,7 +50,15 @@ class HomeAppbar extends StatelessWidget {
             icon: cupertino.CupertinoIcons.heart_fill,
             iconColor: AppColors.primary,
             iconSize: 20,
-            onPressed: () {},
+            onPressed: () {
+              context.push(
+                AppRoutes.expertsScreen,
+                extra: {
+                  AppKeys.titleScreen: AppStrings.myFavorite,
+                  AppKeys.isFavorite: true,
+                },
+              );
+            },
           ),
         ),
       ],
