@@ -20,6 +20,8 @@ mixin _$ExpertsFilters {
   MainCategory? get selectedMainCategory => throw _privateConstructorUsedError;
   SubCategory? get selectedSubCategory => throw _privateConstructorUsedError;
 
+  bool? get isFavorite => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $ExpertsFiltersCopyWith<ExpertsFilters> get copyWith => throw _privateConstructorUsedError;
 }
@@ -29,7 +31,11 @@ abstract class $ExpertsFiltersCopyWith<$Res> {
   factory $ExpertsFiltersCopyWith(ExpertsFilters value, $Res Function(ExpertsFilters) then) =
       _$ExpertsFiltersCopyWithImpl<$Res, ExpertsFilters>;
   @useResult
-  $Res call({ExpertsTypes selectedExpertsType, MainCategory? selectedMainCategory, SubCategory? selectedSubCategory});
+  $Res call(
+      {ExpertsTypes selectedExpertsType,
+      MainCategory? selectedMainCategory,
+      SubCategory? selectedSubCategory,
+      bool? isFavorite});
 }
 
 /// @nodoc
@@ -47,6 +53,7 @@ class _$ExpertsFiltersCopyWithImpl<$Res, $Val extends ExpertsFilters> implements
     Object? selectedExpertsType = null,
     Object? selectedMainCategory = freezed,
     Object? selectedSubCategory = freezed,
+    Object? isFavorite = freezed,
   }) {
     return _then(_value.copyWith(
       selectedExpertsType: null == selectedExpertsType
@@ -61,6 +68,10 @@ class _$ExpertsFiltersCopyWithImpl<$Res, $Val extends ExpertsFilters> implements
           ? _value.selectedSubCategory
           : selectedSubCategory // ignore: cast_nullable_to_non_nullable
               as SubCategory?,
+      isFavorite: freezed == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -71,7 +82,11 @@ abstract class _$$ExpertsFiltersImplCopyWith<$Res> implements $ExpertsFiltersCop
       __$$ExpertsFiltersImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ExpertsTypes selectedExpertsType, MainCategory? selectedMainCategory, SubCategory? selectedSubCategory});
+  $Res call(
+      {ExpertsTypes selectedExpertsType,
+      MainCategory? selectedMainCategory,
+      SubCategory? selectedSubCategory,
+      bool? isFavorite});
 }
 
 /// @nodoc
@@ -86,6 +101,7 @@ class __$$ExpertsFiltersImplCopyWithImpl<$Res> extends _$ExpertsFiltersCopyWithI
     Object? selectedExpertsType = null,
     Object? selectedMainCategory = freezed,
     Object? selectedSubCategory = freezed,
+    Object? isFavorite = freezed,
   }) {
     return _then(_$ExpertsFiltersImpl(
       selectedExpertsType: null == selectedExpertsType
@@ -100,6 +116,10 @@ class __$$ExpertsFiltersImplCopyWithImpl<$Res> extends _$ExpertsFiltersCopyWithI
           ? _value.selectedSubCategory
           : selectedSubCategory // ignore: cast_nullable_to_non_nullable
               as SubCategory?,
+      isFavorite: freezed == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -107,7 +127,8 @@ class __$$ExpertsFiltersImplCopyWithImpl<$Res> extends _$ExpertsFiltersCopyWithI
 /// @nodoc
 
 class _$ExpertsFiltersImpl implements _ExpertsFilters {
-  _$ExpertsFiltersImpl({required this.selectedExpertsType, this.selectedMainCategory, this.selectedSubCategory});
+  _$ExpertsFiltersImpl(
+      {required this.selectedExpertsType, this.selectedMainCategory, this.selectedSubCategory, this.isFavorite});
 
   @override
   final ExpertsTypes selectedExpertsType;
@@ -115,10 +136,12 @@ class _$ExpertsFiltersImpl implements _ExpertsFilters {
   final MainCategory? selectedMainCategory;
   @override
   final SubCategory? selectedSubCategory;
+  @override
+  final bool? isFavorite;
 
   @override
   String toString() {
-    return 'ExpertsFilters(selectedExpertsType: $selectedExpertsType, selectedMainCategory: $selectedMainCategory, selectedSubCategory: $selectedSubCategory)';
+    return 'ExpertsFilters(selectedExpertsType: $selectedExpertsType, selectedMainCategory: $selectedMainCategory, selectedSubCategory: $selectedSubCategory, isFavorite: $isFavorite)';
   }
 
   @override
@@ -131,11 +154,13 @@ class _$ExpertsFiltersImpl implements _ExpertsFilters {
             (identical(other.selectedMainCategory, selectedMainCategory) ||
                 other.selectedMainCategory == selectedMainCategory) &&
             (identical(other.selectedSubCategory, selectedSubCategory) ||
-                other.selectedSubCategory == selectedSubCategory));
+                other.selectedSubCategory == selectedSubCategory) &&
+            (identical(other.isFavorite, isFavorite) || other.isFavorite == isFavorite));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, selectedExpertsType, selectedMainCategory, selectedSubCategory);
+  int get hashCode =>
+      Object.hash(runtimeType, selectedExpertsType, selectedMainCategory, selectedSubCategory, isFavorite);
 
   @JsonKey(ignore: true)
   @override
@@ -148,7 +173,8 @@ abstract class _ExpertsFilters implements ExpertsFilters {
   factory _ExpertsFilters(
       {required final ExpertsTypes selectedExpertsType,
       final MainCategory? selectedMainCategory,
-      final SubCategory? selectedSubCategory}) = _$ExpertsFiltersImpl;
+      final SubCategory? selectedSubCategory,
+      final bool? isFavorite}) = _$ExpertsFiltersImpl;
 
   @override
   ExpertsTypes get selectedExpertsType;
@@ -156,6 +182,9 @@ abstract class _ExpertsFilters implements ExpertsFilters {
   MainCategory? get selectedMainCategory;
   @override
   SubCategory? get selectedSubCategory;
+  @override
+  bool? get isFavorite;
+
   @override
   @JsonKey(ignore: true)
   _$$ExpertsFiltersImplCopyWith<_$ExpertsFiltersImpl> get copyWith => throw _privateConstructorUsedError;

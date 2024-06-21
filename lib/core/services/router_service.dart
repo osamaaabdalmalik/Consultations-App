@@ -61,6 +61,7 @@ class RouterService {
                 context.read<ExpertsFiltersCubit>().initialExpertsFilters = ExpertsFilters(
                   selectedExpertsType: ((state.extra as Map?)?[AppKeys.expertsType] ?? ExpertsTypes.allExperts),
                   selectedMainCategory: (state.extra as Map?)?[AppKeys.mainCategory],
+                  isFavorite: (state.extra as Map?)?[AppKeys.isFavorite],
                 );
 
                 return InjectionContainer.getIt<ExpertCubit>()

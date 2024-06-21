@@ -11,5 +11,6 @@ class ExpertsFilters with _$ExpertsFilters {
     required ExpertsTypes selectedExpertsType,
     MainCategory? selectedMainCategory,
     SubCategory? selectedSubCategory,
+    bool? isFavorite,
   }) = _ExpertsFilters;
 }
