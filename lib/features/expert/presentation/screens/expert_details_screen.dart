@@ -142,6 +142,18 @@ class ExpertDetailsScreen extends StatelessWidget {
                   SizedBox(
                     height: 25.h,
                   ),
+                  PrimaryButton(
+                    text: AppStrings.makeAppointment,
+                    onPressed: () {
+                      context.push(
+                        AppRoutes.makeAppointmentScreen,
+                        extra: expert,
+                      );
+                    },
+                  ),
+                  SizedBox(
+                    height: 25.h,
+                  ),
                   Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: 15.w,
@@ -172,18 +184,6 @@ class ExpertDetailsScreen extends StatelessWidget {
                     height: 25.h,
                   ),
                   const ProfileExperienceSection(),
-                  SizedBox(
-                    height: 25.h,
-                  ),
-                  PrimaryButton(
-                    text: AppStrings.makeAppointment,
-                    onPressed: () {
-                      context.push(
-                        AppRoutes.makeAppointmentScreen,
-                        extra: expert,
-                      );
-                    },
-                  ),
                   SizedBox(
                     height: 25.h,
                   ),
