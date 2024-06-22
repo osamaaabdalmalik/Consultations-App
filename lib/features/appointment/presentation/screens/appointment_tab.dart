@@ -1,78 +1,135 @@
+import 'package:consultations_app/core/constants/app_assets.dart';
 import 'package:consultations_app/core/constants/app_colors.dart';
-import 'package:consultations_app/core/constants/app_keys.dart';
-import 'package:consultations_app/core/constants/app_routes.dart';
 import 'package:consultations_app/core/constants/app_strings.dart';
-import 'package:consultations_app/features/profile/presentation/widgets/profile_appbar.dart';
-import 'package:consultations_app/features/profile/presentation/widgets/profile_photo_section.dart';
-import 'package:consultations_app/features/profile/presentation/widgets/profile_setting_card.dart';
-import 'package:flutter/cupertino.dart' show CupertinoIcons;
+import 'package:consultations_app/core/widgets/primary_sliver_appbar.dart';
+import 'package:consultations_app/features/appointment/presentation/widgets/appointment_card.dart';
+import 'package:consultations_app/features/main/presentation/widgets/custom_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class AppointmentTab extends StatelessWidget {
   const AppointmentTab({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(vertical: 5.h),
-        child: Column(
-          children: [
-            const ProfileAppbar(title: AppStrings.profile),
-            const ProfilePhotoSection(),
-            SizedBox(
-              height: 15.h,
+    return Scaffold(
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: [
+            PrimarySliverAppbar(
+              leading: Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8.0.w),
+                    child: SvgPicture.asset(
+                      AppAssets.appLogo,
+                      width: 30.w,
+                    ),
+                  ),
+                  const Text(
+                    AppStrings.appointment,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                      color: AppColors.black,
+                    ),
+                  ),
+                ],
+              ),
+              actions: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10.w),
+                  child: CustomIconButton(
+                    icon: Icons.filter_list_rounded,
+                    iconColor: AppColors.primary,
+                    iconSize: 25,
+                    onPressed: () {},
+                  ),
+                ),
+              ],
+              sliverBottom: SafeArea(
+                bottom: true,
+                child: SizedBox(
+                  height: 75.h,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 15.w),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 8.h),
+                            decoration: BoxDecoration(
+                              color: AppColors.primary,
+                              borderRadius: BorderRadius.circular(10.sp),
+                              border: Border.all(
+                                color: AppColors.primary,
+                                width: 0.5,
+                              ),
+                            ),
+                            child: const Text(
+                              'Upcoming',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: AppColors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 20.w,
+                        ),
+                        Expanded(
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 8.h),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.sp),
+                              border: Border.all(
+                                color: AppColors.primary,
+                                width: 0.5,
+                              ),
+                            ),
+                            child: const Text(
+                              'Past',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: AppColors.primary,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              expandedHeight: 100.h,
             ),
-            ProfileSettingCard(
-              title: AppStrings.profileDetail,
-              icon: CupertinoIcons.person_fill,
-              onTap: () {
-                context.push(AppRoutes.expertProfileDetailsScreen);
-              },
-            ),
-            ProfileSettingCard(
-              title: AppStrings.notifications,
-              icon: CupertinoIcons.bell_fill,
-              onTap: () {},
-            ),
-            ProfileSettingCard(
-              title: AppStrings.myFavorite,
-              icon: CupertinoIcons.heart_fill,
-              onTap: () {
-                context.push(
-                  AppRoutes.expertsScreen,
-                  extra: {
-                    AppKeys.titleScreen: AppStrings.myFavorite,
-                    AppKeys.isFavorite: true,
-                  },
-                );
-              },
-            ),
-            ProfileSettingCard(
-              title: AppStrings.changePassword,
-              icon: CupertinoIcons.lock_fill,
-              onTap: () {
-                context.push(AppRoutes.verificationScreen);
-              },
-            ),
-            ProfileSettingCard(
-              title: AppStrings.about,
-              icon: CupertinoIcons.info_circle_fill,
-              onTap: () {},
-            ),
-            ProfileSettingCard(
-              title: AppStrings.help,
-              icon: Icons.help,
-              onTap: () {},
-            ),
-            ProfileSettingCard(
-              title: AppStrings.logout,
-              icon: Icons.logout,
-              iconColor: AppColors.danger,
-              showArrow: false,
-              onTap: () {},
+            SliverList(
+              delegate: SliverChildListDelegate.fixed(
+                List.generate(
+                  15,
+                  (index) => Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 15.w,
+                      vertical: 5.h,
+                    ),
+                    child: AppointmentCard(
+                      icon: index % 3 == 0
+                          ? Icons.videocam_rounded
+                          : index % 3 == 1
+                              ? Icons.call
+                              : Icons.message,
+                    ),
+                  ),
+                ),
+              ),
             ),
           ],
         ),
