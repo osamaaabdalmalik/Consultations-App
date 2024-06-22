@@ -1,6 +1,6 @@
+import 'package:consultations_app/features/appointment/presentation/screens/appointment_tab.dart';
+import 'package:consultations_app/features/history/presentation/screens/history_tab.dart';
 import 'package:consultations_app/features/main/presentation/cubits/main_cubit/main_cubit.dart';
-import 'package:consultations_app/features/main/presentation/screens/appointment_tab.dart';
-import 'package:consultations_app/features/main/presentation/screens/history_tab.dart';
 import 'package:consultations_app/features/main/presentation/screens/home_tab.dart';
 import 'package:consultations_app/features/main/presentation/widgets/bottom_navbar.dart';
 import 'package:consultations_app/features/profile/presentation/screens/profile_tab.dart';
